@@ -71,40 +71,45 @@ function calculateSpiritsCap(slots_used) {
  * @param {string} called_by_id ID it was called by to determine what to subtract from
  */
 function balanceAtkDef(called_by_id) {
-    var limits = calculateSpiritsCap();
+    // spirits cap needs to change
+    var limits = calculateSpiritsCap(3);
     var atk = parseInt(document.getElementById("attack").value);
     var def = parseInt(document.getElementById("defense").value);
-    if (called_by_id == 'attack') {
-        if (atk > limits.max) {
-            atk = limits.max
-        }
-        else if (atk < limits.min) {
-            atk = limits.min
-        }
-        if (atk + def > limits.cap) {
-            var difference = limits.cap - (atk + def);
-            def += difference;
-        }
-    }
-    else if (called_by_id == 'defense') {
-        if (def > limits.max) {
-            def = limits.max
-        }
-        else if (def < limits.min) {
-            def = limits.min
-        }
-        if (atk + def > limits.cap) {
-            var difference = limits.cap - (atk + def);
-            atk += difference;
-        }
-    }
-    else if (called_by_id == 'slots') {
-        if (atk + def > limits.cap) {
-            var difference = limits.cap - (atk + def);
-            difference = parseInt(difference / 2);
-            atk += difference;
-            def += difference;
-        }
+    switch (called_by_id) {
+        case 'attack':
+            if (atk > limits.max) {
+                atk = limits.max
+            }
+            else if (atk < limits.min) {
+                atk = limits.min
+            }
+            if (atk + def > limits.cap) {
+                var difference = limits.cap - (atk + def);
+                def += difference;
+            }
+            break;
+    
+        case 'defense':
+            if (def > limits.max) {
+                def = limits.max
+            }
+            else if (def < limits.min) {
+                def = limits.min
+            }
+            if (atk + def > limits.cap) {
+                var difference = limits.cap - (atk + def);
+                atk += difference;
+            }
+            break;
+    
+        case 'slots':
+            if (atk + def > limits.cap) {
+                var difference = limits.cap - (atk + def);
+                difference = parseInt(difference / 2);
+                atk += difference;
+                def += difference;
+            }
+            break;
     }
 
     document.getElementById("attack").value = atk;
