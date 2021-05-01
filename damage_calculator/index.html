@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/data_handler.js"></script>
+    <script src="js/dynamic_inputs.js"></script>
+    <script src="js/calculate.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body onload="loadDoc()">
+    <div id="demo">
+        <h1>Spirits Damage Calculator (WIP). If you found this, <em>looks at jozz</em>, please don't share it with anyone!</h1>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h2>Attacker:</h2>
+            Human: <input type="radio" name="player1" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player1" value="amiibo" />
+            <br />
+            <br />
+            <div id="characters">
+                <label for="chars">Character:</label>
+                <select name="chars" id="chars" onchange="characterSelected()">
+                    <option value="">Test</option>
+                </select>
+            </div>
+            <br />
+            <div id="p1_spirit_slots">
+
+                <div id="p1_first_slot">
+                    <label for="slots1">Slot 1:</label>
+                    <select id="slots1" onchange="slotManager()">
+                        <option value="">Test</option>
+                        <option value="">Test 2</option>
+                    </select>
+                </div>
+                <div id="p1_second_slot">
+                    <label for="slots2">Slot 2:</label>
+                    <select id="slots2" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+                <div id="p1_third_slot">
+                    <label for="slots3">Slot 3:</label>
+                    <select id="slots3" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+
+            </div>
+            <br />
+            <div>
+                <label for="p1_attack">Attack: </label>
+                <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
+                <br />
+                <label for="p1_attack">Defense: </label>
+                <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Defender:</h2>
+            Human: <input type="radio" name="player2" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player2" value="amiibo" />
+            <br />
+            <br />
+            <label for="p2_percent">Percent Before Being Hit: </label>
+            <input type="number" id="p2_percent" value="0" onchange="balanceAtkDef(this.id)" step="0.1" />
+            <br />
+            <br />
+            <div id="p2_spirit_slots">
+
+                <div id="p2_first_slot">
+                    <label for="slots1">Slot 1:</label>
+                    <select id="slots1" onchange="slotManager()">
+                        <option value="">Test</option>
+                        <option value="">Test 2</option>
+                    </select>
+                </div>
+                <div id="p2_second_slot">
+                    <label for="slots2">Slot 2:</label>
+                    <select id="slots2" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+                <div id="p2_third_slot">
+                    <label for="slots3">Slot 3:</label>
+                    <select id="slots3" name="params[abilities[0]]"><optgroup label="None"><option value="0">None (0)</option></optgroup><optgroup label="Common ban"><option value="140">Armor Knight (2)</option><option value="20">Autoheal (2)</option><option value="180">Great Autoheal (3)</option><option value="113">Instadrop (2)</option><option value="11">Slow Super Armor (2)</option><option value="10">Super Armor (3)</option></optgroup><optgroup label="Attack"><option value="84">Air Attack ↑ (1)</option><option value="215">Assist Killer (1)</option><option value="54">Aura Attack ↑ (1)</option><option value="94">Critical Hit ↑ (1)</option><option value="139">Dash Attack ↑ (1)</option><option value="89">Down Special ↑ (1)</option><option value="60">Electric Attack ↑ (1)</option><option value="61">Energy-Shot Attack ↑ (1)</option><option value="58">Fire &amp; Explosion Attack ↑ (1)</option><option value="52">Fist Attack ↑ (1)</option><option value="53">Foot Attack ↑ (1)</option><option value="213">Giant Killer (1)</option><option value="2">Hyper Smash Attacks (1)</option><option value="128">Impact Run (1)</option><option value="55">Magic Attack ↑ (1)</option><option value="214">Metal Killer (1)</option><option value="86">Neutral Special ↑ (1)</option><option value="56">PSI Attack ↑ (1)</option><option value="50">Physical Attack ↑ (1)</option><option value="83">Shield Damage ↑ (1)</option><option value="153">Shooting Attack ↑ (1)</option><option value="87">Side Special ↑ (1)</option><option value="163">Special-Move Power ↑ (1)</option><option value="90">Strong Throw (1)</option><option value="92">Toss &amp; Meteor (1)</option><option value="88">Up Special ↑ (1)</option><option value="62">Water &amp; Ice Attack ↑ (1)</option><option value="51">Weapon Attack ↑ (1)</option></optgroup><optgroup label="Defense"><option value="85">Air Defense ↑ (1)</option><option value="73">Aura Resist ↑ (1)</option><option value="9">Easier Perfect Shield (1)</option><option value="69">Electric Resist ↑ (1)</option><option value="70">Energy-Shot Resist ↑ (1)</option><option value="66">Fire/Explosion Resist ↑ (1)</option><option value="63">Magic Resist ↑ (1)</option><option value="64">PSI Resist ↑ (1)</option><option value="151">Perfect-Shield Reflect (1)</option><option value="96">Shield Durability ↑ (1)</option><option value="91">Unflinching Charged Smashes (2)</option><option value="72">Water/Freezing Resist ↑ (1)</option><option value="217">Weapon Resist ↑ (2)</option></optgroup><optgroup label="Item"><option value="38">Back Shield Equipped (1)</option><option value="182">Banana Gun Equipped (1)</option><option value="101">Battering Items ↑ (1)</option><option value="26">Beam Sword Equipped (1)</option><option value="169">Beastball Equipped (1)</option><option value="174">Black Hole Equipped (2)</option><option value="165">Bob-omb Equipped (1)</option><option value="187">Bomber Equipped (1)</option><option value="144">Boomerang Equipped (1)</option><option value="39">Bunny Hood Equipped (1)</option><option style="color: red;" value="188">Cucco Equipped (1) [Illegal]</option><option value="170">Death's Scythe Equipped (1)</option><option value="34">Drill Equipped (1)</option><option value="44">Fairy Bottle Equipped (1)</option><option value="185">Fire Bar Equipped (1)</option><option value="45">Fire Flower Equipped (1)</option><option value="42">Franklin Badge Equipped (2)</option><option value="46">Freezie Equipped (1)</option><option value="35">Green Shell Equipped (1)</option><option style="color: red;" value="33">Gust Bellows Equipped (1) [Illegal]</option><option value="143">Hammer Duration ↑ (1)</option><option style="color: red;" value="43">Hammer Equipped (3) [Illegal]</option><option style="color: red;" value="30">Home-Run Bat Equipped (1) [Illegal]</option><option value="166">Hothead Equipped (2)</option><option value="105">Invincibility after Eating (2)</option><option value="131">Item Gravitation (1)</option><option value="48">Killing Edge Equipped (1)</option><option value="27">Lip's Stick Equipped (1)</option><option value="40">Made of Metal (1)</option><option value="41">Mouthful of Curry (2)</option><option value="171">Mr. Saturn Equipped (1)</option><option value="29">Ore Club Equipped (3)</option><option style="color: red;" value="36">Poke Ball Equipped (1) [Illegal]</option><option value="183">Rage Blaster Equipped (1)</option><option value="47">Ramblin' Evil Mushroom Equipped (1)</option><option value="31">Ray Gun Equipped (2)</option><option value="173">Rocket Belt Equipped (1)</option><option value="186">Screw Attack Equipped (2)</option><option value="102">Shooting Items ↑ (1)</option><option value="184">Staff Equipped (1)</option><option value="28">Star Rod Equipped (1)</option><option value="106">Stats ↑ after Eating (1)</option><option value="176">Stats ↑↑ after Eating (2)</option><option value="181">Steel Diver Equipped (2)</option><option value="168">Super Launch Star Equipped (1)</option><option value="167">Super Leaf Equipped (1)</option><option value="32">Super Scope Equipped (2)</option><option value="103">Thrown Items ↑ (1)</option><option value="172">Unira Equipped (1)</option></optgroup><optgroup label="Recovery"><option value="162">Critical-Health Healing (2)</option><option value="232">Critical-Health Healing ↑↑ (3)</option><option value="114">Healing Shield (2)</option><option value="104">KOs Heal Damage (2)</option></optgroup><optgroup label="Mobility"><option value="5">Additional Midair Jump (2)</option><option value="79">Braking Ability ↑ (1)</option><option value="8">Easier Dodging (1)</option><option value="117">Floaty Jumps (1)</option><option value="4">Jump ↑ (1)</option><option value="81">Landing Lag ↓ (1)</option><option value="82">Lightweight (1)</option><option value="1">Move Speed ↑ (1)</option></optgroup><optgroup label="Special"><option value="236">Critical Healing &amp; Metal (2)</option><option value="179">Critical Hit ↑↑ (2)</option><option value="233">Critical Super Giant (3)</option><option value="235">Final Smash ↑ (2)</option><option value="138">Giant (2)</option><option value="234">Mouthful of Curry ↑↑ (3)</option></optgroup><optgroup label="Hazard"><option value="78">Bury Immunity (1)</option><option value="77">Falling Immunity (1)</option><option value="157">Fog Immunity (2)</option><option value="158">Gravity-Change Immunity (2)</option><option value="76">Ice-Floor Immunity (2)</option><option value="119">Irreversible Controls (2)</option><option value="24">Lava-Floor Immunity (2)</option><option value="130">Lava-Floor Resist (1)</option><option value="22">Poison Damage Reduced (1)</option><option value="23">Poison Heals (3)</option><option value="21">Poison Immunity (2)</option><option value="230">Poison Power Up (3)</option><option value="156">Screen-Flip Immunity (2)</option><option value="75">Slumber Immunity (1)</option><option value="25">Sticky-Floor Immunity (2)</option><option value="161">Strong-Wind Immunity (2)</option><option value="160">Strong-Wind Resist (1)</option><option value="74">Zap-Floor Immunity (2)</option></optgroup><optgroup label="Other"><option value="133">Chance of Double Final Smash (2)</option><option value="231">Critical Fast Final Smash Meter ↑↑ (3)</option><option value="19">Critical Immunity (2)</option><option value="16">Critical-Health Attack ↑ (1)</option><option value="17">Critical-Health Defense ↑ (1)</option><option value="18">Critical-Health Stats ↑ (1)</option><option value="178">Critical-Health Stats ↑↑ (2)</option><option value="134">Double Final Smash (3)</option><option value="142">Energy Shot Attack/Resistance ↑ (2)</option><option value="112">Fast Final Smash Meter (2)</option><option value="108">First-Strike Advantage (2)</option><option value="97">Improved Escape (1)</option><option value="227">Item Autograb (1)</option><option value="216">Jam FS Charge (2)</option><option value="110">Running Start (2)</option><option value="159">Stamina ↑ (1)</option><option value="95">Swimmer (1)</option><option value="228">Team Power Up (2)</option><option value="15">Trade-Off Ability ↑ (1)</option><option value="12">Trade-Off Attacks ↑ (1)</option><option value="13">Trade-Off Defense ↑ (1)</option><option value="14">Trade-Off Speed ↑ (1)</option><option value="121">Transformation Duration ↑ (1)</option><option value="124">Undamaged Attack &amp; Speed ↑ (1)</option><option value="122">Undamaged Attack ↑ (1)</option><option value="123">Undamaged Speed ↑ (1)</option><option value="152">Weapon Attack &amp; Move Speed ↑ (2)</option></optgroup></select>
+                </div>
+
+            </div>
+            <br />
+            <div>
+                <label for="p2_attack">Attack: </label>
+                <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
+                <br />
+                <label for="p2_attack">Defense: </label>
+                <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div id="math" class="calculate">
+        <button type="button" onclick="calculate()">Calculate Damage</button>
+    </div>
+    <div id="output" class="calculate">
+
+    </div>
+
+
+
+</body>
+</html>

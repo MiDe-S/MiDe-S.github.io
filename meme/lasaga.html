@@ -1,0 +1,26 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<body>
+    <h1>Lasaga wins amiibo</h1>
+    <p id="demo">Lasaga has won amiibo 0 times.</p>
+
+
+    <button onclick='IncrementButton(document.getElementById("demo").innerHTML, "demo")'>Click Me!</button>
+    <script>function IncrementButton(x, id) {
+            var arr = x.split(" ");
+            var num = parseInt(arr[4]);
+            num += 1;
+            if (num == 1) {
+                document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " time.";
+            }
+            else if (num == 69) {
+                document.body.style.backgroundImage = "url('lasaga.png')";
+                document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " times.";
+            }
+            else {
+                document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " times.";
+            }
+
+        }</script>
+</body>
+</html>
