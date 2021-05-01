@@ -4,59 +4,105 @@
     <script src="js/data_handler.js"></script>
     <script src="js/dynamic_inputs.js"></script>
     <script src="js/calculate.js"></script>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body onload="loadDoc()">
     <div id="demo">
         <h2>The XMLHttpRequest Object</h2>
-
-        Human: <input type="radio" name="player" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player" value="amiibo" />
     </div>
     <br />
-    <div id="characters">
-        <label for="chars">Character:</label>
-        <select name="chars" id="chars" onchange="characterSelected()">
-            <option value="">Test</option>
-        </select>
-    </div>
-    <br />
-    <div id="spirit slots">
+    <div class="row">
+        <div class="column">
+            Human: <input type="radio" name="player1" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player1" value="amiibo" />
+            <br />
+            <br />
+            <div id="characters">
+                <label for="chars">Character:</label>
+                <select name="chars" id="chars" onchange="characterSelected()">
+                    <option value="">Test</option>
+                </select>
+            </div>
+            <br />
+            <div id="p1_spirit_slots">
 
-        <div id="1stSlot">
-            <label for="slots1">Slot 1:</label>
-            <select id="slots1" onchange="slotManager()">
-                <option value="">Test</option>
-                <option value="">Test 2</option>
-            </select>
+                <div id="p1_first_slot">
+                    <label for="slots1">Slot 1:</label>
+                    <select id="slots1" onchange="slotManager()">
+                        <option value="">Test</option>
+                        <option value="">Test 2</option>
+                    </select>
+                </div>
+                <div id="p1_second_slot">
+                    <label for="slots2">Slot 2:</label>
+                    <select id="slots2" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+                <div id="p1_third_slot">
+                    <label for="slots3">Slot 3:</label>
+                    <select id="slots3" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+
+            </div>
+            <br />
+            <div>
+                <label for="p1_attack">Attack: </label>
+                <input type="number" id="p1_attack" value="0" onchange="balanceAtkDef(this.id)" />
+                <br />
+                <label for="p1_attack">Defense: </label>
+                <input type="number" id="p1_defense" value="0" onchange="balanceAtkDef(this.id)" />
+            </div>
         </div>
-        <div id="2ndSlot">
-            <label for="slots2">Slot 2:</label>
-            <select id="slots2" onchange="slotManager()">
-                <option value="">Test</option>
-            </select>
-        </div>
-        <div id="3rdSlot">
-            <label for="slots3">Slot 3:</label>
-            <select id="slots3" onchange="slotManager()">
-                <option value="">Test</option>
-            </select>
-        </div>
 
-    </div>
-    <br />
-    <div>
-        <label for="attack">Attack: </label>
-        <input type="number" id="attack" value="0" onchange="balanceAtkDef('attack')" />
-        <br />
-        <label for="attack">Defense: </label>
-        <input type="number" id="defense" value="0" onchange="balanceAtkDef('defense')" />
+        <div class="column">
+            Human: <input type="radio" name="player2" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player2" value="amiibo" />
+            <br />
+            <br />
+            <label for="p2_percent">Percent Before Being Hit: </label>
+            <input type="number" id="p2_percent" value="0" onchange="balanceAtkDef(this.id)" step="0.1" />
+            <br />
+            <br />
+            <div id="p2_spirit_slots">
+
+                <div id="p2_first_slot">
+                    <label for="slots1">Slot 1:</label>
+                    <select id="slots1" onchange="slotManager()">
+                        <option value="">Test</option>
+                        <option value="">Test 2</option>
+                    </select>
+                </div>
+                <div id="p2_second_slot">
+                    <label for="slots2">Slot 2:</label>
+                    <select id="slots2" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+                <div id="p2_third_slot">
+                    <label for="slots3">Slot 3:</label>
+                    <select id="slots3" onchange="slotManager()">
+                        <option value="">Test</option>
+                    </select>
+                </div>
+
+            </div>
+            <br />
+            <div>
+                <label for="p2_attack">Attack: </label>
+                <input type="number" id="p2_attack" value="0" onchange="balanceAtkDef(this.id)" />
+                <br />
+                <label for="p2_attack">Defense: </label>
+                <input type="number" id="p2_defense" value="0" onchange="balanceAtkDef(this.id)" />
+            </div>
+        </div>
     </div>
 
     <br />
-    <div id="math">
+    <div id="math" class="calculate">
         <button type="button" onclick="calculate()">Calculate Damage</button>
     </div>
-    <button type="button" onclick="removeDiv()">Remove Spirits</button>
-    <div id="output">
+    <div id="output" class="calculate">
 
     </div>
 

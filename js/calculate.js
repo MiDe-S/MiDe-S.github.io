@@ -3,7 +3,7 @@
  * @todo FORMS
  */
 function calculate() {
-    var player_type = document.getElementsByName("player");
+    var player_type = document.getElementsByName("player1");
     var player;
     for (i = 0; i < player_type.length; i++) {
         if (player_type[i].checked)
@@ -12,6 +12,6 @@ function calculate() {
     var character = document.getElementById("chars").value;
     var move = "Forward Smash";
 
-    var damage = document.getElementById("attack").value;
+    var damage = document.getElementById("p1_attack").value;
     document.getElementById("output").innerHTML = "A " + character + " " + player + " using " + move + " does " + damage + "%.";
 }

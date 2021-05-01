@@ -3,7 +3,7 @@
  * @param {string} div_id
  */
 function removeDiv(div_id) {
-    div_id = "1stSlot";
+    div_id = "first_slot";
     var obj = document.getElementById(div_id);
     obj.remove();
 }
@@ -73,10 +73,10 @@ function calculateSpiritsCap(slots_used) {
 function balanceAtkDef(called_by_id) {
     // spirits cap needs to change
     var limits = calculateSpiritsCap(3);
-    var atk = parseInt(document.getElementById("attack").value);
-    var def = parseInt(document.getElementById("defense").value);
+    var atk = parseInt(document.getElementById("p1_attack").value);
+    var def = parseInt(document.getElementById("p1_defense").value);
     switch (called_by_id) {
-        case 'attack':
+        case 'p1_attack':
             if (atk > limits.max) {
                 atk = limits.max
             }
@@ -89,7 +89,7 @@ function balanceAtkDef(called_by_id) {
             }
             break;
     
-        case 'defense':
+        case 'p1_defense':
             if (def > limits.max) {
                 def = limits.max
             }
@@ -112,6 +112,6 @@ function balanceAtkDef(called_by_id) {
             break;
     }
 
-    document.getElementById("attack").value = atk;
-    document.getElementById("defense").value = def;
+    document.getElementById("p1_attack").value = atk;
+    document.getElementById("p1_defense").value = def;
 }
