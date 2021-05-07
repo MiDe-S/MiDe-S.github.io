@@ -16,10 +16,17 @@
             Human: <input type="radio" name="player1" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player1" value="amiibo" />
             <br />
             <br />
+            <div id="test">
+
+            </div>
             <div id="characters">
                 <label for="chars">Character:</label>
-                <select name="chars" id="chars" onchange="characterSelected()">
-                    <option value="">Test</option>
+                <select name="chars" id="chars" onchange="generateMoves(this.value)">
+                </select>
+            </div>
+            <div>
+                <label for="moves">Move:</label>
+                <select name="moves" id="moves">
                 </select>
             </div>
             <br />

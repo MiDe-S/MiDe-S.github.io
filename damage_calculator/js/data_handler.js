@@ -6,36 +6,42 @@ function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            /*var test = this.responseText.replace(/\n/g, "<br>");*/
-            var test = this.responseText.split("\n");
+            // hardcoded ID of selection box
+            var char_select_id = "chars";
 
-            replaceSelectWithArray(test, "chars");
+            // Get data from file into js object
+            var charater_info = JSON.parse(this.responseText);
+
+            // Get all names in obj to make select list from
+            var index = 0;
+            var char_names = [];
+            for (index = 0; index < charater_info.length; index++) {
+                char_names.push(charater_info[index].name);
+            }
+            replaceSelectWithArray(char_names, char_select_id);
+
+            // Store object in memory so we don't have to read from it again
+            sessionStorage.setItem('char_info', JSON.stringify(charater_info));
+
+            // Get moves from default option
+            generateMoves(document.getElementById(char_select_id).value);
+
         }
     };
-    xhttp.open("GET", "characters.csv", true);
+    xhttp.open("GET", "info.json", true);
     xhttp.send();
 }
 
 /**
- * Replaces selection list of given ID with given array
+ * Generate moves
  * 
- *  reference https://www.w3schools.com/jsref/dom_obj_select.asp
- * @param {Array} array_list Array to use as selection list
- * @param {string} select_id_to_replace ID of selction list to replace array_list with
+ * @param {string} char_id The index of the character's moves we want to generate
  */
-function replaceSelectWithArray(array_list, select_id_to_replace) {
-
-    var select_box = document.createElement("select");
-    select_box.setAttribute("id", "replaced_select_box");
-    document.getElementById(select_id_to_replace).innerHTML = select_box
-    var i = 0;
-    for (i = 0; i < array_list.length; i++) {
-        var option = document.createElement("option");
-        option.setAttribute("value", array_list[i]);
-        var text_node = document.createTextNode(array_list[i]);
-        option.appendChild(text_node);
-        document.getElementById(select_id_to_replace).appendChild(option);
+function generateMoves(char_id) {
+    var char_info = JSON.parse(sessionStorage.getItem('char_info'));
+    var move_names = [];
+    for (i = 0; i < char_info[char_id].moves.length; i++) {
+        move_names.push(char_info[char_id].moves[i].move_name);
     }
-
-
+    replaceSelectWithArray(move_names, "moves");
 }

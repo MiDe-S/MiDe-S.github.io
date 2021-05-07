@@ -8,11 +8,35 @@ function removeDiv(div_id) {
     obj.remove();
 }
 
-/** @todo
+/**
+ * Replaces selection list of given ID with given array
+ * values of selection box are item's index in array
+ * 
+ *  reference http://dyn-web.com/tutorials/forms/select/paired.php
+ * @param {object} array array to replace list with
+ * @param {string} select_id_to_replace ID of selection list to replace with char_info
  */
-function characterSelected() {
+function replaceSelectWithArray(array, select_id_to_replace) {
+    select_box = document.getElementById(select_id_to_replace);
+    // Removes all items in select_box currently, if they exist
+    var len = select_box.options.length;
+    if (len) {
+        for (var i = len; i; i--) {
+            console.log(i);
+            var par = select_box.options[i - 1].parentNode;
+            par.removeChild(select_box.options[i - 1]);
+        }
+    }
 
+    for (var i = 0; i < array.length; i++) {
+        var opt = document.createElement('option');
+        opt.setAttribute("value", i);
+        opt.appendChild(document.createTextNode(array[i]));
+        select_box.appendChild(opt);
+    }
 }
+
+
 
 /** @todo
  */
@@ -26,17 +50,17 @@ function spiritManager(called_by_id) {
         defense: "p2_defense"
     };
 
+    var player;
     // This could be cleaned up with classes but idk javascript well enough
     if (called_by_id.slice(0, 2) == 'p1') {
-        balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(p1.attack).value, document.getElementById(p1.defense).value, 3);
-        document.getElementById(p1.attack).value = balanced_stats.atk
-        document.getElementById(p1.defense).value = balanced_stats.def
+        player = p1
     }
     else if (called_by_id.slice(0, 2) == 'p2') {
-        balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(p2.attack).value, document.getElementById(p2.defense).value, 3);
-        document.getElementById(p2.attack).value = balanced_stats.atk
-        document.getElementById(p2.defense).value = balanced_stats.def
+        player = p2
     }
+    balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, 3);
+    document.getElementById(player.attack).value = balanced_stats.atk
+    document.getElementById(player.defense).value = balanced_stats.def
 
 }
 
