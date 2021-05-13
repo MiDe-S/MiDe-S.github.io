@@ -15,6 +15,7 @@ function removeDiv(div_id) {
  *  reference http://dyn-web.com/tutorials/forms/select/paired.php
  * @param {object} array array to replace list with
  * @param {string} select_id_to_replace ID of selection list to replace with char_info
+ * @todo mess with groups
  */
 function replaceSelectWithArray(array, select_id_to_replace) {
     select_box = document.getElementById(select_id_to_replace);
