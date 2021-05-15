@@ -8,36 +8,6 @@ function removeDiv(div_id) {
     obj.remove();
 }
 
-/**
- * Replaces selection list of given ID with given array
- * values of selection box are item's index in array
- * 
- *  reference http://dyn-web.com/tutorials/forms/select/paired.php
- * @param {object} array array to replace list with
- * @param {string} select_id_to_replace ID of selection list to replace with char_info
- * @todo mess with groups
- */
-function replaceSelectWithArray(array, select_id_to_replace) {
-    select_box = document.getElementById(select_id_to_replace);
-    // Removes all items in select_box currently, if they exist
-    var len = select_box.options.length;
-    if (len) {
-        for (var i = len; i; i--) {
-            console.log(i);
-            var par = select_box.options[i - 1].parentNode;
-            par.removeChild(select_box.options[i - 1]);
-        }
-    }
-
-    for (var i = 0; i < array.length; i++) {
-        var opt = document.createElement('option');
-        opt.setAttribute("value", i);
-        opt.appendChild(document.createTextNode(array[i]));
-        select_box.appendChild(opt);
-    }
-}
-
-
 
 /** @todo
  */
