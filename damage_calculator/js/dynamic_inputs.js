@@ -1,27 +1,52 @@
 /**
- * Removes the given ID from the html
- * @param {string} div_id
+ * Gets the amount of cost used by a slot in a select box
+ * 
+ * @param {any} select_id slot select_box_id to get slot value from
  */
-function removeDiv(div_id) {
-    div_id = "first_slot";
-    var obj = document.getElementById(div_id);
-    obj.remove();
-}
+function getSelectSlotCost(select_id) {
+    var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
 
+    var slot1_val = document.getElementById(select_id).value;
+    // None value in first slot means no slots used
+    if (slot1_val == -1) {
+        return 0;
+    }
+    else if (slot1_val < eff_info[0].effects.length) {
+        return parseInt(eff_info[0].effects[slot1_val].cost);
+    }
+    else {
+        return parseInt(eff_info[1].effects[slot1_val - eff_info[0].effects.length].cost);
+    }
+}
 
 /** @todo
  */
 function spiritManager(called_by_id) {
     var p1 = {
         attack: "p1_attack",
-        defense: "p1_defense"
+        defense: "p1_defense",
+        slot1: "p1_slots1",
+        slot2: "p1_slots2",
+        slot3: "p1_slots3",
+        slot1_div: "p1_first_slot",
+        slot2_div: "p1_second_slot",
+        slot3_div: "p1_third_slot"
     };
     var p2 = {
         attack: "p2_attack",
-        defense: "p2_defense"
+        defense: "p2_defense",
+        slot1: "p2_slots1",
+        slot2: "p2_slots2",
+        slot3: "p2_slots3",
+        slot1_div: "p2_first_slot",
+        slot2_div: "p2_second_slot",
+        slot3_div: "p2_third_slot"
     };
 
+
+
     var player;
+
     // This could be cleaned up with classes but idk javascript well enough
     if (called_by_id.slice(0, 2) == 'p1') {
         player = p1
@@ -29,16 +54,113 @@ function spiritManager(called_by_id) {
     else if (called_by_id.slice(0, 2) == 'p2') {
         player = p2
     }
-    balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, 3);
-    document.getElementById(player.attack).value = balanced_stats.atk
-    document.getElementById(player.defense).value = balanced_stats.def
+    var slots_used = slotsManager(player);
+
+
+
+    if (called_by_id.slice(3) == "attack" || called_by_id.slice(3) == "defense") {
+        balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
+        document.getElementById(player.attack).value = balanced_stats.atk
+        document.getElementById(player.defense).value = balanced_stats.def
+    }
+    else {
+        balanced_stats = balanceAtkDef("slots", document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
+        document.getElementById(player.attack).value = balanced_stats.atk
+        document.getElementById(player.defense).value = balanced_stats.def
+    }
 
 }
 
-/** @todo
+/**
+ * Causes the correct amount of slots to appear based on cost used
+ * 
+ * @param {object} player player to modify, obj from spirit_manager
  */
-function slotManager() {
-    balanceAtkDef('slots');
+function slotsManager(player) {
+    var slot1_cost = getSelectSlotCost(player.slot1);
+    var slot2_cost = 0;
+    switch (slot1_cost) {
+        case 0:
+            // reset slots 2 and 3 to 0, neither visible
+            document.getElementById(player.slot2).value = -1
+            document.getElementById(player.slot2_div).style.display = "none";
+            document.getElementById(player.slot3).value = -1
+            document.getElementById(player.slot3_div).style.display = "none";
+            sessionStorage.setItem(player.slot1, 0);
+            sessionStorage.setItem(player.slot2, 0);
+            return 0;
+            break;
+
+        case 1:
+            slot2_cost = getSelectSlotCost(player.slot2);
+            // Only regenerate items if slot 1 changed cost
+            if (sessionStorage.getItem(player.slot1) != slot1_cost) {
+                // reset slots 2 and 3 to 0, with slot 2 visible
+                generateEffects(player.slot2, 1);
+                document.getElementById(player.slot2_div).style.display = "block";
+                sessionStorage.setItem(player.slot2, 0);
+
+                document.getElementById(player.slot3).value = -1
+                document.getElementById(player.slot3_div).style.display = "none";
+                sessionStorage.setItem(player.slot1, slot1_cost);
+                return 1;
+            }
+            else {
+                sessionStorage.setItem(player.slot1, slot1_cost);
+
+                if (slot2_cost == 0 || slot2_cost == 2) {
+                    document.getElementById(player.slot3).value = -1
+                    document.getElementById(player.slot3_div).style.display = "none";
+
+                    sessionStorage.setItem(player.slot2, slot2_cost);
+                    return 1 + slot2_cost;
+                }
+                else {
+                    // Only regenerate items if slot 2 changed cost
+                    if (sessionStorage.getItem(player.slot2) != slot2_cost) {
+                        // reset slot 3 to 0, with slot 3 visible
+                        generateEffects(player.slot3, 2);
+                        document.getElementById(player.slot3_div).style.display = "block";
+
+                        sessionStorage.setItem(player.slot2, slot2_cost);
+                    }
+                    return 1 + getSelectSlotCost(player.slot3);
+                }
+            }
+            break;
+
+        case 2:
+            slot2_cost = getSelectSlotCost(player.slot2);
+
+            // Only regenerate items if slot 1 changed cost
+            if (sessionStorage.getItem(player.slot1) != slot1_cost) {
+                // reset slots 2 and 3 to 0, with slot 2 visible
+                generateEffects(player.slot2, 2);
+                document.getElementById(player.slot2_div).style.display = "block";
+
+                document.getElementById(player.slot3).value = -1
+                document.getElementById(player.slot3_div).style.display = "none";
+            }
+            else {
+                sessionStorage.setItem(player.slot2, slot2_cost);
+            }
+            sessionStorage.setItem(player.slot1, slot1_cost);
+            return 2 + slot2_cost;
+            break;
+
+        case 3:
+            // reset slots 2 and 3 to 0, neither visible
+            document.getElementById(player.slot2).value = -1
+            document.getElementById(player.slot2_div).style.display = "none";
+            document.getElementById(player.slot3).value = -1
+            document.getElementById(player.slot3_div).style.display = "none";
+            sessionStorage.setItem(player.slot1, 3);
+            sessionStorage.setItem(player.slot2, 0);
+            return 3;
+            break;
+    }
+
+    return 0;
 }
 
 
@@ -55,6 +177,12 @@ function slotManager() {
 function balanceAtkDef(priority_stat, atk, def, slots_used) {
     atk = parseInt(atk)
     def = parseInt(def)
+    if (isNaN(atk)) {
+        atk = 0
+    }
+    if (isNaN(def)) {
+        def = 0
+    }
     // Stat cap, indivdual stat max, individual stat min
     var cap, max, min;
     switch (slots_used) {
@@ -116,6 +244,18 @@ function balanceAtkDef(priority_stat, atk, def, slots_used) {
                 difference = parseInt(difference / 2);
                 atk += difference;
                 def += difference;
+            }
+            if (atk < min) {
+                atk = min;
+            }
+            else if (atk > max) {
+                atk = max;
+            }
+            if (def < min) {
+                def = min;
+            }
+            else if (def > max) {
+                def = max;
             }
             break;
     }

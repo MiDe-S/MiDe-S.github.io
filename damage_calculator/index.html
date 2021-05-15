@@ -34,19 +34,20 @@
 
                 <div id="p1_first_slot">
                     <label for="p1_slots1">Slot 1:</label>
-                    <select id="p1_slots1" onchange="slotManager()">
+                    <select id="p1_slots1" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
-                <div id="p1_second_slot">
+                <div id="p1_second_slot" style="display:none">
                     <label for="p1_slots2">Slot 2:</label>
-                    <select id="p1_slots2" onchange="slotManager()">
-                        <option value="">Test</option>
+                    <select id="p1_slots2" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
-                <div id="p1_third_slot">
+                <div id="p1_third_slot" style="display:none">
                     <label for="p1_slots3">Slot 3:</label>
-                    <select id="p1_slots3" onchange="slotManager()">
-                        <option value="">Test</option>
+                    <select id="p1_slots3" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
 
@@ -74,21 +75,20 @@
 
                 <div id="p2_first_slot">
                     <label for="p2_slots1">Slot 1:</label>
-                    <select id="p2_slots1" onchange="slotManager()">
-                        <option value="">Test</option>
-                        <option value="">Test 2</option>
+                    <select id="p2_slots1" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
-                <div id="p2_second_slot">
+                <div id="p2_second_slot" style="display:none">
                     <label for="p2_slots2">Slot 2:</label>
-                    <select id="p2_slots2" onchange="slotManager()">
-                        <option value="">Test</option>
+                    <select id="p2_slots2" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
-                <div id="p2_third_slot">
+                <div id="p2_third_slot" style="display:none">
                     <label for="p2_slots3">Slot 3:</label>
-                    <select id="p2_slots3" onchange="slotManager()">
-                        <option value="">Test</option>
+                    <select id="p2_slots3" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
                     </select>
                 </div>
 
