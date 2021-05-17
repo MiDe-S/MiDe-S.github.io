@@ -124,12 +124,27 @@ function replaceSelectWithArray(array, select_id_to_replace, group_bool) {
  * @param {string} char_id The index of the character's moves we want to generate
  */
 function generateMoves(char_id) {
+    var mov_select_id = "moves";
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
     var move_names = [];
+    var disabled_move_ids = [];
+    // Creates list of names for array function + marks disabled options
     for (var i = 0; i < char_info[char_id].moves.length; i++) {
-        move_names.push(char_info[char_id].moves[i].move_name);
+        move_names.push(char_info[char_id].moves[i].name);
+        if (char_info[char_id].moves[i].hitboxes[0] == null) {
+            disabled_move_ids.push(char_info[char_id].moves[i].id)
+        }
     }
-    replaceSelectWithArray(move_names, "moves", false);
+
+    replaceSelectWithArray(move_names, mov_select_id, false);
+
+    // Disables moves with null data
+    for (var i = 0; i < disabled_move_ids.length; i++) {
+        document.getElementById(mov_select_id).options[disabled_move_ids[i]].setAttribute("disabled", true)
+    }
+
+    // Since moves are refreshed hitboxes should be refreshed
+    generateHitBoxes(char_id, 0);
 }
 
 /**
@@ -153,4 +168,30 @@ function generateEffects(select_id, slots_used) {
         effect_names.push(actual_effects);
     }
     replaceSelectWithArray(effect_names, select_id, true);
+}
+
+/**
+ * Generate Hitboxes
+ * 
+ * @param {string} char_id
+ * @param {string} move_id
+ */
+function generateHitBoxes(char_id, move_id) {
+    var hitbox_select_id = "hitboxes";
+    var hitbox_div_id = "hitbox_div";
+
+    var char_info = JSON.parse(sessionStorage.getItem('char_info'));
+    var hitbox_names = [];
+
+    for (var i = 0; i < char_info[char_id].moves[move_id].hitboxes.length; i++) {
+        hitbox_names.push(char_info[char_id].moves[move_id].hitboxes[i].name);
+    }
+    replaceSelectWithArray(hitbox_names, hitbox_select_id, false);
+
+    if (hitbox_names.length == 1) {
+        document.getElementById(hitbox_div_id).style.display = "none";
+    }
+    else {
+        document.getElementById(hitbox_div_id).style.display = "block";
+    }
 }
