@@ -79,7 +79,7 @@
         "hitboxes": [
           {
             "name": "Down tilt Weak Hit",
-            "damage": "7.0",
+            "damage": "5.0",
             "angle": "80",
             "type": "Foot (type)",
             "effect": "Normal (effect)",
@@ -87,7 +87,7 @@
           },
           {
             "name": "Down tilt Strong Hit",
-            "damage": "5.0",
+            "damage": "7.0",
             "angle": "80",
             "type": "Foot (type)",
             "effect": "Normal (effect)",
@@ -708,7 +708,7 @@
         "hitboxes": [
           {
             "name": "Forward smash Weak Hit",
-            "damage": "22.0",
+            "damage": "21.0",
             "angle": "46",
             "type": "Hand (type)",
             "effect": "Normal (effect)",
@@ -716,7 +716,7 @@
           },
           {
             "name": "Forward smash Strong Hit",
-            "damage": "21.0",
+            "damage": "22.0",
             "angle": "Sakurai angle",
             "type": "Hand (type)",
             "effect": "Normal (effect)",
@@ -33196,16 +33196,16 @@
         "hitboxes": [
           {
             "name": "Clean Hit Weak Hit",
-            "damage": "14.0",
-            "angle": "270",
+            "damage": "13.0",
+            "angle": "45",
             "type": "Foot (type)",
             "effect": "Normal (effect)",
             "id": 0
           },
           {
             "name": "Clean Hit Strong Hit",
-            "damage": "13.0",
-            "angle": "45",
+            "damage": "14.0",
+            "angle": "270",
             "type": "Foot (type)",
             "effect": "Normal (effect)",
             "id": 1

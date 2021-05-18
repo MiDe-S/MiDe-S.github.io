@@ -13,7 +13,7 @@
     <div class="row">
         <div class="column">
             <h2>Attacker:</h2>
-            Human: <input type="radio" name="player1" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player1" value="amiibo" />
+            Human: <input type="radio" name="p1_type" checked="checked" value="human" onchange="spiritManager(this.name)"/> or Amiibo: <input type="radio" name="p1_type" value="amiibo" onchange="spiritManager(this.name)"/>
             <br />
             <br />
             <div id="test">
@@ -34,7 +34,7 @@
                 <select name="hitboxes" id="hitboxes">
                 </select>
             </div>
-            <div>
+            <div id="short_hop_div" style="display:none">
                 <label for="short_hop">Short Hop:</label>
                 <input type="checkbox" id="short_hop" name="short_hop"/>
             </div>
@@ -43,7 +43,7 @@
 
         <div class="column">
             <h2>Defender:</h2>
-            Human: <input type="radio" name="player2" checked="checked" value="human" /> or Amiibo: <input type="radio" name="player2" value="amiibo" />
+            Human: <input type="radio" name="p2_type" checked="checked" value="human" onchange="spiritManager(this.name)"/> or Amiibo: <input type="radio" name="p2_type" value="amiibo" onchange="spiritManager(this.name)"/>
             <br />
             <br />
             <label for="p2_percent">Percent Before Being Hit: </label>

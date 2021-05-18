@@ -1,4 +1,18 @@
 /**
+ * Gets the player type from the radio options of the given name
+ * 
+ * @param {any} player_name the name of the radio options of the player you want the type of
+ */
+function getPlayerType(player_name) {
+    var radio_buttons = document.getElementsByName(player_name);
+    for (i = 0; i < radio_buttons.length; i++) {
+        if (radio_buttons[i].checked) {
+            return radio_buttons[i].value;
+        }
+    }
+}
+
+/**
  * Gets the amount of cost used by a slot in a select box
  * 
  * @param {any} select_id slot select_box_id to get slot value from
@@ -23,6 +37,7 @@ function getSelectSlotCost(select_id) {
  */
 function spiritManager(called_by_id) {
     var p1 = {
+        player_type: "p1_type",
         attack: "p1_attack",
         defense: "p1_defense",
         slot1: "p1_slots1",
@@ -33,6 +48,7 @@ function spiritManager(called_by_id) {
         slot3_div: "p1_third_slot"
     };
     var p2 = {
+        player_type: "p2_type",
         attack: "p2_attack",
         defense: "p2_defense",
         slot1: "p2_slots1",
@@ -54,19 +70,39 @@ function spiritManager(called_by_id) {
     else if (called_by_id.slice(0, 2) == 'p2') {
         player = p2
     }
+
+    var player_type = getPlayerType(player.player_type);
+
     var slots_used = slotsManager(player);
 
+    if (player_type == "amiibo") {
 
-
-    if (called_by_id.slice(3) == "attack" || called_by_id.slice(3) == "defense") {
-        balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
-        document.getElementById(player.attack).value = balanced_stats.atk
-        document.getElementById(player.defense).value = balanced_stats.def
+        if (called_by_id.slice(3) == "attack" || called_by_id.slice(3) == "defense") {
+            balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
+        }
+        else {
+            balanced_stats = balanceAtkDef("slots", document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
+        }
+        document.getElementById(player.attack).value = balanced_stats.atk;
+        document.getElementById(player.defense).value = balanced_stats.def;
     }
     else {
-        balanced_stats = balanceAtkDef("slots", document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
-        document.getElementById(player.attack).value = balanced_stats.atk
-        document.getElementById(player.defense).value = balanced_stats.def
+        atk = document.getElementById(player.attack).value;
+        def = document.getElementById(player.defense).value;
+        if (atk > 7941) {
+            atk = 7941;
+        }
+        else if (atk < 0) {
+            atk = 0;
+        }
+        if (def > 10000) {
+            def = 10000;
+        }
+        else if (def < 0) {
+            def = 0;
+        }
+        document.getElementById(player.attack).value = atk;
+        document.getElementById(player.defense).value = def;
     }
 
 }

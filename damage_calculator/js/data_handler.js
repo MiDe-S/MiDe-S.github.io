@@ -179,6 +179,8 @@ function generateEffects(select_id, slots_used) {
 function generateHitBoxes(char_id, move_id) {
     var hitbox_select_id = "hitboxes";
     var hitbox_div_id = "hitbox_div";
+    var short_hop_id = "short_hop"
+    var short_hop_div_id = "short_hop_div"
 
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
     var hitbox_names = [];
@@ -188,10 +190,19 @@ function generateHitBoxes(char_id, move_id) {
     }
     replaceSelectWithArray(hitbox_names, hitbox_select_id, false);
 
+    // if only one hitbox exists, no need for extra field
     if (hitbox_names.length == 1) {
         document.getElementById(hitbox_div_id).style.display = "none";
     }
     else {
         document.getElementById(hitbox_div_id).style.display = "block";
+    }
+    // if move is an aerial, enable shorthop option
+    if (char_info[char_id].moves[move_id].name.slice(-6) == "aerial") {
+        document.getElementById(short_hop_div_id).style.display = "block";
+    }
+    else {
+        document.getElementById(short_hop_div_id).style.display = "none";
+        document.getElementById(short_hop_id).checked = false;
     }
 }
