@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/data_handler.js"></script>
+    <script src="js/chart.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body onload="loadDoc()">
+    <h1>Spirit Compatibility Chart</h1>
+    <div id="characters">
+        <label for="chars">Character:</label>
+        <select name="chars" id="chars" onchange="generateChart(this.value)">
+        </select>
+    </div>
+    <br />
+    <div>
+        <table id="table_compatibility">
+        </table>
+    </div>
+    <button type="button" onclick="clearTable('table_compatibility')">Clear</button>
+</body>
+</html>

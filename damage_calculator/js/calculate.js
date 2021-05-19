@@ -1,3 +1,12 @@
+/**
+ * Calculates the multiplier from the given move and given effect
+ * 
+ * @param {string} effect_id id of effect to check
+ * @param {Object} move move object from moves.json
+ * @param {string} hitbox_id id of hitbox to check
+ * @param {string} atk_or_def HAS TO BE attack_multi OR defense_multi
+ * @returns {number} multiplier of effect buff/debuff
+ */
 function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
     var connection_info = JSON.parse(sessionStorage.getItem('connection_info'));
     var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
