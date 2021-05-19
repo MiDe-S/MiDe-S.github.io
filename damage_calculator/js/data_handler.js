@@ -28,14 +28,14 @@ function loadDoc() {
 
         }
     };
-    xhttp.open("GET", "moves.json", true);
+    xhttp.open("GET", "../data/moves.json", true);
     xhttp.send();
 
     // @todo add groups
     // actually implement slots
     // load spirit effects
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
+    var xhttp_2 = new XMLHttpRequest();
+    xhttp_2.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             // hardcoded ID of selection box
             var eff1_select_id = "p1_slots1";
@@ -52,14 +52,28 @@ function loadDoc() {
 
         }
     };
-    xhttp.open("GET", "effects.json", true);
-    xhttp.send();
+    xhttp_2.open("GET", "../data/effects.json", true);
+    xhttp_2.send();
 
     // Intialize session variables
     sessionStorage.setItem('p1_slots1', 0);
     sessionStorage.setItem('p1_slots2', 0);
     sessionStorage.setItem('p2_slots1', 0);
     sessionStorage.setItem('p2_slots2', 0);
+
+    var xhttp_3 = new XMLHttpRequest();
+    xhttp_3.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            // Get data from file into js object
+            var connection_info = JSON.parse(this.responseText);
+
+            // Store object in memory so we don't have to read from it again
+            sessionStorage.setItem('connection_info', JSON.stringify(connection_info));
+
+        }
+    };
+    xhttp_3.open("GET", "../data/connect.json", true);
+    xhttp_3.send();
 
 }
 
@@ -184,15 +198,20 @@ function generateHitBoxes(char_id, move_id) {
 
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
     var hitbox_names = [];
+    var disabled_hitbox_ids = [];
 
     for (var i = 0; i < char_info[char_id].moves[move_id].hitboxes.length; i++) {
         hitbox_names.push(char_info[char_id].moves[move_id].hitboxes[i].name);
+        if (isNaN(char_info[char_id].moves[move_id].hitboxes[i].damage)) {
+            disabled_hitbox_ids.push(char_info[char_id].moves[move_id].hitboxes[i].id)
+        }
     }
     replaceSelectWithArray(hitbox_names, hitbox_select_id, false);
 
     // if only one hitbox exists, no need for extra field
     if (hitbox_names.length == 1) {
         document.getElementById(hitbox_div_id).style.display = "none";
+        document.getElementById(hitbox_select_id).value = "0";
     }
     else {
         document.getElementById(hitbox_div_id).style.display = "block";
@@ -204,5 +223,9 @@ function generateHitBoxes(char_id, move_id) {
     else {
         document.getElementById(short_hop_div_id).style.display = "none";
         document.getElementById(short_hop_id).checked = false;
+    }
+    // if move damage is "variable" it cannont be used and needs to be disabled
+    for (var i = 0; i < disabled_hitbox_ids.length; i++) {
+        document.getElementById(hitbox_select_id).options[disabled_hitbox_ids[i]].setAttribute("disabled", true)
     }
 }

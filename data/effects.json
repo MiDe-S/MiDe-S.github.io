@@ -150,7 +150,7 @@
         "name": "Electric Resist \u2191",
         "cost": "1",
         "id": 16,
-        "always": "ONE",
+        "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
         "defense_multi": "0.60"
