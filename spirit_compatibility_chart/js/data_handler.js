@@ -1,6 +1,5 @@
 /**
- * Loads a given document
- * @todo
+ * Loads a document
  */
 function loadDoc() {
     // load moves
@@ -22,6 +21,8 @@ function loadDoc() {
 
             // Store object in memory so we don't have to read from it again
             sessionStorage.setItem('char_info', JSON.stringify(charater_info));
+            // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
+            generateChart(0, true);
         }
     };
     xhttp.open("GET", "../data/moves.json", true);
@@ -36,12 +37,11 @@ function loadDoc() {
 
             // Store object in memory so we don't have to read from it again
             sessionStorage.setItem('connection_info', JSON.stringify(connection_info));
+
         }
     };
     xhttp_2.open("GET", "../data/connect.json", true);
     xhttp_2.send();
-
-    generateChart(0, true);
 
 }
 
@@ -109,7 +109,6 @@ function replaceSelectWithArray(array, select_id_to_replace, group_bool) {
  */
 function doesEffectApply(move, effect) {
     if (move.hitboxes[0] == null || effect.type == null) {
-        debugger;
         return "Null";
     }
 

@@ -51501,7 +51501,7 @@
         ]
       },
       {
-        "name": "Super special Super special 1",
+        "name": "Super special 1",
         "id": 30,
         "hitboxes": [
           {
@@ -51563,7 +51563,7 @@
         ]
       },
       {
-        "name": "Super special Super special 2",
+        "name": "Super special 2",
         "id": 31,
         "hitboxes": [
           null
