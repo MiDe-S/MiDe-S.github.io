@@ -41,7 +41,7 @@ function loadDoc() {
     xhttp_2.open("GET", "../data/connect.json", true);
     xhttp_2.send();
 
-    generateChart(0);
+    generateChart(0, true);
 
 }
 
@@ -118,20 +118,40 @@ function doesEffectApply(move, effect) {
     // If value is different from previous value, loop can end early with mixed
     var prev_value = null;
 
-    for (let i = 0; i < move.hitboxes.length; i++) {
-        for (let j = 0; j < effect.indicators.length; j++) {
-            if (move.hitboxes[i][type_or_effect] == effect.indicators[j] + ' (' + type_or_effect + ')') {
-                if (i != 0 && prev_value == "False") {
-                    return "Mixed";
+    for (let j = 0; j < effect.indicators.length; j++) {
+        for (let i = 0; i < move.hitboxes.length; i++) {
+            if (type_or_effect != "angle") {
+                if (move.hitboxes[i][type_or_effect] == effect.indicators[j] + ' (' + type_or_effect + ')') {
+                    if (i != 0 && prev_value == "False") {
+                        return "Mixed";
+                    }
+                    prev_value = "True";
                 }
-                prev_value = "True";
+                else {
+                    if (i != 0 && prev_value == "True") {
+                        return "Mixed";
+                    }
+                    prev_value = "False";
+                }
             }
             else {
-                if (i != 0 && prev_value == "True") {
-                    return "Mixed";
+                if (!isNaN(move.hitboxes[i].angle) && ((60 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 120) || (241 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 300))) {
+                    if (i != 0 && prev_value == "False") {
+                        return "Mixed";
+                    }
+                    prev_value = "True";
                 }
-                prev_value = "False";
+                else {
+                    if (i != 0 && prev_value == "True") {
+                        return "Mixed";
+                    }
+                    prev_value = "False";
+                }
             }
+        }
+        // If one indicator is true, others don't need to be checked
+        if (prev_value == "True") {
+            return "True";
         }
     }
     return prev_value;

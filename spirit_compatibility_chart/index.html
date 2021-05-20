@@ -7,16 +7,38 @@
 </head>
 <body onload="loadDoc()">
     <h1>Spirit Compatibility Chart</h1>
-    <div id="characters">
-        <label for="chars">Character:</label>
-        <select name="chars" id="chars" onchange="generateChart(this.value)">
-        </select>
-    </div>
-    <br />
     <div>
-        <table id="table_compatibility">
+        <table id="table_compatibility" class="outline">
+            <tr>
+                <th>
+                    <select name="chars" id="chars" onchange="generateChart(this.value, false)">
+                    </select>
+                </th>
+            </tr>
         </table>
     </div>
-    <button type="button" onclick="clearTable('table_compatibility')">Clear</button>
+    <div>
+        <h4>Key:</h4>
+        <table>
+            <tr>
+                <td>
+                    <label for="true">Does Effect:</label>
+                    <img src="img/buff.png" alt="True" name="true" />
+                </td>
+                <td>
+                    <label for="mixed">Effects specific hits or specific hitboxes:</label>
+                    <img src="img/mixed.png" alt="Mixed" name="mixed" />
+                </td>
+                <td>
+                    <label for="false">Does not Effect:</label>
+                    <img src="img/nerf.png" alt="False" name="false" />
+                </td>
+                <td>
+                    <label for="none">No Data:</label>
+                    <img src="img/none.png" alt="No Data" name="none" />
+                </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

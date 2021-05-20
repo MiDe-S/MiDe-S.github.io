@@ -1,3 +1,21 @@
-table, th, td {
+.outline {
     border: 1px solid black;
+}
+
+td {
+    text-align: center;
+}
+table {
+    margin: auto;
+    width: 80%;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h4 {
+    text-align: center;
 }

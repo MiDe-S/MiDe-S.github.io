@@ -62,8 +62,8 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
                         }
                 }
                 else if (connection_info["SEARCH"][effect_id].type == "angle") {
-                    if (!isNaN(move.hitboxes[hitbox_id])) {
-                        if (60 <= parseFloat(move.hitboxes[hitbox_id].angle) <= 120 || 241 <= parseFloat(move.hitboxes[hitbox_id].angle) <= 300) {
+                    if (!isNaN(move.hitboxes[hitbox_id].angle)) {
+                        if ((60 <= parseFloat(move.hitboxes[hitbox_id].angle) && parseFloat(move.hitboxes[hitbox_id].angle) <= 120) || (241 <= parseFloat(move.hitboxes[hitbox_id].angle) && parseFloat(move.hitboxes[hitbox_id].angle) <= 300)) {
                             multiplier = multiplier * parseFloat(effect[atk_or_def]);
                         }
                     }

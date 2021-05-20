@@ -68,7 +68,7 @@
     "33": {
       "name": "Physical Attack \u2191",
       "type": "type",
-      "indicators": [ "Hand" ]
+      "indicators": [ "Hand", "Elbow", "Foot", "Knee", "Head", "Butt", "Body", "Spin", "Bite", "Tail" ]
     },
     "34": {
       "name": "PSI Attack \u2191",
@@ -93,7 +93,7 @@
     "45": {
       "name": "Toss & Meteor",
       "type": "angle",
-      "indicators": []
+      "indicators": [ null ]
     },
     "52": {
       "name": "Water & Ice Attack \u2191",
