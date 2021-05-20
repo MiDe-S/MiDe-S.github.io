@@ -141,7 +141,7 @@ function doesEffectApply(move, effect) {
                     prev_value = "True";
                 }
                 else {
-                    if (i != 0 && prev_value == "True") {
+                    if ((i != 0 && prev_value == "True") || move.hitboxes[i].angle == "BOTH") {
                         return "Mixed";
                     }
                     prev_value = "False";

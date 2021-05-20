@@ -23,3 +23,7 @@ img.center {
 h1, h4 {
     text-align: center;
 }
+
+select {
+    border: 3px solid red;
+}

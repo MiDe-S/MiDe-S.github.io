@@ -94,11 +94,57 @@ function generateChart(char_id, draw_header) {
         addRow(header, "table_compatibility", true);
     }
 
+    // Used to calculate which effects are most effective
+    var moves_impacted = [];
+    for (let i = 0; i < notable_ids.length; i++) {
+        moves_impacted.push({ "id": notable_ids[i], "value": 0})
+    }
+
+
     for (let i = 0; i < char_info[char_id].moves.length; i++) {
+        var move_counter = 0
         let row = [char_info[char_id].moves[i].name];
         for (let j = 0; j < notable_ids.length; j++) {
-            row.push(doesEffectApply(char_info[char_id].moves[i], connection_info["SEARCH"][notable_ids[j]]));
+            let applies = doesEffectApply(char_info[char_id].moves[i], connection_info["SEARCH"][notable_ids[j]])
+            row.push(applies);
+
+            if (applies == "Null" || applies == "False") {
+                var value_addon = 0;
+            }
+            else if (applies == "True") {
+                var value_addon = 1;
+            }
+            else if (applies == "Mixed") {
+                var value_addon = 0.5;
+            }
+
+            /*
+            if (row[0].slice(0, 12) == "Floor attack") {
+                value_addon = value_addon * 0;
+            }
+            else if (row[0].slice(-5) == "throw") {
+                value_addon = value_addon * 0;
+            }
+            else if (row[0].slice(0, 14) == "Neutral attack") {
+                value_addon = value_addon * 0;
+            }
+            else if (row[0] == "Edge attack" || row[0] == "Pummel") {
+                value_addon = value_addon * 0;
+            }
+            else {
+                move_counter += 1;
+            }
+            */
+
+            moves_impacted[j]["value"] += value_addon;
         }
         addRow(row, "table_compatibility", false);
     }
+
+    moves_impacted.sort(function (a, b) {
+        return b.value - a.value;
+    });
+    document.getElementById("first").innerHTML = connection_info["SEARCH"][moves_impacted[0]["id"]]["name"] + " " + Math.round(moves_impacted[0]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
+    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " + Math.round(moves_impacted[1]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
+    document.getElementById("third").innerHTML = connection_info["SEARCH"][moves_impacted[2]["id"]]["name"] + " " + Math.round(moves_impacted[2]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
 }
