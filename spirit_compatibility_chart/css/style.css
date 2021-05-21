@@ -9,9 +9,16 @@
 td {
     text-align: center;
 }
+
 table {
     margin: auto;
     width: 80%;
+}
+
+.middle_right {
+    position: absolute;
+    top: -30px;
+    right: 10%;
 }
 
 img.center {

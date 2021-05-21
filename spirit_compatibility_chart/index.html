@@ -7,11 +7,18 @@
 </head>
 <body onload="loadDoc()">
     <h1>Spirit Compatibility Chart</h1>
-    <div>
+    <div style="position:relative">
+
+    </div>
+    <div style="position:relative">
+        <select id="sorting" onchange="generateChart(document.getElementById('chars').value, this.value)" class="middle_right">
+            <option value="false">Alphabetically</option>
+            <option value="true">Coverage</option>
+        </select>
         <table id="table_compatibility" class="outline">
             <tr>
                 <th>
-                    <select name="chars" id="chars" onchange="generateChart(this.value, false)">
+                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
                     </select>
                 </th>
             </tr>

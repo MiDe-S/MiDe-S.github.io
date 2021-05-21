@@ -22,7 +22,7 @@ function loadDoc() {
             // Store object in memory so we don't have to read from it again
             sessionStorage.setItem('char_info', JSON.stringify(charater_info));
             // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
-            generateChart(0, true);
+            generateChart(0, 'false');
         }
     };
     xhttp.open("GET", "../data/moves.json", true);
