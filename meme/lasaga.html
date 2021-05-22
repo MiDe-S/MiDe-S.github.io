@@ -4,14 +4,14 @@
     <h1>Lasaga wins amiibo</h1>
     <p id="demo">Lasaga has won amiibo 0 times.</p>
 
-
     <button onclick='IncrementAmount(1, "demo")'>Click Me!</button>
     <br />
     <div id="shop" style="display:none">
+        <br />
         <hr />
         Lasaga Wins Per Second: <div id="lwps">0</div>
         <hr />
-        <br />
+        <p id="slider_amount">0 K.K. Sliders</p>
         <div id="kk_area">
 
         </div>
@@ -37,6 +37,17 @@
             else {
                 document.getElementById("shop").style.display = "block";
 
+                var current_slider_amount = parseInt(document.getElementById("slider_amount").innerHTML.split(" ")[0]);
+
+                current_slider_amount += 1;
+
+                if (current_slider_amount == 1) {
+                    document.getElementById("slider_amount").innerHTML = current_slider_amount + " K.K.Slider";
+                }
+                else {
+                    document.getElementById("slider_amount").innerHTML = current_slider_amount + " K.K.Sliders";
+                }
+
                 num -= 69;
                 SetAmount(num, id);
                 var img = document.createElement("img");
@@ -46,7 +57,7 @@
 
                 document.getElementById("kk_area").appendChild(img);
                 document.getElementById("response_text").innerHTML = "A K.K. Slider has been purchased.";
-                document.getElementById("lwps").innerHTML = parseFloat(document.getElementById("lwps").innerHTML) + 0.1;
+                document.getElementById("lwps").innerHTML = Math.round((parseFloat(document.getElementById("lwps").innerHTML) + 0.1) * 10) / 10;
             }
 
         }
@@ -80,7 +91,6 @@
                 document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " times.";
             }
         }
-
     </script>
 </body>
 </html>
