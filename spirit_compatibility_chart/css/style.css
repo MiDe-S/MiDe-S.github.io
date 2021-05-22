@@ -10,11 +10,11 @@ tr.alternating_colors_header {
     background: #96c993;
 }
 
-tr:nth-child(even).alternating_colors {
+tr.even_alternating_colors {
     background: #d7f5d5;
 }
 
-tr:nth-child(odd).alternating_colors {
+tr.odd_alternating_colors {
     background: #FFF;
 }
 

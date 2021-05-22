@@ -32,7 +32,13 @@ function addRow(row_data, table_id, header) {
     }
     else {
         var row = document.createElement("tr");
-        row.classList.add("alternating_colors");
+        if (table.rows.length % 2 == 0) {
+            row.classList.add("even_alternating_colors");
+        }
+        else {
+            row.classList.add("odd_alternating_colors");
+        }
+
     }
     
     for (var i = 0; i < row_data.length; i++) {
