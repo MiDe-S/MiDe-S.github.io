@@ -45,32 +45,52 @@ function addRow(row_data, table_id, header) {
         col.classList.add("outline");
 
         if (row_data[i] == "True") {
+            let hover_text = document.createElement("a");
+            hover_text.title = "Effective";
+
             let img = document.createElement("img");
             img.src = "img/buff.png";
             img.alt = "True";
             img.classList.add("center");
-            col.appendChild(img);
+
+            hover_text.appendChild(img);
+            col.appendChild(hover_text);
         }
         else if (row_data[i] == "False") {
+            let hover_text = document.createElement("a");
+            hover_text.title = "Not Effective";
+
             let img = document.createElement("img");
             img.src = "img/nerf.png";
             img.alt = "False";
             img.classList.add("center");
-            col.appendChild(img);
+
+            hover_text.appendChild(img);
+            col.appendChild(hover_text);
         }
         else if (row_data[i] == "Mixed") {
+            let hover_text = document.createElement("a");
+            hover_text.title = "Mixed Effectiveness";
+
             let img = document.createElement("img");
             img.src = "img/mixed.png";
             img.alt = "Mixed";
             img.classList.add("center");
-            col.appendChild(img);
+
+            hover_text.appendChild(img);
+            col.appendChild(hover_text);
         }
         else if (row_data[i] == "Null" || row_data[i] == null) {
+            let hover_text = document.createElement("a");
+            hover_text.title = "No Data";
+
             let img = document.createElement("img");
             img.src = "img/none.png";
             img.alt = "No Data";
             img.classList.add("center");
-            col.appendChild(img);
+
+            hover_text.appendChild(img);
+            col.appendChild(hover_text);
         }
         else {
             col.appendChild(document.createTextNode(row_data[i]));
@@ -163,7 +183,8 @@ function generateChart(char_id, coverage) {
 
 
     for (let i = 0; i < char_info[char_id].moves.length; i++) {
-        var move_counter = 0
+        // Starts at 3 to account for weighted moves
+        var move_counter = 3;
         let row = [char_info[char_id].moves[i].name];
         for (let j = 0; j < notable_ids.length; j++) {
             let applies = doesEffectApply(char_info[char_id].moves[i], connection_info["SEARCH"][notable_ids[j]])
@@ -179,25 +200,35 @@ function generateChart(char_id, coverage) {
                 var value_addon = 0.5;
             }
 
-            /*
-            if (row[0].slice(0, 12) == "Floor attack") {
-                value_addon = value_addon * 0;
+            // Weighs multi-part moves to count as one move
+            if (row[0].slice(0, 12) == "Floor attack" || row[0] == "Edge attack") {
+                value_addon = value_addon * 0.25;
             }
-            else if (row[0].slice(-5) == "throw") {
-                value_addon = value_addon * 0;
+            else if (row[0].slice(-5) == "throw" || row[0] == "Pummel") {
+                value_addon = value_addon * 0.20;
             }
-            else if (row[0].slice(0, 14) == "Neutral attack") {
-                value_addon = value_addon * 0;
+            else if (row[0].slice(-5) == "Hit 1" || row[0].slice(-5) == "Hit 2") {
+                value_addon = value_addon * 0.50;
             }
-            else if (row[0] == "Edge attack" || row[0] == "Pummel") {
-                value_addon = value_addon * 0;
+            else if (row[0].slice(-5) == "Hit 3") {
+                moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.6666; // re-weigh options 
+                value_addon = value_addon * 0.33333;
+            }
+            else if (row[0].slice(-8) == "Infinite") {
+                if (char_info[char_id].moves[i - 1].name.slice(-5) == "Hit 2") {
+                    moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.6666; // re-weigh options 
+                    value_addon = value_addon * 0.33333;
+                }
+                else if (char_info[char_id].moves[i - 1].name.slice(-5) == "Hit 3") {
+                    moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.75; // re-weigh options 
+                    value_addon = value_addon * 0.33333;
+                }
             }
             else {
                 move_counter += 1;
             }
-            */
-
             moves_impacted[j]["value"] += value_addon;
+
         }
         table_matrix.push(row);
     }
@@ -214,7 +245,7 @@ function generateChart(char_id, coverage) {
     addMatrix(table_matrix, "table_compatibility");
 
 
-    document.getElementById("first").innerHTML = connection_info["SEARCH"][moves_impacted[0]["id"]]["name"] + " " + Math.round(moves_impacted[0]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
-    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " + Math.round(moves_impacted[1]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
-    document.getElementById("third").innerHTML = connection_info["SEARCH"][moves_impacted[2]["id"]]["name"] + " " + Math.round(moves_impacted[2]["value"] / char_info[char_id].moves.length * 1000) / 10 + "%";
+    document.getElementById("first").innerHTML = connection_info["SEARCH"][moves_impacted[0]["id"]]["name"] + " " + Math.round(moves_impacted[0]["value"] / move_counter * 1000) / 10 + "%";
+    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " + Math.round(moves_impacted[1]["value"] / move_counter * 1000) / 10 + "%";
+    document.getElementById("third").innerHTML = connection_info["SEARCH"][moves_impacted[2]["id"]]["name"] + " " + Math.round(moves_impacted[2]["value"] / move_counter * 1000) / 10 + "%";
 }

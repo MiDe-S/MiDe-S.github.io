@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head>
+    <meta name="description" content="Shows compatibility between character's moves and spirit effects.">
     <script src="js/data_handler.js"></script>
     <script src="js/chart.js"></script>
     <link href="css/style.css" rel="stylesheet">
+    <title>
+        Spirit Compatibility Chart
+    </title>
 </head>
 <body onload="loadDoc()">
     <h1 class="white_text_black_outline">Spirit Compatibility Chart</h1>
@@ -30,19 +34,19 @@
             <tr>
                 <td>
                     <label for="true">Does Effect:</label>
-                    <a title="Effective"><img src="img/buff.png" alt="True" name="true" /></a>
+                    <a title="Effective"><img src="img/buff.png" alt="True" name="true" class="center"/></a>
                 </td>
                 <td>
                     <label for="mixed">Effects specific hits or specific hitboxes:</label>
-                    <a title="Mixed Effectiveness"><img src="img/mixed.png" alt="Mixed" name="mixed" /></a>
+                    <a title="Mixed Effectiveness"><img src="img/mixed.png" alt="Mixed" name="mixed" class="center"/></a>
                 </td>
                 <td>
                     <label for="false">Does not Effect:</label>
-                    <a title="No Effect"><img src="img/nerf.png" alt="False" name="false" /></a>
+                    <a title="Not Effective"><img src="img/nerf.png" alt="False" name="false" class="center"/></a>
                 </td>
                 <td>
                     <label for="none">No Data:</label>
-                    <a title="No Data"><img src="img/none.png" alt="No Data" name="none" /></a>
+                    <a title="No Data"><img src="img/none.png" alt="No Data" name="none" class="center"/></a>
                 </td>
             </tr>
         </table>
@@ -52,7 +56,12 @@
         <table class="lg_background">
             <tr>
                 <td>
-                    Highest Move Coverage (Mixed effectiveness counts as half. Jabs, throws, and getup attacks are <b>not weighted</b>)
+                    <b>Highest Move Coverage</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <hr style="border-top: 3px dashed #96c993; width: 70%;" />
                 </td>
             </tr>
             <tr>
@@ -67,6 +76,16 @@
                 <td id="third">
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <hr style="border-top: 3px dashed #96c993; width: 70%;" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    (Mixed effectiveness counts as half. Jabs, throws, and getup attacks are weighted as one move)
+                </td>
+            </tr>
         </table>
     </div>
     <br />
@@ -74,14 +93,15 @@
         <table class="lg_background">
             <tr>
                 <td>
-                    <a href="https://ssbwiki.com/">All data was sourced from ssbwiki.com</a>
+                    <p>Find Something Wrong? Contact MiDe#9934 on discord or <a href="https://www.twitter.com/MiDe_Shadowrift">@MiDe_Shadowrift</a> on twitter.</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <p>Find Something Wrong? Contact MiDe#9934 on discord or <a href="https://www.twitter.com/MiDe_Shadowrift">@MiDe_Shadowrift</a> on twitter.</p>
+                    <a href="https://ssbwiki.com/">All data was sourced from ssbwiki.com</a>
                 </td>
             </tr>
+
         </table>
     </div>
 </body>
