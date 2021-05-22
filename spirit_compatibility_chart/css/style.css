@@ -43,11 +43,13 @@ img.center {
 
 select {
     border: 3px solid #198013;
+    font-size: medium;
 }
 
 body {
     background-image: url("../img/background.png");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .white_background {
@@ -60,4 +62,12 @@ body {
 
 .lg_background {
     background: #d7f5d5;
+}
+
+label, tr {
+    font-size: large;
+}
+
+h1 {
+    font-size: xx-large;
 }

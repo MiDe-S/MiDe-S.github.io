@@ -7,6 +7,24 @@
 </head>
 <body onload="loadDoc()">
     <h1 class="white_text_black_outline">Spirit Compatibility Chart</h1>
+    <div style="position:relative">
+        <div class="middle_right">
+            <label for="sorting" class="white_text_black_outline">Sort: </label>
+            <select id="sorting" onchange="generateChart(document.getElementById('chars').value, this.value)">
+                <option value="false">Alphabetically</option>
+                <option value="true">Coverage</option>
+            </select>
+        </div>
+        <table id="table_compatibility" class="outline">
+            <tr class="alternating_colors_header">
+                <th class="outline">
+                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
+                    </select>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br />
     <div>
         <table class="lg_background">
             <tr>
@@ -26,25 +44,6 @@
                     <label for="none">No Data:</label>
                     <a title="No Data"><img src="img/none.png" alt="No Data" name="none" /></a>
                 </td>
-            </tr>
-        </table>
-    </div>
-    <br />
-    <br />
-    <div style="position:relative">
-        <div class="middle_right">
-            <label for="sorting" class="white_text_black_outline">Sort: </label>
-            <select id="sorting" onchange="generateChart(document.getElementById('chars').value, this.value)">
-                <option value="false">Alphabetically</option>
-                <option value="true">Coverage</option>
-            </select>
-        </div>
-        <table id="table_compatibility" class="outline">
-            <tr class="alternating_colors_header">
-                <th class="outline">
-                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
-                    </select>
-                </th>
             </tr>
         </table>
     </div>
