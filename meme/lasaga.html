@@ -1,15 +1,70 @@
 ﻿﻿<!DOCTYPE html>
 <html>
-<body>
+<body onload="Setup()">
     <h1>Lasaga wins amiibo</h1>
-    <p id="demo">Lasaga has won amiibo 0 times.</p>
+    <p id="demo">Lasaga has won amiibo 68 times.</p>
 
 
-    <button onclick='IncrementButton(document.getElementById("demo").innerHTML, "demo")'>Click Me!</button>
-    <script>function IncrementButton(x, id) {
-            var arr = x.split(" ");
-            var num = parseInt(arr[4]);
-            num += 1;
+    <button onclick='IncrementAmount(1, "demo")'>Click Me!</button>
+    <br />
+    <div id="shop" style="display:none">
+        <hr />
+        Lasaga Wins Per Second: <div id="lwps">0</div>
+        <hr />
+        <br />
+        <div id="kk_area">
+
+        </div>
+    </div>
+    <br />
+    <button onclick='BuyKKSlider("demo")' id="buy_kkslider">Buy 1 K.K. Slider Cost: 69</button>
+    <p id="response_text"></p>
+
+
+    <script>
+        function Setup() {
+            var intervalId = window.setInterval(function () {
+                IncrementAmount(parseFloat(document.getElementById("lwps").innerHTML), "demo");
+            }, 1000);
+        }
+
+        function BuyKKSlider(id) {
+            var num = GetCurrentAmount(id);
+
+            if (num < 69) {
+                document.getElementById("response_text").innerHTML = "Error, Lasaga has not won amiibo enough";
+            }
+            else {
+                document.getElementById("shop").style.display = "block";
+
+                num -= 69;
+                SetAmount(num, id);
+                var img = document.createElement("img");
+                img.src = "K.K._Slider_NH.png";
+                img.height = 64;
+                img.width = 37;
+
+                document.getElementById("kk_area").appendChild(img);
+                document.getElementById("response_text").innerHTML = "A K.K. Slider has been purchased.";
+                document.getElementById("lwps").innerHTML = parseFloat(document.getElementById("lwps").innerHTML) + 0.1;
+            }
+
+        }
+
+        function GetCurrentAmount(id) {
+            var arr = document.getElementById(id).innerHTML.split(" ");
+            var num = parseFloat(arr[4]);
+            return num;
+        }
+
+        function IncrementAmount(increment, id) {
+            var num = GetCurrentAmount(id);
+            SetAmount(num + increment, id);
+        }
+
+        function SetAmount(num, id) {
+            num = Math.round(num * 10) / 10;
+            document.body.style.backgroundImage = "none";
             if (num == 1) {
                 document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " time.";
             }
@@ -24,7 +79,8 @@
             else {
                 document.getElementById(id).innerHTML = "Lasaga has won amiibo " + num + " times.";
             }
+        }
 
-        }</script>
+    </script>
 </body>
 </html>
