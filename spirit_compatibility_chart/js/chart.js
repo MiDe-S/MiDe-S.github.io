@@ -187,11 +187,16 @@ function generateChart(char_id, coverage) {
     table_matrix.push(header);
 
 
-
+    var move_counter = 3;
     for (let i = 0; i < char_info[char_id].moves.length; i++) {
         // Starts at 3 to account for weighted moves
-        var move_counter = 3;
         let row = [char_info[char_id].moves[i].name];
+
+        // Starts counting moves, ignores moves weighted as 1
+        if (row[0].slice(0, 12) != "Floor attack" && row[0] != "Edge attack" && row[0].slice(0, 14) != "Neutral attack" && row[0].slice(-5) != "throw" && row[0] != "Pummel") {
+            move_counter += 1;
+        }
+
         for (let j = 0; j < notable_ids.length; j++) {
             let applies = doesEffectApply(char_info[char_id].moves[i], connection_info["SEARCH"][notable_ids[j]])
             row.push(applies);
@@ -230,9 +235,6 @@ function generateChart(char_id, coverage) {
                     value_addon = value_addon * 0.33333;
                 }
             }
-            else {
-                move_counter += 1;
-            }
             moves_impacted[j]["value"] += value_addon;
 
         }
@@ -252,6 +254,6 @@ function generateChart(char_id, coverage) {
 
 
     document.getElementById("first").innerHTML = connection_info["SEARCH"][moves_impacted[0]["id"]]["name"] + " " + Math.round(moves_impacted[0]["value"] / move_counter * 1000) / 10 + "%";
-    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " + Math.round(moves_impacted[1]["value"] / move_counter * 1000) / 10 + "%";
+    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " +  Math.round(moves_impacted[1]["value"] / move_counter * 1000) / 10 + "%";
     document.getElementById("third").innerHTML = connection_info["SEARCH"][moves_impacted[2]["id"]]["name"] + " " + Math.round(moves_impacted[2]["value"] / move_counter * 1000) / 10 + "%";
 }
