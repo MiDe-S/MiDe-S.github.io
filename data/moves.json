@@ -1452,15 +1452,8 @@
         "name": "Forward smash",
         "id": 7,
         "hitboxes": [
-          null
-        ]
-      },
-      {
-        "name": "Forward smash Hit 1",
-        "id": 8,
-        "hitboxes": [
           {
-            "name": "Forward Smash Weak Hit",
+            "name": "Hit 1 Weak Hit",
             "damage": "7.0",
             "angle": "69",
             "type": "Sword (type)",
@@ -1468,7 +1461,7 @@
             "id": 0
           },
           {
-            "name": "Forward Smash Strong Hit",
+            "name": "Hit 1 Strong Hit",
             "damage": "14.0",
             "angle": "BOTH",
             "type": "Sword (type)",
@@ -1482,34 +1475,28 @@
             "type": "Typeless (type)",
             "effect": "Slash (effect)",
             "id": 2
-          }
-        ]
-      },
-      {
-        "name": "Forward smash Hit 2",
-        "id": 9,
-        "hitboxes": [
+          },
           {
-            "name": "Forward smash Hit 2 Weak Hit",
+            "name": "Hit 2 Weak Hit",
             "damage": "13.0",
             "angle": "48",
             "type": "Sword (type)",
             "effect": "Slash (effect)",
-            "id": 0
+            "id": 3
           },
           {
-            "name": "Forward smash Hit 2 Strong Hit",
+            "name": "Hit 2 Strong Hit",
             "damage": "12.0",
             "angle": "48",
             "type": "Sword (type)",
             "effect": "Slash (effect)",
-            "id": 1
+            "id": 4
           }
         ]
       },
       {
         "name": "Up smash",
-        "id": 10,
+        "id": 8,
         "hitboxes": [
           {
             "name": "Clean Hit 1",
@@ -1571,7 +1558,7 @@
       },
       {
         "name": "Down smash",
-        "id": 11,
+        "id": 9,
         "hitboxes": [
           {
             "name": "Hit 1 Weak Hit",
@@ -1625,7 +1612,7 @@
       },
       {
         "name": "Neutral aerial",
-        "id": 12,
+        "id": 10,
         "hitboxes": [
           {
             "name": "Clean Hit Weak Hit",
@@ -1655,7 +1642,7 @@
       },
       {
         "name": "Forward aerial",
-        "id": 13,
+        "id": 11,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -1677,7 +1664,7 @@
       },
       {
         "name": "Back aerial",
-        "id": 14,
+        "id": 12,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -1699,7 +1686,7 @@
       },
       {
         "name": "Up aerial",
-        "id": 15,
+        "id": 13,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -1721,7 +1708,7 @@
       },
       {
         "name": "Down aerial",
-        "id": 16,
+        "id": 14,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -1743,7 +1730,7 @@
       },
       {
         "name": "Pummel",
-        "id": 17,
+        "id": 15,
         "hitboxes": [
           {
             "name": "Pummel",
@@ -1757,7 +1744,7 @@
       },
       {
         "name": "Forward throw",
-        "id": 18,
+        "id": 16,
         "hitboxes": [
           {
             "name": "Forward throw",
@@ -1779,7 +1766,7 @@
       },
       {
         "name": "Back throw",
-        "id": 19,
+        "id": 17,
         "hitboxes": [
           {
             "name": "Back throw",
@@ -1801,7 +1788,7 @@
       },
       {
         "name": "Up throw",
-        "id": 20,
+        "id": 18,
         "hitboxes": [
           {
             "name": "Up throw",
@@ -1823,7 +1810,7 @@
       },
       {
         "name": "Down throw",
-        "id": 21,
+        "id": 19,
         "hitboxes": [
           {
             "name": "Down throw",
@@ -1845,7 +1832,7 @@
       },
       {
         "name": "Floor attack (front)",
-        "id": 22,
+        "id": 20,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -1867,7 +1854,7 @@
       },
       {
         "name": "Floor attack (back)",
-        "id": 23,
+        "id": 21,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -1889,7 +1876,7 @@
       },
       {
         "name": "Floor attack (trip)",
-        "id": 24,
+        "id": 22,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -1911,7 +1898,7 @@
       },
       {
         "name": "Edge attack",
-        "id": 25,
+        "id": 23,
         "hitboxes": [
           {
             "name": "Edge attack",
@@ -1925,7 +1912,7 @@
       },
       {
         "name": "Neutral special",
-        "id": 26,
+        "id": 24,
         "hitboxes": [
           {
             "name": "Single Arrow",
@@ -1947,7 +1934,7 @@
       },
       {
         "name": "Side special",
-        "id": 27,
+        "id": 25,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -1977,7 +1964,7 @@
       },
       {
         "name": "Up special",
-        "id": 28,
+        "id": 26,
         "hitboxes": [
           {
             "name": "Grounded - Clean Hit Weak Hit",
@@ -2135,7 +2122,7 @@
       },
       {
         "name": "Down special",
-        "id": 29,
+        "id": 27,
         "hitboxes": [
           {
             "name": "Thrown",
@@ -2157,7 +2144,7 @@
       },
       {
         "name": "Final Smash",
-        "id": 30,
+        "id": 28,
         "hitboxes": [
           {
             "name": "Flying",
@@ -16461,13 +16448,6 @@
         "name": "Forward smash",
         "id": 8,
         "hitboxes": [
-          null
-        ]
-      },
-      {
-        "name": "Forward smash Hit 1",
-        "id": 9,
-        "hitboxes": [
           {
             "name": "Forward smash Hit 1",
             "damage": "6.0",
@@ -16475,34 +16455,28 @@
             "type": "Sword (type)",
             "effect": "Slash (effect)",
             "id": 0
-          }
-        ]
-      },
-      {
-        "name": "Forward smash Hit 2",
-        "id": 10,
-        "hitboxes": [
-          {
-            "name": "Forward smash Hit 2 Weak Hit",
-            "damage": "12.0",
-            "angle": "48",
-            "type": "Sword (type)",
-            "effect": "Slash (effect)",
-            "id": 0
           },
           {
-            "name": "Forward smash Hit 2 Strong Hit",
+            "name": "Forward smash Hit 2 Weak Hit",
             "damage": "10.0",
             "angle": "48",
             "type": "Sword (type)",
             "effect": "Slash (effect)",
             "id": 1
+          },
+          {
+            "name": "Forward smash Hit 2 Strong Hit",
+            "damage": "12.0",
+            "angle": "48",
+            "type": "Sword (type)",
+            "effect": "Slash (effect)",
+            "id": 2
           }
         ]
       },
       {
         "name": "Up smash",
-        "id": 11,
+        "id": 9,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16540,7 +16514,7 @@
       },
       {
         "name": "Down smash",
-        "id": 12,
+        "id": 10,
         "hitboxes": [
           {
             "name": "Hit 1 Weak Hit",
@@ -16578,7 +16552,7 @@
       },
       {
         "name": "Neutral aerial",
-        "id": 13,
+        "id": 11,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -16600,7 +16574,7 @@
       },
       {
         "name": "Forward aerial",
-        "id": 14,
+        "id": 12,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16630,7 +16604,7 @@
       },
       {
         "name": "Back aerial",
-        "id": 15,
+        "id": 13,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16652,7 +16626,7 @@
       },
       {
         "name": "Up aerial",
-        "id": 16,
+        "id": 14,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -16674,7 +16648,7 @@
       },
       {
         "name": "Down aerial",
-        "id": 17,
+        "id": 15,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -16696,7 +16670,7 @@
       },
       {
         "name": "Pummel",
-        "id": 18,
+        "id": 16,
         "hitboxes": [
           {
             "name": "Pummel",
@@ -16710,7 +16684,7 @@
       },
       {
         "name": "Forward throw",
-        "id": 19,
+        "id": 17,
         "hitboxes": [
           {
             "name": "Forward throw",
@@ -16732,7 +16706,7 @@
       },
       {
         "name": "Back throw",
-        "id": 20,
+        "id": 18,
         "hitboxes": [
           {
             "name": "Back throw",
@@ -16754,7 +16728,7 @@
       },
       {
         "name": "Up throw",
-        "id": 21,
+        "id": 19,
         "hitboxes": [
           {
             "name": "Up throw",
@@ -16776,7 +16750,7 @@
       },
       {
         "name": "Down throw",
-        "id": 22,
+        "id": 20,
         "hitboxes": [
           {
             "name": "Down throw",
@@ -16798,7 +16772,7 @@
       },
       {
         "name": "Floor attack (front)",
-        "id": 23,
+        "id": 21,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16820,7 +16794,7 @@
       },
       {
         "name": "Floor attack (back)",
-        "id": 24,
+        "id": 22,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16842,7 +16816,7 @@
       },
       {
         "name": "Floor attack (trip)",
-        "id": 25,
+        "id": 23,
         "hitboxes": [
           {
             "name": "Hit 1",
@@ -16864,7 +16838,7 @@
       },
       {
         "name": "Edge attack",
-        "id": 26,
+        "id": 24,
         "hitboxes": [
           {
             "name": "Edge attack",
@@ -16878,7 +16852,7 @@
       },
       {
         "name": "Neutral special",
-        "id": 27,
+        "id": 25,
         "hitboxes": [
           {
             "name": "Neutral special",
@@ -16892,7 +16866,7 @@
       },
       {
         "name": "Side special",
-        "id": 28,
+        "id": 26,
         "hitboxes": [
           {
             "name": "Clean Hit",
@@ -16922,7 +16896,7 @@
       },
       {
         "name": "Up special",
-        "id": 29,
+        "id": 27,
         "hitboxes": [
           {
             "name": "Grounded - Multihits",
@@ -17016,14 +16990,14 @@
       },
       {
         "name": "Down special",
-        "id": 30,
+        "id": 28,
         "hitboxes": [
           null
         ]
       },
       {
         "name": "Final Smash",
-        "id": 31,
+        "id": 29,
         "hitboxes": [
           null
         ]

@@ -6,27 +6,9 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body onload="loadDoc()">
-    <h1>Spirit Compatibility Chart</h1>
-    <div style="position:relative">
-
-    </div>
-    <div style="position:relative">
-        <select id="sorting" onchange="generateChart(document.getElementById('chars').value, this.value)" class="middle_right">
-            <option value="false">Alphabetically</option>
-            <option value="true">Coverage</option>
-        </select>
-        <table id="table_compatibility" class="outline">
-            <tr>
-                <th>
-                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
-                    </select>
-                </th>
-            </tr>
-        </table>
-    </div>
+    <h1 class="white_text_black_outline">Spirit Compatibility Chart</h1>
     <div>
-        <h4>Key:</h4>
-        <table>
+        <table class="lg_background">
             <tr>
                 <td>
                     <label for="true">Does Effect:</label>
@@ -48,9 +30,28 @@
         </table>
     </div>
     <br />
-    <div>
-        <table class="outline">
-            <tr class="center">
+    <br />
+    <div style="position:relative">
+        <div class="middle_right">
+            <label for="sorting" class="white_text_black_outline">Sort: </label>
+            <select id="sorting" onchange="generateChart(document.getElementById('chars').value, this.value)">
+                <option value="false">Alphabetically</option>
+                <option value="true">Coverage</option>
+            </select>
+        </div>
+        <table id="table_compatibility" class="outline">
+            <tr class="alternating_colors_header">
+                <th class="outline">
+                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
+                    </select>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div class="center">
+        <table class="lg_background">
+            <tr>
                 <td>
                     Highest Move Coverage (Mixed effectiveness counts as half. Jabs, throws, and getup attacks are <b>not weighted</b>)
                 </td>
@@ -71,8 +72,18 @@
     </div>
     <br />
     <div class="center">
-        <a href="https://ssbwiki.com/">All data was sourced from ssbwiki.com</a>
-        <p>Find Something Wrong? Contact MiDe#9934 on discord or @MiDe_Shadowrift on twitter.</p>
+        <table class="lg_background">
+            <tr>
+                <td>
+                    <a href="https://ssbwiki.com/">All data was sourced from ssbwiki.com</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Find Something Wrong? Contact MiDe#9934 on discord or <a href="https://www.twitter.com/MiDe_Shadowrift">@MiDe_Shadowrift</a> on twitter.</p>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
