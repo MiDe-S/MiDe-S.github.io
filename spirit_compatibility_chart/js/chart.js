@@ -50,6 +50,7 @@ function addRow(row_data, table_id, header) {
         }
         col.classList.add("outline");
 
+        // Replaces words with smash icon pictures
         if (row_data[i] == "True") {
             let hover_text = document.createElement("a");
             hover_text.title = "Effective";
@@ -107,6 +108,12 @@ function addRow(row_data, table_id, header) {
     table.appendChild(row);
 }
 
+/**
+ * Takes a matrix representing a matrix and adds it to table_id
+ * 
+ * @param {Array} matrix representing the data needed to be added to the table
+ * @param {string} table_id id of table to add matrix too
+ */
 function addMatrix(matrix, table_id) {
     for (let i = 0; i < matrix.length; i++) {
         if (i == 0) {
@@ -118,6 +125,12 @@ function addMatrix(matrix, table_id) {
     }
 }
 
+/**
+ * Takes a given matrix and sorts it by sort_key
+ * 
+ * @param {any} matrix table of values to be sorted
+ * @param {Array} sort_key array of objects representing effects from connections.json The order of this is how matrix is sorted
+ */
 function sortByMoveCoverage(matrix, sort_key) {
     var sorting_matrix = [];
     // transpose matrix without touching 1st column
@@ -162,7 +175,12 @@ function sortByMoveCoverage(matrix, sort_key) {
     return matrix;
 }
 
-
+/**
+ * 
+ * 
+ * @param {number} char_id id of charcter to generate chart of
+ * @param {string} coverage whether to sort by coverage or not, "True" or "False"
+ */
 function generateChart(char_id, coverage) {
     clearTable("table_compatibility")
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
@@ -241,11 +259,12 @@ function generateChart(char_id, coverage) {
         table_matrix.push(row);
     }
 
-    moves_impacted.sort(function (a, b) {
-        return b.value - a.value;
-    });
-
+    // sorts effects by move coverage
     if (coverage == "true") {
+        moves_impacted.sort(function (a, b) {
+            return b.value - a.value;
+        });
+
         table_matrix = sortByMoveCoverage(table_matrix, moves_impacted);
     }
 

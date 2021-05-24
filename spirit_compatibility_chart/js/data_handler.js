@@ -1,3 +1,6 @@
+/**
+ * Prevents an attempt to generate table before all session variables are created
+ */
 function loadDocWrapper() {
     loadDoc();
     var wait = setInterval(function () {
@@ -142,6 +145,7 @@ function doesEffectApply(move, effect) {
                     prev_value = "False";
                 }
             }
+            // For Toss and Meteor
             else if (type_or_effect == "angle") {
                 if (!isNaN(move.hitboxes[i].angle) && ((60 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 120) || (241 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 300))) {
                     if (i != 0 && prev_value == "False") {
@@ -156,6 +160,7 @@ function doesEffectApply(move, effect) {
                     prev_value = "False";
                 }
             }
+            // For shooting attack up
             else if (type_or_effect == "direct") {
                 if (move.hitboxes[i][type_or_effect] == "True") {
                     if (i != 0 && prev_value == "True") {
