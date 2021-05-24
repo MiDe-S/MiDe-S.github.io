@@ -1376,7 +1376,7 @@
             "type": "Typeless",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Aerial - Hit 1",
@@ -25492,22 +25492,13 @@
             "direct": "True"
           },
           {
-            "name": "Mortar",
-            "damage": "0.0",
-            "angle": "Sakurai angle",
-            "type": "Typeless",
-            "effect": "Normal",
-            "id": 1,
-            "direct": "False"
-          },
-          {
             "name": "Mortar Explosion",
             "damage": "14.0",
             "angle": "65",
             "type": "Explosive",
             "effect": "Flame",
-            "id": 2,
-            "direct": "False"
+            "id": 1,
+            "direct": "True"
           }
         ]
       },
@@ -25904,7 +25895,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -25919,7 +25910,7 @@
             "type": "Explosive",
             "effect": "Flame",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -31207,15 +31198,7 @@
         "name": "Neutral special",
         "id": 24,
         "hitboxes": [
-          {
-            "name": "Windboxes",
-            "damage": "0.0",
-            "angle": "170",
-            "type": "Typeless",
-            "effect": "Normal",
-            "id": 0,
-            "direct": "True"
-          }
+          null
         ]
       },
       {
@@ -35632,7 +35615,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -35641,7 +35624,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -35656,7 +35639,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Mid Hit",
@@ -35665,7 +35648,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Off Ledge",
@@ -35674,7 +35657,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -35824,7 +35807,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -35833,7 +35816,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Latest Hit",
@@ -35842,7 +35825,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -35857,7 +35840,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -35866,7 +35849,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Latest Hit",
@@ -35875,7 +35858,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -36310,7 +36293,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Mid Lemon",
@@ -36319,7 +36302,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Lemon",
@@ -36328,7 +36311,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 3,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -36343,7 +36326,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Mid Lemon",
@@ -36352,7 +36335,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Lemon",
@@ -36361,7 +36344,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -36547,7 +36530,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Mid Lemon",
@@ -36556,7 +36539,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Lemon",
@@ -36565,7 +36548,7 @@
             "type": "Energy",
             "effect": "Normal",
             "id": 3,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -36646,7 +36629,7 @@
             "type": "Typeless",
             "effect": "Slash",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Hitbox (Late)",
@@ -36655,7 +36638,7 @@
             "type": "Typeless",
             "effect": "Slash",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Windbox (Early)",
@@ -36664,7 +36647,7 @@
             "type": "Typeless",
             "effect": "Slash",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Windbox (Late)",
@@ -36673,7 +36656,7 @@
             "type": "Typeless",
             "effect": "Slash",
             "id": 3,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -36688,7 +36671,7 @@
             "type": "Hand",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Clean Hit",
@@ -36697,7 +36680,7 @@
             "type": "Hand",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -54039,7 +54022,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -54048,7 +54031,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -54168,7 +54151,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -54177,7 +54160,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Latest Hit",
@@ -54186,7 +54169,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },
@@ -54201,7 +54184,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 0,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Late Hit",
@@ -54210,7 +54193,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 1,
-            "direct": "False"
+            "direct": "True"
           },
           {
             "name": "Latest Hit",
@@ -54219,7 +54202,7 @@
             "type": "Weapon",
             "effect": "Normal",
             "id": 2,
-            "direct": "False"
+            "direct": "True"
           }
         ]
       },

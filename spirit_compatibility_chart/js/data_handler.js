@@ -1,3 +1,14 @@
+function loadDocWrapper() {
+    loadDoc();
+    var wait = setInterval(function () {
+        if (JSON.parse(sessionStorage.getItem('connection_info')) != null && JSON.parse(sessionStorage.getItem('char_info')) != null) {
+            // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
+            generateChart(0, 'false');
+            clearInterval(wait);
+        }
+    }, 100); // check every 100ms
+}
+
 /**
  * Loads a document
  */
@@ -21,8 +32,6 @@ function loadDoc() {
 
             // Store object in memory so we don't have to read from it again
             sessionStorage.setItem('char_info', JSON.stringify(charater_info));
-            // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
-            generateChart(0, 'false');
         }
     };
     xhttp.open("GET", "../data/moves.json", true);
@@ -108,7 +117,6 @@ function replaceSelectWithArray(array, select_id_to_replace, group_bool) {
  * @returns {string} returns "True", "False", "Mixed", "Null" based on if it applies or not
  */
 function doesEffectApply(move, effect) {
-    debugger;
     if (move.hitboxes[0] == null || effect.type == null) {
         return "Null";
     }
