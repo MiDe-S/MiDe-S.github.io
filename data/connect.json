@@ -82,8 +82,8 @@
     },
     "38": {
       "name": "Shooting Attack \u2191",
-      "type": null,
-      "indicators": []
+      "type": "direct",
+      "indicators": [ null ]
     },
     "43": {
       "name": "Strong Throw",

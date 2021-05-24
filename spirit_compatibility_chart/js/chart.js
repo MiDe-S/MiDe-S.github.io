@@ -168,7 +168,7 @@ function generateChart(char_id, coverage) {
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
     var connection_info = JSON.parse(sessionStorage.getItem('connection_info'));
     // No point in having both magic up and magic resist, these are the only id's we want
-    var notable_ids = ["4", "15", "18", "21", "23", "24", "28", "33", "34", "43", "45", "52", "55", "38"];
+    var notable_ids = ["4", "15", "18", "21", "23", "24", "28", "33", "34", "38", "43", "45", "52", "55"];
 
     var table_matrix = [];
 

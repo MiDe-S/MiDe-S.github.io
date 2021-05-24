@@ -108,10 +108,11 @@ function replaceSelectWithArray(array, select_id_to_replace, group_bool) {
  * @returns {string} returns "True", "False", "Mixed", "Null" based on if it applies or not
  */
 function doesEffectApply(move, effect) {
+    debugger;
     if (move.hitboxes[0] == null || effect.type == null) {
         return "Null";
     }
-
+    
     var type_or_effect = effect.type;
 
     // If value is different from previous value, loop can end early with mixed
@@ -119,8 +120,8 @@ function doesEffectApply(move, effect) {
 
     for (let j = 0; j < effect.indicators.length; j++) {
         for (let i = 0; i < move.hitboxes.length; i++) {
-            if (type_or_effect != "angle") {
-                if (move.hitboxes[i][type_or_effect] == effect.indicators[j] + ' (' + type_or_effect + ')') {
+            if (type_or_effect == "type" || type_or_effect == "effect") {
+                if (move.hitboxes[i][type_or_effect] == effect.indicators[j]) {
                     if (i != 0 && prev_value == "False") {
                         return "Mixed";
                     }
@@ -133,7 +134,7 @@ function doesEffectApply(move, effect) {
                     prev_value = "False";
                 }
             }
-            else {
+            else if (type_or_effect == "angle") {
                 if (!isNaN(move.hitboxes[i].angle) && ((60 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 120) || (241 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 300))) {
                     if (i != 0 && prev_value == "False") {
                         return "Mixed";
@@ -145,6 +146,20 @@ function doesEffectApply(move, effect) {
                         return "Mixed";
                     }
                     prev_value = "False";
+                }
+            }
+            else if (type_or_effect == "direct") {
+                if (move.hitboxes[i][type_or_effect] == "True") {
+                    if (i != 0 && prev_value == "True") {
+                        return "Mixed";
+                    }
+                    prev_value = "False";
+                }
+                else {
+                    if (i != 0 && prev_value == "False") {
+                        return "Mixed";
+                    }
+                    prev_value = "True";
                 }
             }
         }
