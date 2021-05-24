@@ -50686,7 +50686,15 @@
         "name": "Side special",
         "id": 26,
         "hitboxes": [
-          null
+          {
+            "name": null,
+            "damage": null,
+            "angle": "0",
+            "type": "Weapon",
+            "effect": "Ink",
+            "id": 0,
+            "direct": "True"
+          }
         ]
       },
       {
@@ -50717,14 +50725,30 @@
         "name": "Down special",
         "id": 28,
         "hitboxes": [
-          null
+          {
+            "name": null,
+            "damage": null,
+            "angle": "0",
+            "type": "Typeless",
+            "effect": "Ink",
+            "id": 0,
+            "direct": "False"
+          }
         ]
       },
       {
         "name": "Final Smash",
         "id": 29,
         "hitboxes": [
-          null
+          {
+            "name": null,
+            "damage": null,
+            "angle": "0",
+            "type": "Typeless",
+            "effect": "Ink",
+            "id": 0,
+            "direct": "True"
+          }
         ]
       }
     ]

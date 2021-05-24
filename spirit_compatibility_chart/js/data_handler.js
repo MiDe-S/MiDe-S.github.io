@@ -147,6 +147,9 @@ function doesEffectApply(move, effect) {
             }
             // For Toss and Meteor
             else if (type_or_effect == "angle") {
+                if (move.hitboxes[i].angle == null) {
+                    return "Null"
+                }
                 if (!isNaN(move.hitboxes[i].angle) && ((60 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 120) || (241 <= parseFloat(move.hitboxes[i].angle) && parseFloat(move.hitboxes[i].angle) <= 300))) {
                     if (i != 0 && prev_value == "False") {
                         return "Mixed";
