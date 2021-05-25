@@ -259,12 +259,14 @@ function generateChart(char_id, coverage) {
         table_matrix.push(row);
     }
 
+    // sorts list for moves impacted list
+    moves_impacted.sort(function (a, b) {
+        return b.value - a.value;
+    });
+
+
     // sorts effects by move coverage
     if (coverage == "true") {
-        moves_impacted.sort(function (a, b) {
-            return b.value - a.value;
-        });
-
         table_matrix = sortByMoveCoverage(table_matrix, moves_impacted);
     }
 
