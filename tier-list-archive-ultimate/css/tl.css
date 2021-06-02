@@ -1,6 +1,8 @@
 img {
-    width: 35%;
-    height: auto;
+    height: 95vh;
+    width: auto;
+    min-height: 23px;
+    min-width: 136px;
 }
 
 select {
