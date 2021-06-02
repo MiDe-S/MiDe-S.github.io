@@ -1,11 +1,20 @@
+/* for mobile */
 img {
-    height: 95vh;
-    width: auto;
-    min-height: 23px;
-    min-width: 136px;
+    width: 55vh;
+    height: auto;
 }
 
 select {
     display: block;
     margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    img {
+        height: 95vh;
+        width: auto;
+        min-height: 23px;
+        min-width: 136px;
+    }
 }
