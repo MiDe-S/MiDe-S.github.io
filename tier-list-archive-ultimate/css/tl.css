@@ -1,0 +1,9 @@
+img {
+    width: 35%;
+    height: auto;
+}
+
+select {
+    display: block;
+    margin: 0 auto;
+}

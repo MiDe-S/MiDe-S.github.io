@@ -1,0 +1,21 @@
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+td, th {
+    text-align: center;
+}
+
+.outline {
+    border: 1px solid black;
+}
+
+label, tr {
+    font-size: large;
+}

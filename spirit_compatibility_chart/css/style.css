@@ -1,10 +1,4 @@
-.outline {
-    border: 1px solid black;
-}
 
-td, th {
-    text-align: center;
-}
 
 tr.alternating_colors_header {
     background: #96c993;
@@ -29,12 +23,6 @@ table {
     right: 10%;
 }
 
-img.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .white_text_black_outline {
     text-align: center;
     color: #fff;
@@ -52,10 +40,6 @@ body {
     background-attachment: fixed;
 }
 
-.white_background {
-    background: #FFF;
-}
-
 .center {
     text-align: center;
 }
@@ -64,10 +48,3 @@ body {
     background: #d7f5d5;
 }
 
-label, tr {
-    font-size: large;
-}
-
-h1 {
-    font-size: xx-large;
-}

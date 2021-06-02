@@ -1,0 +1,155 @@
+[
+  {
+    "name": "AFC",
+    "lists": []
+  },
+  {
+    "name": "CTL",
+    "lists": [
+      {
+        "filepath": "CTL/Prototype.png",
+        "meta": "Vanilla",
+        "date": "Unknown"
+      },
+      {
+        "filepath": "CTL/4-18-2020.png",
+        "meta": "Vanilla",
+        "date": "4-18-2020"
+      },
+      {
+        "filepath": "CTL/5 or 6-Unknown-2020.png",
+        "meta": "Vanilla",
+        "date": "5 or 6-Unknown-2020"
+      },
+      {
+        "filepath": "CTL/7-1-2020.png",
+        "meta": "Vanilla",
+        "date": "7-1-2020"
+      },
+      {
+        "filepath": "CTL/8-2-2020.png",
+        "meta": "Vanilla",
+        "date": "8-2-2020"
+      },
+      {
+        "filepath": "CTL/9-16-2020.png",
+        "meta": "Vanilla",
+        "date": "9-16-2020"
+      },
+      {
+        "filepath": "CTL/11-4-2020.png",
+        "meta": "Vanilla",
+        "date": "11-4-2020"
+      },
+      {
+        "filepath": "CTL/1-14-2021.png",
+        "meta": "Vanilla",
+        "date": "1-14-2021"
+      },
+      {
+        "filepath": "CTL/2-17-2021.png",
+        "meta": "Vanilla",
+        "date": "2-17-2021"
+      },
+      {
+        "filepath": "CTL/4-24-2021.png",
+        "meta": "Vanilla",
+        "date": "4-24-2021"
+      }
+    ]
+  },
+  {
+    "name": "Exion",
+    "lists": [
+      {
+        "filepath": "Exion/5-30-2019.png",
+        "meta": "Vanilla",
+        "date": "5-30-2019"
+      },
+      {
+        "filepath": "Exion/6-25-2019.png",
+        "meta": "Vanilla",
+        "date": "6-25-2019"
+      },
+      {
+        "filepath": "Exion/8-8-2019.png",
+        "meta": "Vanilla",
+        "date": "8-8-2019"
+      },
+      {
+        "filepath": "Exion/10-11-2020.png",
+        "meta": "Vanilla",
+        "date": "10-11-2020"
+      },
+      {
+        "filepath": "Exion/2-3-2020.png",
+        "meta": "Vanilla",
+        "date": "2-3-2020"
+      },
+      {
+        "filepath": "Exion/5-13-2020.png",
+        "meta": "Vanilla",
+        "date": "5-13-2020"
+      },
+      {
+        "filepath": "Exion/12-8-2020.png",
+        "meta": "Vanilla",
+        "date": "12-8-2020"
+      },
+      {
+        "filepath": "Exion/1-17-2021.png",
+        "meta": "Vanilla",
+        "date": "1-17-2021"
+      },
+      {
+        "filepath": "Exion/2-11-2021.png",
+        "meta": "Vanilla",
+        "date": "2-11-2021"
+      },
+      {
+        "filepath": "Exion/5-16-2021.png",
+        "meta": "Vanilla",
+        "date": "5-16-2021"
+      }
+    ]
+  },
+  {
+    "name": "Japan",
+    "lists": [
+      {
+        "filepath": "Japan/Unknown.png",
+        "meta": "Unknown",
+        "date": "Unknown"
+      },
+      {
+        "filepath": "Japan/Unknown-2.PNG",
+        "meta": "Unknown",
+        "date": "Unknown-2"
+      }
+    ]
+  },
+  {
+    "name": "SAM",
+    "lists": []
+  },
+  {
+    "name": "SUAL",
+    "lists": [
+      {
+        "filepath": "SUAL/7-7-2020.png",
+        "meta": "Vanilla",
+        "date": "7-7-2020"
+      },
+      {
+        "filepath": "SUAL/9-24-2020.png",
+        "meta": "Vanilla",
+        "date": "9-24-2020"
+      },
+      {
+        "filepath": "SUAL/5-15-2021.png",
+        "meta": "Vanilla",
+        "date": "5-15-2021"
+      }
+    ]
+  }
+]
