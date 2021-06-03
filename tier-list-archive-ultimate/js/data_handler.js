@@ -24,8 +24,10 @@ function loadDoc() {
             // Get all names in obj to make select list from
             var tier_lists = [];
             for (var index = 0; index < tier_list_info.length; index++) {
-                tier_lists.push(tier_list_info[index].name);
-                tier_lists.push(tier_list_names(tier_list_info[index].lists));
+                if (tier_list_info[index].lists.length) {
+                    tier_lists.push(tier_list_info[index].name);
+                    tier_lists.push(tier_list_names(tier_list_info[index].lists));
+                }
             }
             replaceSelectWithArray(tier_lists, tier_list_select_id, true);
         }

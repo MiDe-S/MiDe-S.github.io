@@ -23,3 +23,13 @@ label, tr {
 select {
     font-size: large;
 }
+
+.center {
+    text-align: center;
+}
+
+.white_text_black_outline {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}

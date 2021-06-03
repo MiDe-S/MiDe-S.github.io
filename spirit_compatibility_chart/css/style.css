@@ -21,12 +21,6 @@ table {
     right: 10%;
 }
 
-.white_text_black_outline {
-    text-align: center;
-    color: #fff;
-    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
-}
-
 select {
     border: 3px solid #198013;
     font-size: medium;
@@ -36,10 +30,6 @@ body {
     background-image: url("../img/background.png");
     background-size: cover;
     background-attachment: fixed;
-}
-
-.center {
-    text-align: center;
 }
 
 .lg_background {
