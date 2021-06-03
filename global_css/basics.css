@@ -19,3 +19,7 @@ td, th {
 label, tr {
     font-size: large;
 }
+
+select {
+    font-size: large;
+}
