@@ -26,12 +26,6 @@ select {
     font-size: medium;
 }
 
-body {
-    background-image: url("../img/background.png");
-    background-size: cover;
-    background-attachment: fixed;
-}
-
 .lg_background {
     background: #d7f5d5;
 }

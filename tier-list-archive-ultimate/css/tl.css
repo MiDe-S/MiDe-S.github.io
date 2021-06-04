@@ -2,6 +2,22 @@
 img {
     width: 55vh;
     height: auto;
+    outline: 3px solid black;
+    outline-offset: -3px;
+}
+
+div.main {
+    background-color: gray;
+    display: inline-block;
+    padding: 10px;
+}
+
+div.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 473px;
+    min-width: 186px;
 }
 
 select {
@@ -9,12 +25,19 @@ select {
     margin: 0 auto;
 }
 
+div.title {
+    width: 15%;
+    margin: auto;
+    padding-bottom: 8px;
+    min-width: 240px;
+}
+
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     img {
         height: 95vh;
         width: auto;
-        min-height: 23px;
+        min-height: 423px;
         min-width: 136px;
     }
 }

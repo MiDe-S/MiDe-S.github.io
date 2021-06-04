@@ -13,12 +13,17 @@
     </title>
 </head>
 <body onload="loadDoc()">
-    <div class="center">
-        <h1 class="white_text_black_outline">Tier List Archive</h1>
+    <div class="parent">
+        <div class="main outline">
+            <div class="center title">
+                <h1 class="white_text_black_outline">Smash Ultimate Tier List Archive</h1>
+                <select id="tier_select" onchange="changeTierList(this.value)">
+                </select>
+            </div>
+            <br />
+            <img class="center" id="tier_img" />
+        </div>
     </div>
-    <select id="tier_select" onchange="changeTierList(this.value)">
-    </select>
-    <br />
-    <img class="center" id="tier_img"/>
+    
 </body>
 </html>

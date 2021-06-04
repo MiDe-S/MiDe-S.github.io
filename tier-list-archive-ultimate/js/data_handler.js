@@ -2,7 +2,6 @@ function loadDoc() {
     function tier_list_names(tier_obj_array) {
         var output = [];
         for (var i = 0; i < tier_obj_array.length; i++) {
-            //console.log(tier_obj_array[i].date + ' (' + tier_obj_array[i].meta + ')');
             output.push({
                 "name": tier_obj_array[i].date + ' (' + tier_obj_array[i].meta + ')',
                 "value": tier_obj_array[i].filepath
@@ -30,6 +29,18 @@ function loadDoc() {
                 }
             }
             replaceSelectWithArray(tier_lists, tier_list_select_id, true);
+
+            // Default list is most recent CTL
+            // code from https://stackoverflow.com/questions/7373058/changing-the-selected-option-of-an-html-select-element
+            var val = tier_list_info[1]["lists"][tier_list_info[1]["lists"].length - 1].filepath;
+            var opts = document.getElementById(tier_list_select_id).options;
+            for (var opt, j = 0; opt = opts[j]; j++) {
+                if (opt.value == val) {
+                    document.getElementById(tier_list_select_id).selectedIndex = j;
+                    break;
+                }
+            }
+            changeTierList(val);
         }
     };
     xhttp.open("GET", "tier_list_metadata.json", true);
