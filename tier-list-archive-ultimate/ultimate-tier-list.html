@@ -6,6 +6,7 @@
     <meta name="description" content="Archive of the various amiibo tier lists in created in smash ultimate.">
     <script src="js/data_handler.js"></script>
     <script src="../global_js/select_boxes.js"></script>
+    <script src="../global_js/side_bar.js"></script>
     <link href="../global_css/basics.css" rel="stylesheet">
     <link href="css/tl.css" rel="stylesheet">
     <title>
@@ -13,6 +14,11 @@
     </title>
 </head>
 <body onload="loadDoc()">
+    <div id="mySidebar" class="sidebar">
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
     <div class="parent">
         <div class="main outline">
             <div class="center title">
@@ -21,9 +27,9 @@
                 </select>
             </div>
             <br />
-            <img class="center" id="tier_img" alt="Smash Ultimate Amiibo Tier List"/>
+            <img class="center" id="tier_img" alt="Smash Ultimate Amiibo Tier List" />
         </div>
     </div>
-    
+
 </body>
 </html>

@@ -39,3 +39,78 @@ body {
     background-image: url("../background.jpg");
     background-attachment: fixed;
 }
+
+/* 
+    From https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapse_sidebar 
+    Modified by me
+*/
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    text-align: center;
+}
+
+    .sidebar a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #c1c1c1;
+        display: block;
+        transition: 0.3s;
+        min-width: 250px; /* Makes content static during transition */
+    }
+
+    .sidebar h1 {
+        padding-top: 8px;
+        display: block;
+        transition: 0.3s;
+        min-width: 250px; /* Makes content static during transition */
+    }
+
+    .sidebar a.current_page {
+        color: #818181;
+    }
+
+    .sidebar hr {
+        margin-bottom: 16px;
+    }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+}

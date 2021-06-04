@@ -10,6 +10,9 @@ function loadDocWrapper() {
             clearInterval(wait);
         }
     }, 100); // check every 100ms
+
+    // Needed to load side bar
+    loadSideBar();
 }
 
 /**

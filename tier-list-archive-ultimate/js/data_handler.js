@@ -1,4 +1,7 @@
 function loadDoc() {
+    // Needed to load side bar
+    loadSideBar();
+
     function tier_list_names(tier_obj_array) {
         var output = [];
         for (var i = 0; i < tier_obj_array.length; i++) {
@@ -49,6 +52,5 @@ function loadDoc() {
 }
 
 function changeTierList(filepath) {
-    console.log(document.getElementById('tier_select').value);
     document.getElementById('tier_img').src = 'tier_lists/' + filepath;
 }
