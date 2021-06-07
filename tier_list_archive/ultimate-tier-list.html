@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Archive of the various amiibo tier lists in created in smash ultimate.">
+    <meta name="description" content="Archive of the various amiibo tier lists in created in Smash Ultimate.">
     <script src="js/data_handler.js"></script>
     <script src="../global_js/select_boxes.js"></script>
     <script src="../global_js/side_bar.js"></script>
     <link href="../global_css/basics.css" rel="stylesheet">
     <link href="css/tl.css" rel="stylesheet">
     <title>
-        Amiibo Tier List Archive
+        Amiibo Tier List Archive - Ultimate
     </title>
 </head>
-<body onload="loadDoc()">
+<body onload="loadDoc('ultimate_metadata.json', 'Ultimate/')">
     <div id="mySidebar" class="sidebar">
     </div>
     <div id="main">
@@ -23,7 +23,7 @@
         <div class="main outline">
             <div class="center title">
                 <h1 class="white_text_black_outline">Smash Ultimate Tier List Archive</h1>
-                <select id="tier_select" onchange="changeTierList(this.value)">
+                <select id="tier_select" onchange="changeTierList(this.value, 'Ultimate/')">
                 </select>
             </div>
             <br />

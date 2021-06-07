@@ -1,4 +1,4 @@
-function loadDoc() {
+function loadDoc(metadata_file, prefix) {
     // Needed to load side bar
     loadSideBar();
 
@@ -21,7 +21,7 @@ function loadDoc() {
             // Get data from file into js object
             var tier_list_info = JSON.parse(this.responseText);
 
-            document.getElementById('tier_img').src = 'Ultimate/' + tier_list_info[1]["lists"][0]['filepath'];
+            document.getElementById('tier_img').src = prefix + tier_list_info[1]["lists"][0]['filepath'];
 
             // Get all names in obj to make select list from
             var tier_lists = [];
@@ -43,14 +43,14 @@ function loadDoc() {
                     break;
                 }
             }
-            changeTierList(val);
+            changeTierList(val, prefix);
         }
     };
-    xhttp.open("GET", "ultimate_metadata.json", true);
+    xhttp.open("GET", metadata_file, true);
     xhttp.send();
 
 }
 
-function changeTierList(filepath) {
-    document.getElementById('tier_img').src = 'Ultimate/' + filepath;
+function changeTierList(filepath, prefix) {
+    document.getElementById('tier_img').src = prefix + filepath;
 }
