@@ -48,7 +48,7 @@ body {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 1; /* Puts this on top of page */
     top: 0;
     left: 0;
     background-color: #111;
@@ -56,6 +56,37 @@ body {
     transition: 0.5s;
     text-align: center;
 }
+    .sidebar .submenu {
+        height: 0;
+        width: 100%;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        overflow: hidden; /* Hides Scroll bar*/
+        transition: 0.25s;
+        text-align: center;
+    }
+
+    .sidebar .unbutton {
+        /* https://stackoverflow.com/questions/1367409/how-to-make-button-look-like-a-link */
+        background: none !important;
+        border: none;
+        cursor: pointer;
+
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #c1c1c1;
+        display: block;
+        transition: 0.3s;
+        min-width: 250px; /* Makes content static during transition */
+    }
+        .sidebar .unbutton:hover {
+            color: #f1f1f1;
+        }
 
     .sidebar a {
         padding-top: 8px;
@@ -79,13 +110,13 @@ body {
         color: #818181;
     }
 
-    .sidebar hr {
-        margin-bottom: 16px;
-    }
-
         .sidebar a:hover {
             color: #f1f1f1;
         }
+
+    .sidebar hr {
+        margin-bottom: 16px;
+    }
 
     .sidebar .closebtn {
         position: absolute;

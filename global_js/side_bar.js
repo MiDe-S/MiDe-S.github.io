@@ -48,6 +48,18 @@ function loadSideBar() {
             side_bar.appendChild(link);
         }
         else {
+            // adds submenu title
+            let button = document.createElement("button");
+            button.setAttribute('name', links[i].name);
+            button.setAttribute('onclick', "toggleSubMenu(this.name)");
+            button.classList.add('unbutton');
+            button.appendChild(document.createTextNode(links[i].name));
+            side_bar.appendChild(button);
+
+            // adds submenu
+            let submenu = document.createElement("div");
+            submenu.classList.add("submenu");
+            submenu.setAttribute('id', links[i].name);
             for (let j = 0; j < links[i].sublinks.length; j++) {
                 let link = document.createElement("a");
                 link.href = links[i].sublinks[j].href;
@@ -56,8 +68,9 @@ function loadSideBar() {
                     link.classList.add("current_page");
                 }
                 link.appendChild(document.createTextNode(links[i].sublinks[j].name));
-                side_bar.appendChild(link);
+                submenu.appendChild(link);
             }
+            side_bar.appendChild(submenu);
         }
     }
 
@@ -80,3 +93,13 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
     document.getElementById("nav_button").style.opacity = '.35';
 }
+
+function toggleSubMenu(id) {
+    if (document.getElementById(id).style.height == "250px") {
+        document.getElementById(id).style.height = "0";
+    }
+    else {
+        document.getElementById(id).style.height = "250px";
+    }
+}
+
