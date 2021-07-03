@@ -40,6 +40,14 @@ body {
     background-attachment: fixed;
 }
 
+/*
+    Copied from https://www.ssbwiki.com/ CSS
+*/
+.explain[title] {
+    text-decoration: none;
+    border-bottom: 2px dotted;
+}
+
 /* 
     From https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapse_sidebar 
     Modified by me

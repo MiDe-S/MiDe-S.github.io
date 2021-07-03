@@ -99,8 +99,23 @@ function addRow(row_data, table_id, header) {
             hover_text.appendChild(img);
             col.appendChild(hover_text);
         }
+        // So total has "explain" value on it
+        else if (row_data[i] == "Total") {
+            let explain = document.createElement("span");
+            explain.classList.add("explain");
+            explain.title = "Mixed effectiveness counts as half; Jabs, throws, and getup attacks are weighted";
+            explain.appendChild(document.createTextNode("Total"));
+
+            col.appendChild(explain);
+        }
         else {
-            col.appendChild(document.createTextNode(row_data[i]));
+            // adds percents to totals
+            if (row_data[0] == "Total") {
+                col.appendChild(document.createTextNode(row_data[i] + '%'));
+            }
+            else {
+                col.appendChild(document.createTextNode(row_data[i]));
+            }
         }
         row.appendChild(col);
     }
@@ -126,12 +141,12 @@ function addMatrix(matrix, table_id) {
 }
 
 /**
- * Takes a given matrix and sorts it by sort_key
+ * Takes a given matrix and sorts it by the last row
  * 
  * @param {any} matrix table of values to be sorted
- * @param {Array} sort_key array of objects representing effects from connections.json The order of this is how matrix is sorted
+ * @param {number} row_index index of row to sort by
  */
-function sortByMoveCoverage(matrix, sort_key) {
+function sortByRow(matrix, row_index) {
     var sorting_matrix = [];
     // transpose matrix without touching 1st column
     for (let j = 1; j < matrix[1].length; j++) {
@@ -148,17 +163,16 @@ function sortByMoveCoverage(matrix, sort_key) {
         sorting_matrix.push(new_row);
     }
 
-    // swap sort rows based on order of IDs in sort_key
-    console.log(sorting_matrix.length, sort_key.length);
-    for (let i = 0; i < sort_key.length; i++) {
-        for (let j = 0; j < sorting_matrix.length; j++) {
-            if (sorting_matrix[j][0] == sort_key[i].name) {
-                let temp_switch = sorting_matrix[i];
-                sorting_matrix[i] = sorting_matrix[j];
-                sorting_matrix[j] = temp_switch;
-            }
+    // sort rows based on given row_index
+    sorting_matrix.sort(function (x, y) {
+        if (x[row_index] < y[row_index]) {
+            return 1;
         }
-    }
+        if (x[row_index] > y[row_index]) {
+            return -1;
+        }
+        return 0;
+    })
     
     // tranpose matrix again so it is facing correct direction
     for (let i = 0; i < sorting_matrix.length; i++) {
@@ -182,99 +196,15 @@ function sortByMoveCoverage(matrix, sort_key) {
  * @param {string} coverage whether to sort by coverage or not, "True" or "False"
  */
 function generateChart(char_id, coverage) {
-    clearTable("table_compatibility")
-    var char_info = JSON.parse(sessionStorage.getItem('char_info'));
-    var connection_info = JSON.parse(sessionStorage.getItem('connection_info'));
-    // No point in having both magic up and magic resist, these are the only id's we want
-    var notable_ids = ["4", "15", "18", "21", "23", "24", "28", "33", "34", "38", "43", "45", "52", "55"];
-
-    var table_matrix = [];
-
-    // Used to calculate which effects are most effective
-    var moves_impacted = [];
-
-    // Does header row, removes extra words from header names
-    var header = [];
-    for (let i = 0; i < notable_ids.length; i++) {
-        let name = connection_info["SEARCH"][notable_ids[i]].name;
-        name = name.replace(/ \u2191/i, "");
-        name = name.replace(/ Attack/i, "");
-        header.push(name);
-        moves_impacted.push({ "id": notable_ids[i], "value": 0 , "name": name})
-    }
-    table_matrix.push(header);
-
-
-    var move_counter = 3;
-    for (let i = 0; i < char_info[char_id].moves.length; i++) {
-        // Starts at 3 to account for weighted moves
-        let row = [char_info[char_id].moves[i].name];
-
-        // Starts counting moves, ignores moves weighted as 1
-        if (row[0].slice(0, 12) != "Floor attack" && row[0] != "Edge attack" && row[0].slice(0, 14) != "Neutral attack" && row[0].slice(-5) != "throw" && row[0] != "Pummel") {
-            move_counter += 1;
-        }
-
-        for (let j = 0; j < notable_ids.length; j++) {
-            let applies = doesEffectApply(char_info[char_id].moves[i], connection_info["SEARCH"][notable_ids[j]])
-            row.push(applies);
-
-            if (applies == "Null" || applies == "False") {
-                var value_addon = 0;
-            }
-            else if (applies == "True") {
-                var value_addon = 1;
-            }
-            else if (applies == "Mixed") {
-                var value_addon = 0.5;
-            }
-
-            // Weighs multi-part moves to count as one move
-            if (row[0].slice(0, 12) == "Floor attack" || row[0] == "Edge attack") {
-                value_addon = value_addon * 0.25;
-            }
-            else if (row[0].slice(-5) == "throw" || row[0] == "Pummel") {
-                value_addon = value_addon * 0.20;
-            }
-            else if (row[0].slice(-5) == "Hit 1" || row[0].slice(-5) == "Hit 2") {
-                value_addon = value_addon * 0.50;
-            }
-            else if (row[0].slice(-5) == "Hit 3") {
-                moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.6666; // re-weigh options 
-                value_addon = value_addon * 0.33333;
-            }
-            else if (row[0].slice(-8) == "Infinite") {
-                if (char_info[char_id].moves[i - 1].name.slice(-5) == "Hit 2") {
-                    moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.6666; // re-weigh options 
-                    value_addon = value_addon * 0.33333;
-                }
-                else if (char_info[char_id].moves[i - 1].name.slice(-5) == "Hit 3") {
-                    moves_impacted[j]["value"] = moves_impacted[j]["value"] * 0.75; // re-weigh options 
-                    value_addon = value_addon * 0.33333;
-                }
-            }
-            moves_impacted[j]["value"] += value_addon;
-
-        }
-        table_matrix.push(row);
-    }
-
-    // sorts list for moves impacted list
-    moves_impacted.sort(function (a, b) {
-        return b.value - a.value;
-    });
-
-
-    // sorts effects by move coverage
+    clearTable("table_compatibility");
+    var compatibility_info = JSON.parse(sessionStorage.getItem('compatibility_info'));
+    var matrix;
     if (coverage == "true") {
-        table_matrix = sortByMoveCoverage(table_matrix, moves_impacted);
+        matrix = sortByRow(compatibility_info[parseInt(char_id)].compatibility_matrix, compatibility_info[parseInt(char_id)].compatibility_matrix.length - 1);
+    }
+    else {
+        matrix = compatibility_info[parseInt(char_id)].compatibility_matrix;
     }
 
-
-    addMatrix(table_matrix, "table_compatibility");
-
-
-    document.getElementById("first").innerHTML = connection_info["SEARCH"][moves_impacted[0]["id"]]["name"] + " " + Math.round(moves_impacted[0]["value"] / move_counter * 1000) / 10 + "%";
-    document.getElementById("second").innerHTML = connection_info["SEARCH"][moves_impacted[1]["id"]]["name"] + " " +  Math.round(moves_impacted[1]["value"] / move_counter * 1000) / 10 + "%";
-    document.getElementById("third").innerHTML = connection_info["SEARCH"][moves_impacted[2]["id"]]["name"] + " " + Math.round(moves_impacted[2]["value"] / move_counter * 1000) / 10 + "%";
+    addMatrix(matrix, 'table_compatibility');
 }
