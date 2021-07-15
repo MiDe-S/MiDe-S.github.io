@@ -28,7 +28,7 @@ function loadSideBar() {
 
     // adds header to nav
     var title = document.createElement("h1");
-    title.appendChild(document.createTextNode("Amiiki"));
+    title.appendChild(document.createTextNode("Amiichives"));
     title.classList.add("white_text_black_outline");
     side_bar.appendChild(title);
 

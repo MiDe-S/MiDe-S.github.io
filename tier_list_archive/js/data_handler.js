@@ -33,9 +33,21 @@ function loadDoc(metadata_file, prefix) {
             }
             replaceSelectWithArray(tier_lists, tier_list_select_id, true);
 
-            // Default list is most recent CTL
+
+            // either load default or load specified addition
+            let url = new URL(window.location.href);
+            if (url.search == "") {
+                // default option is most recent CTL
+                var val = tier_list_info[1]["lists"][tier_list_info[1]["lists"].length - 1].filepath;
+            }
+            else {
+                let params = url.searchParams;
+                var val = params.get('list');
+            }
+            changeTierList(val, prefix);
+
+            // Sets default item in option box
             // code from https://stackoverflow.com/questions/7373058/changing-the-selected-option-of-an-html-select-element
-            var val = tier_list_info[1]["lists"][tier_list_info[1]["lists"].length - 1].filepath;
             var opts = document.getElementById(tier_list_select_id).options;
             for (var opt, j = 0; opt = opts[j]; j++) {
                 if (opt.value == val) {
@@ -43,14 +55,22 @@ function loadDoc(metadata_file, prefix) {
                     break;
                 }
             }
-            changeTierList(val, prefix);
         }
     };
     xhttp.open("GET", metadata_file, true);
     xhttp.send();
-
 }
 
 function changeTierList(filepath, prefix) {
     document.getElementById('tier_img').src = prefix + filepath;
+
+    let url = new URL(window.location.href);
+    if (url.search == "") {
+        url.searchParams.append('list', filepath);
+        window.location.href = url;
+    }
+    else if (url.searchParams.get('list') != filepath) {
+        url.searchParams.set('list', filepath);
+        window.location.href = url;
+    }
 }
