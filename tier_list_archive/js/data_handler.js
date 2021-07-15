@@ -64,13 +64,14 @@ function loadDoc(metadata_file, prefix) {
 function changeTierList(filepath, prefix) {
     document.getElementById('tier_img').src = prefix + filepath;
 
+    // Sets URL to selected tier list
     let url = new URL(window.location.href);
     if (url.search == "") {
         url.searchParams.append('list', filepath);
-        window.location.href = url;
+        window.history.replaceState(filepath, 'Tier List', url);
     }
     else if (url.searchParams.get('list') != filepath) {
         url.searchParams.set('list', filepath);
-        window.location.href = url;
+        window.history.replaceState(filepath, 'Tier List', url);
     }
 }

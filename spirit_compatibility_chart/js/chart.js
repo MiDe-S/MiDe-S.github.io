@@ -207,4 +207,17 @@ function generateChart(char_id, coverage) {
     }
 
     addMatrix(matrix, 'table_compatibility');
+
+    // Sets URL to selected chart
+    let url = new URL(window.location.href);
+    if (url.search == "") {
+        url.searchParams.append('char', char_id);
+
+        window.history.replaceState(char_id, 'Tier List', url);
+    }
+    else if (url.searchParams.get('char') != char_id) {
+        url.searchParams.set('char', char_id);
+
+        window.history.replaceState(char_id, 'Tier List', url);
+    }
 }

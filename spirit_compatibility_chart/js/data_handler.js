@@ -5,8 +5,29 @@ function loadDocWrapper() {
     loadDoc();
     var wait = setInterval(function () {
         if (JSON.parse(sessionStorage.getItem('compatibility_info')) != null) {
-            // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
-            generateChart(0, 'false');
+
+            let url = new URL(window.location.href);
+            if (url.search == "") {
+                // If this goes in xhttp_2 or outside of both generateChart gets called before either are done for some reason
+                generateChart(0, 'false');
+            }
+            else {
+                let params = url.searchParams;
+                let val = params.get('char');
+
+                // Sets default item in option box
+                // code from https://stackoverflow.com/questions/7373058/changing-the-selected-option-of-an-html-select-element
+                var opts = document.getElementById('chars').options;
+                for (var opt, j = 0; opt = opts[j]; j++) {
+                    if (opt.value == val) {
+                        document.getElementById('chars').selectedIndex = j;
+                        break;
+                    }
+                }
+
+                generateChart(val, 'false');
+            }
+
             clearInterval(wait);
         }
     }, 100); // check every 100ms
