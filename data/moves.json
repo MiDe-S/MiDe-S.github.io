@@ -66500,7 +66500,7 @@
             "angle": "55",
             "type": "Energy",
             "effect": "Electric",
-            "direct": "False",
+            "direct": "True",
             "id": 0
           },
           {
