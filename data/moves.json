@@ -65854,5 +65854,1101 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Kazuya",
+    "id": 87,
+    "moves": [
+      {
+        "name": "Neutral attack 3",
+        "id": 0,
+        "hitboxes": [
+          {
+            "name": "Hitboxes",
+            "damage": "9.0",
+            "angle": "43",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Neutral attack 10",
+        "id": 1,
+        "hitboxes": [
+          {
+            "name": "Neutral attack 10",
+            "damage": "12.0",
+            "angle": "53",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Forward tilt",
+        "id": 2,
+        "hitboxes": [
+          {
+            "name": "Forward tilt",
+            "damage": "14.5",
+            "angle": "20",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Back tilt",
+        "id": 3,
+        "hitboxes": [
+          {
+            "name": "Back tilt",
+            "damage": "15.0",
+            "angle": "46",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Up tilt",
+        "id": 4,
+        "hitboxes": [
+          {
+            "name": "Early Hit 1",
+            "damage": "9.0",
+            "angle": "88",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Late Hit 1",
+            "damage": "6.0",
+            "angle": "88",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Hit 2",
+            "damage": "10.0",
+            "angle": "81",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          }
+        ]
+      },
+      {
+        "name": "Down tilt",
+        "id": 5,
+        "hitboxes": [
+          {
+            "name": "Down tilt",
+            "damage": "15.0",
+            "angle": "85",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Up-forward tilt",
+        "id": 6,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "6.0",
+            "angle": "0",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "3.0",
+            "angle": "BOTH",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Hit 3",
+            "damage": "3.0",
+            "angle": "75",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Hit 4",
+            "damage": "10.5",
+            "angle": "53",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      },
+      {
+        "name": "Down-forward tilt",
+        "id": 7,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "7.0",
+            "angle": "90",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "10.5",
+            "angle": "50",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Down-back tilt",
+        "id": 8,
+        "hitboxes": [
+          {
+            "name": "Hit",
+            "damage": "9.0",
+            "angle": "0",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Up-back tilt",
+        "id": 9,
+        "hitboxes": [
+          {
+            "name": "Up-back tilt",
+            "damage": "13.5",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Crouch attack",
+        "id": 10,
+        "hitboxes": [
+          {
+            "name": "Crouch attack",
+            "damage": "5.0",
+            "angle": "77",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Forward crouch attack",
+        "id": 11,
+        "hitboxes": [
+          {
+            "name": "Hit",
+            "damage": "16.5",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Back crouch attack",
+        "id": 12,
+        "hitboxes": [
+          {
+            "name": "Back crouch attack",
+            "damage": "11.0",
+            "angle": "55",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Uncrouching attack",
+        "id": 13,
+        "hitboxes": [
+          null
+        ]
+      },
+      {
+        "name": "Dash attack",
+        "id": 14,
+        "hitboxes": [
+          {
+            "name": "Early Hit Weak Hit",
+            "damage": "14.0",
+            "angle": "44",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Early Hit Strong Hit",
+            "damage": "16.0",
+            "angle": "44",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Late Hit Weak Hit",
+            "damage": "14.0",
+            "angle": "44",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Late Hit Strong Hit",
+            "damage": "16.0",
+            "angle": "44",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      },
+      {
+        "name": "Double dash attack",
+        "id": 15,
+        "hitboxes": [
+          {
+            "name": "Hit",
+            "damage": "18.0",
+            "angle": "84",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Forward smash",
+        "id": 16,
+        "hitboxes": [
+          {
+            "name": "Forward smash Weak Hit",
+            "damage": "23.0",
+            "angle": "Sakurai angle",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Forward smash Strong Hit",
+            "damage": "26.0",
+            "angle": "Sakurai angle",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Up smash",
+        "id": 17,
+        "hitboxes": [
+          {
+            "name": "Clean Hit",
+            "damage": "19.0",
+            "angle": "90",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Weak Hit",
+            "damage": "15.0",
+            "angle": "90",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Down smash",
+        "id": 18,
+        "hitboxes": [
+          {
+            "name": "Strong Hit",
+            "damage": "17.0",
+            "angle": "277",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Upper Middle Hit",
+            "damage": "15.0",
+            "angle": "277",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Lower Middle Hit",
+            "damage": "13.0",
+            "angle": "277",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Weak Hit",
+            "damage": "11.0",
+            "angle": "277",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      },
+      {
+        "name": "Neutral aerial",
+        "id": 19,
+        "hitboxes": [
+          {
+            "name": "Clean Hit Strong Hit",
+            "damage": "11.0",
+            "angle": "285",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Clean Hit Middle Hit",
+            "damage": "9.0",
+            "angle": "65",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Clean Hit Weak Hit",
+            "damage": "8.0",
+            "angle": "65",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Late Hit",
+            "damage": "6.0",
+            "angle": "65",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      },
+      {
+        "name": "Forward aerial",
+        "id": 20,
+        "hitboxes": [
+          {
+            "name": "Clean Hit",
+            "damage": "13.0",
+            "angle": "45",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Late Hit",
+            "damage": "10.0",
+            "angle": "45",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Back aerial",
+        "id": 21,
+        "hitboxes": [
+          {
+            "name": "Clean Hit Strong Hit",
+            "damage": "16.0",
+            "angle": "40",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Clean Hit Weak Hit",
+            "damage": "14.0",
+            "angle": "40",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Late Hit",
+            "damage": "10.0",
+            "angle": "40",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          }
+        ]
+      },
+      {
+        "name": "Up aerial",
+        "id": 22,
+        "hitboxes": [
+          {
+            "name": "Clean Hit",
+            "damage": "12.0",
+            "angle": "77",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Late Hit",
+            "damage": "9.0",
+            "angle": "77",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Down aerial",
+        "id": 23,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "6.0",
+            "angle": "300",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "15.0",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Landing",
+            "damage": "10.0",
+            "angle": "50",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          }
+        ]
+      },
+      {
+        "name": "Pummel",
+        "id": 24,
+        "hitboxes": [
+          {
+            "name": "Pummel",
+            "damage": "3.4",
+            "angle": "Sakurai angle",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Forward throw",
+        "id": 25,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "5.0",
+            "angle": "Sakurai angle",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "5.0",
+            "angle": "Sakurai angle",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Throw",
+            "damage": "2.0",
+            "angle": "40",
+            "type": "Throwing",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          }
+        ]
+      },
+      {
+        "name": "Back throw",
+        "id": 26,
+        "hitboxes": [
+          {
+            "name": "Back throw",
+            "damage": "14.0",
+            "angle": "58",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Throw",
+            "damage": "0.0",
+            "angle": "58",
+            "type": "Throwing",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Up throw",
+        "id": 27,
+        "hitboxes": [
+          {
+            "name": "Up throw",
+            "damage": "10.0",
+            "angle": "55",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 0
+          },
+          {
+            "name": "Throw",
+            "damage": "2.0",
+            "angle": "76",
+            "type": "Throwing",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Down throw",
+        "id": 28,
+        "hitboxes": [
+          {
+            "name": "Down throw",
+            "damage": "7.0",
+            "angle": "50",
+            "type": "Head",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Throw",
+            "damage": "1.0",
+            "angle": "72",
+            "type": "Throwing",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Command input throw",
+        "id": 29,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "10.0",
+            "angle": "60",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "13.0",
+            "angle": "19",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Throw",
+            "damage": "1.0",
+            "angle": "165",
+            "type": "Throwing",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          }
+        ]
+      },
+      {
+        "name": "Floor attack (front)",
+        "id": 30,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "7.0",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "7.0",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Floor attack (back)",
+        "id": 31,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "7.0",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "7.0",
+            "angle": "48",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Floor attack (trip)",
+        "id": 32,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "5.0",
+            "angle": "Sakurai angle",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "5.0",
+            "angle": "Sakurai angle",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          }
+        ]
+      },
+      {
+        "name": "Edge attack",
+        "id": 33,
+        "hitboxes": [
+          {
+            "name": "Edge attack",
+            "damage": "10.0",
+            "angle": "45",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Neutral special",
+        "id": 34,
+        "hitboxes": [
+          {
+            "name": "Grounded Neutral",
+            "damage": "11.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 0
+          },
+          {
+            "name": "Grounded Up",
+            "damage": "12.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 1
+          },
+          {
+            "name": "Grounded Down",
+            "damage": "10.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 2
+          },
+          {
+            "name": "Aerial Neutral",
+            "damage": "10.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 3
+          },
+          {
+            "name": "Aerial Up",
+            "damage": "11.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 4
+          },
+          {
+            "name": "Aerial Down",
+            "damage": "9.0",
+            "angle": "BOTH",
+            "type": "Energy",
+            "effect": "Electric",
+            "direct": "False",
+            "id": 5
+          }
+        ]
+      },
+      {
+        "name": "Side special",
+        "id": 35,
+        "hitboxes": [
+          null
+        ]
+      },
+      {
+        "name": "Up special",
+        "id": 36,
+        "hitboxes": [
+          {
+            "name": "Earliest Hit",
+            "damage": "18.0",
+            "angle": "76",
+            "type": "Body",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Early Hit",
+            "damage": "16.0",
+            "angle": "76",
+            "type": "Body",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Mid Hit",
+            "damage": "13.0",
+            "angle": "71",
+            "type": "Body",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Late Hit",
+            "damage": "10.0",
+            "angle": "63",
+            "type": "Body",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          },
+          {
+            "name": "Latest Hit",
+            "damage": "7.0",
+            "angle": "60",
+            "type": "Body",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 4
+          }
+        ]
+      },
+      {
+        "name": "Down special",
+        "id": 37,
+        "hitboxes": [
+          null
+        ]
+      },
+      {
+        "name": "Command input 1",
+        "id": 38,
+        "hitboxes": [
+          {
+            "name": "Wind God Fist Strong Hit",
+            "damage": "13.5",
+            "angle": "88",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Wind God Fist Weak Hit",
+            "damage": "13.0",
+            "angle": "73",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Electric Wind God Fist Early Strong Hit",
+            "damage": "14.5",
+            "angle": "88",
+            "type": "Hand",
+            "effect": "Paralyze",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Electric Wind God Fist Early Weak Hit",
+            "damage": "14.0",
+            "angle": "73",
+            "type": "Hand",
+            "effect": "Paralyze",
+            "direct": "True",
+            "id": 3
+          },
+          {
+            "name": "Electric Wind God Fist Late Strong Hit",
+            "damage": "13.5",
+            "angle": "88",
+            "type": "Hand",
+            "effect": "Paralyze",
+            "direct": "True",
+            "id": 4
+          },
+          {
+            "name": "Electric Wind God Fist Late Weak Hit",
+            "damage": "13.0",
+            "angle": "73",
+            "type": "Hand",
+            "effect": "Paralyze",
+            "direct": "True",
+            "id": 5
+          }
+        ]
+      },
+      {
+        "name": "Command input 2",
+        "id": 39,
+        "hitboxes": [
+          {
+            "name": "Early Hit",
+            "damage": "22.0",
+            "angle": "60",
+            "type": "Hand",
+            "effect": "Electric",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Mid Hit",
+            "damage": "18.0",
+            "angle": "70",
+            "type": "Hand",
+            "effect": "Electric",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Late Hit",
+            "damage": "16.0",
+            "angle": "70",
+            "type": "Hand",
+            "effect": "Electric",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Latest Hit",
+            "damage": "14.0",
+            "angle": "70",
+            "type": "Hand",
+            "effect": "Electric",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      },
+      {
+        "name": "Command input 3",
+        "id": 40,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "7.0",
+            "angle": "65",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          }
+        ]
+      },
+      {
+        "name": "Final Smash",
+        "id": 41,
+        "hitboxes": [
+          null
+        ]
+      },
+      {
+        "name": "Side taunt",
+        "id": 42,
+        "hitboxes": [
+          {
+            "name": "Hit 1",
+            "damage": "6.0",
+            "angle": "180",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 0
+          },
+          {
+            "name": "Hit 2",
+            "damage": "3.0",
+            "angle": "180",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 1
+          },
+          {
+            "name": "Hit 3",
+            "damage": "3.0",
+            "angle": "180",
+            "type": "Foot",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 2
+          },
+          {
+            "name": "Hit 4",
+            "damage": "6.0",
+            "angle": "40",
+            "type": "Hand",
+            "effect": "Normal",
+            "direct": "True",
+            "id": 3
+          }
+        ]
+      }
+    ]
   }
 ]
