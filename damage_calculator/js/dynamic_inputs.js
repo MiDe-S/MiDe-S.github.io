@@ -6,6 +6,19 @@ function updateTextInput(val) {
     document.getElementById('textInput').innerHTML = val;
 }
 
+function validateStaleQueue(stale_id) {
+    if (stale_id.slice(0, -1) == "Shield") {
+        if (document.getElementById(stale_id).checked) {
+            document.getElementById("Stale" + stale_id.slice(-1)).checked = true;
+        }
+    }
+    else {
+        if (!document.getElementById(stale_id).checked) {
+            document.getElementById("Shield" + stale_id.slice(-1)).checked = false;
+        }
+    }
+}
+
 /**
  * Gets the player type from the radio options of the given name
  * 

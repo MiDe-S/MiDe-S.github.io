@@ -134,28 +134,44 @@
         <div style="outline:solid">
             <h3>Other:</h3>
             <label for="match_type">1v1 and Items are off:</label><input type="checkbox" checked="checked" id="match_type" />
-            <br />
-            <span>Staleness Queue:</span>
-            <input type="checkbox" value="Stale1" name="staleQ" />
-            <input type="checkbox" value="Stale2" name="staleQ" />
-            <input type="checkbox" value="Stale3" name="staleQ" />
-            <input type="checkbox" value="Stale4" name="staleQ" />
-            <input type="checkbox" value="Stale5" name="staleQ" />
-            <input type="checkbox" value="Stale6" name="staleQ" />
-            <input type="checkbox" value="Stale7" name="staleQ" />
-            <input type="checkbox" value="Stale8" name="staleQ" />
-            <input type="checkbox" value="Stale9" name="staleQ" />
-            <br />
-            <span>Hit Shield?</span>
-            <input type="checkbox" value="Shield1" name="shieldQ" />
-            <input type="checkbox" value="Shield2" name="shieldQ" />
-            <input type="checkbox" value="Shield3" name="shieldQ" />
-            <input type="checkbox" value="Shield4" name="shieldQ" />
-            <input type="checkbox" value="Shield5" name="shieldQ" />
-            <input type="checkbox" value="Shield6" name="shieldQ" />
-            <input type="checkbox" value="Shield7" name="shieldQ" />
-            <input type="checkbox" value="Shield8" name="shieldQ" />
-            <input type="checkbox" value="Shield9" name="shieldQ" />
+                <table class="outline">
+                    <tr>
+                        <td></td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                    </tr>
+                    <tr>
+                        <td><span>Staleness Queue:</span></td>
+                        <td><input type="checkbox" id="Stale1" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale2" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale3" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale4" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale5" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale6" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale7" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale8" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Stale9" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
+                    </tr>
+                    <tr>
+                        <td><span>Hit Shield?</span></td>
+                        <td><input type="checkbox" id="Shield1" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield2" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield3" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield4" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield5" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield6" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield7" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield8" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                        <td><input type="checkbox" id="Shield9" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
+                    </tr>
+                </table>
         </div>
         <br />
         <div id="math" class="calculate">
