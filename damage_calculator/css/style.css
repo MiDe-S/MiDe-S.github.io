@@ -1,7 +1,3 @@
-body {
-    background-color: lightblue;
-}
-
 h1 {
     color: #ff0000;
 }
@@ -27,4 +23,8 @@ select option:disabled {
     margin: auto;
     width: 50%;
     align-content: center;
+}
+
+div.backdrop {
+    background-color: gray;
 }

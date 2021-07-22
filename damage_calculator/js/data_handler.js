@@ -3,6 +3,9 @@
  * @todo
  */
 function loadDoc() {
+    // Needed to load side bar
+    loadSideBar();
+
     // load moves
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -114,14 +117,17 @@ function generateMoves(char_id) {
  */
 function generateEffects(select_id, slots_used) {
     var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
-    effect_names = ["None", [{name: "None", cost: "0", id: "-1"}]];
+    effect_names = ["None", [{name: "None", cost: "0", value: "-1"}]];
     for (var i = 0; i < eff_info.length; i++) {
         effect_names.push(eff_info[i].name);
 
         actual_effects = [];
         for (var j = 0; j < eff_info[i].effects.length; ++j) {
             if ((slots_used + parseInt(eff_info[i].effects[j].cost)) <= 3) {
-                actual_effects.push(eff_info[i].effects[j]);
+                actual_effects.push({
+                    "name": eff_info[i].effects[j].name,
+                    "value": eff_info[i].effects[j].id
+                });
             }
         }
         effect_names.push(actual_effects);

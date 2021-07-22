@@ -24,6 +24,14 @@ select {
     font-size: large;
 }
 
+input {
+    font-size: large;
+}
+
+span {
+    font-size: large;
+}
+
 .center {
     text-align: center;
 }
@@ -141,6 +149,8 @@ body {
     color: white;
     padding: 10px 15px;
     border: none;
+    border-style: solid;
+    border-color: white;
     opacity: 0.35;
 }
 

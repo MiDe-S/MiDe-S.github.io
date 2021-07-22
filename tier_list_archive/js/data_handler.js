@@ -2,6 +2,10 @@ function loadDoc(metadata_file, prefix) {
     // Needed to load side bar
     loadSideBar();
 
+    /**
+     * Converts tier_list obj into something useable by ReplaceSelectArray
+     * @param {any} tier_obj_array
+     */
     function tier_list_names(tier_obj_array) {
         var output = [];
         for (var i = 0; i < tier_obj_array.length; i++) {

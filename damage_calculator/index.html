@@ -5,130 +5,180 @@
     <script src="js/dynamic_inputs.js"></script>
     <script src="js/calculate.js"></script>
     <script src="../global_js/select_boxes.js"></script>
+    <script src="../global_js/side_bar.js"></script>
     <link href="../global_css/basics.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body onload="loadDoc()">
+    <div id="mySidebar" class="sidebar">
+    </div>
+    <div id="main">
+        <button class="openbtn" id="nav_button" onclick="openNav()">☰</button>
+    </div>
+
     <div id="demo">
         <h1>Spirits Damage Calculator (WIP). If you found this, <em>looks at jozz</em>, please don't share it with anyone!</h1>
     </div>
-    <div class="row">
-        <div class="column">
-            <h2>Attacker:</h2>
-            Human: <input type="radio" name="p1_type" checked="checked" value="human" onchange="spiritManager(this.name)"/> or Amiibo: <input type="radio" name="p1_type" value="amiibo" onchange="spiritManager(this.name)"/>
-            <br />
-            <br />
-            <div id="test">
+    <div class="backdrop">
+        <div class="row">
+            <div class="column">
+                <h2>Attacker:</h2>
+                <label for="p1_r1">Human:</label>
+                <input type="radio" id="p1_r1" name="p1_type" checked="checked" value="human" onchange="spiritManager(this.name)" />
+                <label for="p1_r2">or Amiibo:</label>
+                <input type="radio" id="p1_r2" name="p1_type" value="amiibo" onchange="spiritManager(this.name)" />
+                <br />
+                <br />
+                <div id="test">
+
+                </div>
+                <div id="characters">
+                    <label for="chars">Character:</label>
+                    <select id="chars" onchange="generateMoves(this.value)">
+                    </select>
+                </div>
+                <div>
+                    <label for="moves">Move:</label>
+                    <select id="moves" onchange="generateHitBoxes(document.getElementById('chars').value, this.value)">
+                    </select>
+                </div>
+                <div id="hitbox_div" style="display:none">
+                    <label for="hitboxes">Specify Hitbox:</label>
+                    <select id="hitboxes">
+                    </select>
+                </div>
+                <div id="short_hop_div" style="display:none">
+                    <label for="short_hop">Short Hop:</label>
+                    <input type="checkbox" id="short_hop" />
+                </div>
 
             </div>
-            <div id="characters">
-                <label for="chars">Character:</label>
-                <select name="chars" id="chars" onchange="generateMoves(this.value)">
-                </select>
-            </div>
-            <div>
-                <label for="moves">Move:</label>
-                <select name="moves" id="moves" onchange="generateHitBoxes(document.getElementById('chars').value, this.value)">
-                </select>
-            </div>
-            <div id="hitbox_div" style="display:none">
-                <label for="hitboxes">Specify Hitbox:</label>
-                <select name="hitboxes" id="hitboxes">
-                </select>
-            </div>
-            <div id="short_hop_div" style="display:none">
-                <label for="short_hop">Short Hop:</label>
-                <input type="checkbox" id="short_hop" name="short_hop"/>
-            </div>
 
+            <div class="column">
+                <h2>Defender:</h2>
+                <label for="p2_r1">Human:</label>
+                <input type="radio" id="p2_r1" name="p2_type" checked="checked" value="human" onchange="spiritManager(this.name)" />
+                <label for="p2_r2"> or Amiibo:</label>
+                <input type="radio" id="p2_r2" name="p2_type" value="amiibo" onchange="spiritManager(this.name)" />
+                <br />
+                <br />
+                <label for="p2_percent">Percent Before Being Hit: </label>
+                <input type="number" id="p2_percent" value="0" onchange="balanceAtkDef(this.id)" step="0.1" />
+
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div id="p1_spirit_slots" class="column">
+                <div id="p1_first_slot">
+                    <label for="p1_slots1">Slot 1:</label>
+                    <select id="p1_slots1" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+                <div id="p1_second_slot" style="display:none">
+                    <label for="p1_slots2">Slot 2:</label>
+                    <select id="p1_slots2" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+                <div id="p1_third_slot" style="display:none">
+                    <label for="p1_slots3">Slot 3:</label>
+                    <select id="p1_slots3" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+
+            </div>
+            <div id="p2_spirit_slots" class="column">
+
+                <div id="p2_first_slot">
+                    <label for="p2_slots1">Slot 1:</label>
+                    <select id="p2_slots1" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+                <div id="p2_second_slot" style="display:none">
+                    <label for="p2_slots2">Slot 2:</label>
+                    <select id="p2_slots2" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+                <div id="p2_third_slot" style="display:none">
+                    <label for="p2_slots3">Slot 3:</label>
+                    <select id="p2_slots3" onchange="spiritManager(this.id)">
+                        <option value="-1">None</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="column">
+                <label for="p1_attack">Attack: </label>
+                <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
+                <br />
+                <label for="p1_attack">Defense: </label>
+                <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
+            </div>
+            <div class="column">
+                <label for="p2_attack">Attack: </label>
+                <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
+                <br />
+                <label for="p2_attack">Defense: </label>
+                <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
+            </div>
+        </div>
+        <br />
+        <div style="outline:solid">
+            <h3>Other:</h3>
+            <label for="match_type">1v1 and Items are off:</label><input type="checkbox" checked="checked" id="match_type" />
+            <br />
+            <span>Staleness Queue:</span>
+            <input type="checkbox" value="Stale1" name="staleQ" />
+            <input type="checkbox" value="Stale2" name="staleQ" />
+            <input type="checkbox" value="Stale3" name="staleQ" />
+            <input type="checkbox" value="Stale4" name="staleQ" />
+            <input type="checkbox" value="Stale5" name="staleQ" />
+            <input type="checkbox" value="Stale6" name="staleQ" />
+            <input type="checkbox" value="Stale7" name="staleQ" />
+            <input type="checkbox" value="Stale8" name="staleQ" />
+            <input type="checkbox" value="Stale9" name="staleQ" />
+            <br />
+            <span>Hit Shield?</span>
+            <input type="checkbox" value="Shield1" name="shieldQ" />
+            <input type="checkbox" value="Shield2" name="shieldQ" />
+            <input type="checkbox" value="Shield3" name="shieldQ" />
+            <input type="checkbox" value="Shield4" name="shieldQ" />
+            <input type="checkbox" value="Shield5" name="shieldQ" />
+            <input type="checkbox" value="Shield6" name="shieldQ" />
+            <input type="checkbox" value="Shield7" name="shieldQ" />
+            <input type="checkbox" value="Shield8" name="shieldQ" />
+            <input type="checkbox" value="Shield9" name="shieldQ" />
+        </div>
+        <br />
+        <div id="math" class="calculate">
+            <button type="button" onclick="calculate()">Calculate Damage</button>
         </div>
 
-        <div class="column">
-            <h2>Defender:</h2>
-            Human: <input type="radio" name="p2_type" checked="checked" value="human" onchange="spiritManager(this.name)"/> or Amiibo: <input type="radio" name="p2_type" value="amiibo" onchange="spiritManager(this.name)"/>
-            <br />
-            <br />
-            <label for="p2_percent">Percent Before Being Hit: </label>
-            <input type="number" id="p2_percent" value="0" onchange="balanceAtkDef(this.id)" step="0.1" />
-
-        </div>
     </div>
     <br />
-    <div class="row">
-        <div id="p1_spirit_slots" class="column">
-            <div id="p1_first_slot">
-                <label for="p1_slots1">Slot 1:</label>
-                <select id="p1_slots1" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
-            <div id="p1_second_slot" style="display:none">
-                <label for="p1_slots2">Slot 2:</label>
-                <select id="p1_slots2" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
-            <div id="p1_third_slot" style="display:none">
-                <label for="p1_slots3">Slot 3:</label>
-                <select id="p1_slots3" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
+    <div class="backdrop">
+        <div id="output" class="calculate">
 
         </div>
-        <div id="p2_spirit_slots" class="column">
+        <div>
 
-            <div id="p2_first_slot">
-                <label for="p2_slots1">Slot 1:</label>
-                <select id="p2_slots1" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
-            <div id="p2_second_slot" style="display:none">
-                <label for="p2_slots2">Slot 2:</label>
-                <select id="p2_slots2" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
-            <div id="p2_third_slot" style="display:none">
-                <label for="p2_slots3">Slot 3:</label>
-                <select id="p2_slots3" onchange="spiritManager(this.id)">
-                    <option value="-1">None</option>
-                </select>
-            </div>
-
+            <table id="summary_table">
+                <tr>
+                    <td colspan="2">
+                        Summary
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
-    <br />
-    <div class="row">
-        <div class="column">
-            <label for="p1_attack">Attack: </label>
-            <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
-            <br />
-            <label for="p1_attack">Defense: </label>
-            <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
-        </div>
-        <div class="column">
-            <label for="p2_attack">Attack: </label>
-            <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
-            <br />
-            <label for="p2_attack">Defense: </label>
-            <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
-        </div>
-    </div>
-    <br />
-    <div style="outline:solid">
-        Match Settings: <br />
-        1v1 and Items are off: <input type="checkbox" checked="checked" id="match_type"/>
-    </div>
-    <br />
-    <div id="math" class="calculate">
-        <button type="button" onclick="calculate()">Calculate Damage</button>
-    </div>
-    <div id="output" class="calculate">
-
-    </div>
-
 
 </body>
 </html>

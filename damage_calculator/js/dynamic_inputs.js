@@ -1,4 +1,12 @@
 /**
+ * For updating number range text input
+ * @param {any} val
+ */
+function updateTextInput(val) {
+    document.getElementById('textInput').innerHTML = val;
+}
+
+/**
  * Gets the player type from the radio options of the given name
  * 
  * @param {any} player_name the name of the radio options of the player you want the type of
@@ -21,6 +29,7 @@ function getSelectSlotCost(select_id) {
     var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
 
     var slot1_val = document.getElementById(select_id).value;
+
     // None value in first slot means no slots used
     if (slot1_val == -1) {
         return 0;
