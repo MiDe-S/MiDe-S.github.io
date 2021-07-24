@@ -135,8 +135,32 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
     return { "multiplier": multiplier, "conditional": conditional };
 }
 
+/**
+ * Calculates the staleness of the used move 
+ * @returns {number} the staleness debuff multiplier, 0 if no reduction
+ */
 function calculateStaleQueue() {
-    return 1;
+    // stale debuffs for each level of move
+    const debuffs = [0.09,	0.08545, 0.07635, 0.0679, 0.05945, 0.05035, 0.04255, 0.03345, 0.025]
+
+    var base_stale_id = "Stale";
+    var base_shield_id = "Shield";
+
+    var multiplier = 0;
+
+    for (let i = 1; i < 10; i++) {
+        if (document.getElementById(base_stale_id + i).checked) {
+            // If move hit shield, it is reduced by .85
+            if (document.getElementById(base_shield_id + i).checked) {
+                multiplier = multiplier + (debuffs[i - 1] * 0.85);
+            }
+            else {
+                multiplier = multiplier + debuffs[i - 1];
+            }
+        }
+    }
+
+    return multiplier;
 }
 
 /**
@@ -145,7 +169,6 @@ function calculateStaleQueue() {
  */
 function calculate() {
     // @todo: smash attack charge
-    // @todo: stale moves
     // @todo: diminishing returns
     // @todo: checkbox for conditionals
     // @todo: lucario aura
@@ -178,10 +201,16 @@ function calculate() {
         addRow(["1v1 Buff", 1.2], table_id, false);
     }
 
-    // For freshness bonus
-    if (calculateStaleQueue() == 1) {
+    let staleness_debuff = calculateStaleQueue();
+    // For freshness bonus / stake queue
+    if (staleness_debuff == 0) {
         multiplier = multiplier * 1.05;
         addRow(["Freshness Bonus", 1.05], table_id, false);
+    }
+    else {
+        staleness_debuff = 1 - staleness_debuff;
+        multiplier = multiplier * staleness_debuff;
+        addRow(["Move Staling", staleness_debuff], table_id, false);
     }
 
     // short hop damage reduction

@@ -1,11 +1,8 @@
-/**
- * For updating number range text input
- * @param {any} val
- */
-function updateTextInput(val) {
-    document.getElementById('textInput').innerHTML = val;
-}
 
+/**
+ * Validates the stalequeue inputs
+ * @param {any} stale_id id of most recent update
+ */
 function validateStaleQueue(stale_id) {
     if (stale_id.slice(0, -1) == "Shield") {
         if (document.getElementById(stale_id).checked) {
