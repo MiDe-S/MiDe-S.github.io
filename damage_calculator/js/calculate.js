@@ -84,6 +84,8 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
         effect = eff_info[1].effects[effect_id - eff_info[0].effects.length];
     }
 
+    debugger;
+
     condition = ["always", "conditional"];
     for (var j = 0; j < condition.length; j++) {
         if (effect[condition[j]] != null) {
@@ -108,14 +110,14 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
             else if (effect[condition[j]] == "SEARCH") {
                 if (connection_info["SEARCH"][effect_id].type == "type") {
                     for (let i = 0; i < connection_info["SEARCH"][effect_id].indicators.length; i++) {
-                        if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i] + " (type)") {
+                        if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i]) {
                             multiplier = multiplier * parseFloat(effect[atk_or_def]);
                         }
                     }
                 }
                 else if (connection_info["SEARCH"][effect_id].type == "effect") {
                     for (let i = 0; i < connection_info["SEARCH"][effect_id].indicators.length; i++)
-                        if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i] + " (effect)") {
+                        if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i]) {
                             multiplier = multiplier * parseFloat(effect[atk_or_def]);
                         }
                 }
@@ -243,7 +245,7 @@ function calculate() {
 
     for (let i = 0; i < p1_slot_ids.length; i++) {
         let eff_properties = getEffectMultiplier(document.getElementById(p1_slot_ids[i]).value, move, document.getElementById("hitboxes").value, "attack_multi");
-
+        console.log(eff_properties);
         if (eff_properties.conditional == true && eff_properties.multiplier != 1) {
             conditions.push({
                 "multiplier": eff_properties.multiplier,
