@@ -107,6 +107,14 @@ function generateMoves(char_id) {
 
     // Since moves are refreshed hitboxes should be refreshed
     generateHitBoxes(char_id, 0);
+
+    // For Lucario aura
+    if (char_id == 45) {
+        document.getElementById("lucario_only").style.display = "block";
+    }
+    else {
+        document.getElementById("lucario_only").style.display = "none";
+    }
 }
 
 /**

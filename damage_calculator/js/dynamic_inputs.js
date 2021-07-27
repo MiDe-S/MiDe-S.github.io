@@ -21,7 +21,7 @@ function validateStaleQueue(stale_id) {
  * 
  * @param {any} player_name the name of the radio options of the player you want the type of
  */
-function getPlayerType(player_name) {
+function getPlayerClassification(player_name) {
     var radio_buttons = document.getElementsByName(player_name);
     for (i = 0; i < radio_buttons.length; i++) {
         if (radio_buttons[i].checked) {
@@ -90,7 +90,7 @@ function spiritManager(called_by_id) {
         player = p2
     }
 
-    var player_type = getPlayerType(player.player_type);
+    var player_type = getPlayerClassification(player.player_type);
 
     var slots_used = slotsManager(player);
 

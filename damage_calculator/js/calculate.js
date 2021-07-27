@@ -170,10 +170,12 @@ function calculateStaleQueue() {
  *
  */
 function calculate() {
+    // @todo: 12.0.0 disclaimer
     // @todo: smash attack charge
-    // @todo: diminishing returns
     // @todo: checkbox for conditionals
-    // @todo: lucario aura
+
+    // @todo: diminishing returns
+    // @todo: account for >1.3x diminish on trade-off + armorknight / trade-off + trade-off + trade-off
 
     var table_id = "summary_table";
     clearTable(table_id);
@@ -184,17 +186,16 @@ function calculate() {
     var multiplier = 1;
     var conditions = [];
 
-    var attacker = getPlayerType("p1_type");
-    var defender = getPlayerType("p2_type");
+    var char_id = document.getElementById("chars").value;
+    var move = char_info[char_id].moves[document.getElementById("moves").value];
 
-    var move = char_info[document.getElementById("chars").value].moves[document.getElementById("moves").value];
 
+    var attacker = getPlayerClassification("p1_HorA");
+    var defender = getPlayerClassification("p2_HorA");
     var atk = document.getElementById("p1_attack").value;
-
     var def = document.getElementById("p2_defense").value;
 
     var base_dmg = parseFloat(char_info[document.getElementById("chars").value].moves[document.getElementById("moves").value].hitboxes[document.getElementById("hitboxes").value].damage)
-
     addRow(["Base Damage", base_dmg + '%'], table_id, false);
 
     // 1v1 boost
@@ -241,11 +242,102 @@ function calculate() {
         }
     }
 
+    // Calculates lucario aura
+    // formulas from https://www.ssbwiki.com/Aura
+    if (char_id == 45) {
+        var aura_multi = 1;
+
+        var stock_diff = document.getElementById("luc_stock_diff").value;
+        if (stock_diff == 2) {
+            aura_multi *= 0.83;
+        }
+        else if (stock_diff == 1) {
+            aura_multi *= 0.915;
+        }
+        else if (stock_diff == -1) {
+            aura_multi *= 1.2;
+        }
+        else if (stock_diff == -2) {
+            aura_multi *= 1.4;
+        }
+
+        var percent = document.getElementById("luc_percent").value;
+        if (percent <= 65) {
+            aura_multi *= (66 + (34 / 65) * percent) / 100; 
+        }
+        else if (percent <= 190) {
+            aura_multi *= (100 + 0.536 * (percent - 65)) / 100; 
+        }
+        else {
+            // formula stops scaling at 190 percent
+            aura_multi *= (100 + 0.536 * (190 - 65)) / 100; 
+        }
+
+        // aura boost is capped between 0.6 and 1.8
+        if (aura_multi < .6) {
+            aura_multi = .6;
+        }
+        else if (aura_multi > 1.8) {
+            aura_multi = 1.8;
+        }
+
+        multiplier = multiplier * aura_multi;
+
+        addRow(["Aura", aura_multi], table_id, false);
+    }
+
+    // Calculates type advantage
+    var attacker_type = document.getElementById("p1_type").value;
+    var defender_type = document.getElementById("p2_type").value;
+    if (attacker_type != defender_type && attacker_type != "Neutral" && defender_type != "Neutral") {
+        let advantage_multi = 1;
+        if (attacker_type == "Attack") {
+            if (defender_type == "Shield") {
+                advantage_multi *= 0.85;
+            }
+            else {
+                advantage_multi *= 1.3;
+            }
+        }
+        if (attacker_type == "Shield") {
+            if (defender_type == "Attack") {
+                advantage_multi *= 1.3;
+            }
+            else {
+                advantage_multi *= 0.85;
+            }
+        }
+        if (attacker_type == "Grab") {
+            if (defender_type == "Attack") {
+                advantage_multi *= 0.85;
+            }
+            else {
+                advantage_multi *= 1.3;
+            }
+        }
+        multiplier = multiplier * advantage_multi;
+
+        addRow(["Type Advantage", advantage_multi], table_id, false);
+    }
+
+
     var p1_slot_ids = ["p1_slots1", "p1_slots2", "p1_slots3"];
 
     for (let i = 0; i < p1_slot_ids.length; i++) {
         let eff_properties = getEffectMultiplier(document.getElementById(p1_slot_ids[i]).value, move, document.getElementById("hitboxes").value, "attack_multi");
-        console.log(eff_properties);
+
+        // calculate diminishing returns
+        if (i == 1) {
+            if (document.getElementById(p1_slot_ids[1]).value == document.getElementById(p1_slot_ids[0]).value) {
+                continue;
+            }
+        }
+        if (i == 2) {
+            if (document.getElementById(p1_slot_ids[2]).value == document.getElementById(p1_slot_ids[0]).value || document.getElementById(p1_slot_ids[2]).value == document.getElementById(p1_slot_ids[1]).value) {
+                continue;
+            }
+        }
+
         if (eff_properties.conditional == true && eff_properties.multiplier != 1) {
             conditions.push({
                 "multiplier": eff_properties.multiplier,
@@ -255,6 +347,7 @@ function calculate() {
         else {
             multiplier = multiplier * eff_properties.multiplier;
         }
+
         if (eff_properties.multiplier != 1) {
             addRow([p1_slot_ids[i], eff_properties.multiplier], table_id, false);
         }
@@ -304,8 +397,4 @@ function calculate() {
     damage = base_dmg * multiplier;
 
     document.getElementById("output").innerHTML = "In these conditions " + move.name + " does " + Math.floor(damage * 10) / 10 + "%.";
-
-    if (document.getElementById("p2_percent").value > 0) {
-        document.getElementById("output").innerHTML += " So the final percent of the enemy should be " + (parseFloat(document.getElementById("p2_percent").value) + Math.floor(damage * 10) / 10) + "%.";
-    }
 }

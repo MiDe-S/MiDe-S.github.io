@@ -24,9 +24,9 @@
             <div class="column">
                 <h2>Attacker:</h2>
                 <label for="p1_r1">Human:</label>
-                <input type="radio" id="p1_r1" name="p1_type" checked="checked" value="human" onchange="spiritManager(this.name)" />
+                <input type="radio" id="p1_r1" name="p1_HorA" checked="checked" value="human" onchange="spiritManager(this.name)" />
                 <label for="p1_r2">or Amiibo:</label>
-                <input type="radio" id="p1_r2" name="p1_type" value="amiibo" onchange="spiritManager(this.name)" />
+                <input type="radio" id="p1_r2" name="p1_HorA" value="amiibo" onchange="spiritManager(this.name)" />
                 <br />
                 <br />
                 <div id="test">
@@ -51,20 +51,61 @@
                     <label for="short_hop">Short Hop:</label>
                     <input type="checkbox" id="short_hop" />
                 </div>
+                <div id="lucario_only" style="display:block">
+                    <label for="luc_percent">Percent: </label>
+                    <input type="number" id="luc_percent" value="0" step="0.1" min="0" />
+                    <br />
+                    <label for="luc_stock_diff">Stock Difference: </label>
+                    <select id="luc_stock_diff">
+                        <option value="2">+2</option>
+                        <option value="1">+1</option>
+                        <option value="0" selected>0</option>
+                        <option value="-1">-1</option>
+                        <option value="-2">-2</option>
+                    </select>
+                </div>
 
             </div>
 
             <div class="column">
                 <h2>Defender:</h2>
                 <label for="p2_r1">Human:</label>
-                <input type="radio" id="p2_r1" name="p2_type" checked="checked" value="human" onchange="spiritManager(this.name)" />
+                <input type="radio" id="p2_r1" name="p2_HorA" checked="checked" value="human" onchange="spiritManager(this.name)" />
                 <label for="p2_r2"> or Amiibo:</label>
-                <input type="radio" id="p2_r2" name="p2_type" value="amiibo" onchange="spiritManager(this.name)" />
+                <input type="radio" id="p2_r2" name="p2_HorA" value="amiibo" onchange="spiritManager(this.name)" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="column">
+                <label for="p1_type">Type: </label>
+                <select id="p1_type">
+                    <option value="Neutral" selected>Neutral</option>
+                    <option value="Attack">Attack</option>
+                    <option value="Shield">Shield</option>
+                    <option value="Grab">Grab</option>
+                </select>
                 <br />
+                <label for="p1_attack">Attack: </label>
+                <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
                 <br />
-                <label for="p2_percent">Percent Before Being Hit: </label>
-                <input type="number" id="p2_percent" value="0" onchange="balanceAtkDef(this.id)" step="0.1" />
-
+                <label for="p1_attack">Defense: </label>
+                <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
+            </div>
+            <div class="column">
+                <label for="p2_type">Type: </label>
+                <select id="p2_type">
+                    <option value="Neutral" selected>Neutral</option>
+                    <option value="Attack">Attack</option>
+                    <option value="Shield">Shield</option>
+                    <option value="Grab">Grab</option>
+                </select>
+                <br />
+                <label for="p2_attack">Attack: </label>
+                <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
+                <br />
+                <label for="p2_attack">Defense: </label>
+                <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
             </div>
         </div>
         <br />
@@ -114,64 +155,47 @@
             </div>
         </div>
         <br />
-        <div class="row">
-            <div class="column">
-                <label for="p1_attack">Attack: </label>
-                <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
-                <br />
-                <label for="p1_attack">Defense: </label>
-                <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
-            </div>
-            <div class="column">
-                <label for="p2_attack">Attack: </label>
-                <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
-                <br />
-                <label for="p2_attack">Defense: </label>
-                <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
-            </div>
-        </div>
-        <br />
         <div style="outline:solid">
             <h3>Other:</h3>
             <label for="match_type">1v1 and Items are off:</label><input type="checkbox" checked="checked" id="match_type" />
-                <table class="outline">
-                    <tr>
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <td><span>Staleness Queue:</span></td>
-                        <td><input type="checkbox" id="Stale1" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale2" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale3" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale4" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale5" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale6" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale7" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale8" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Stale9" name="staleQ" onchange="validateStaleQueue(this.id)"/></td>
-                    </tr>
-                    <tr>
-                        <td><span>Hit Shield?</span></td>
-                        <td><input type="checkbox" id="Shield1" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield2" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield3" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield4" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield5" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield6" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield7" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield8" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                        <td><input type="checkbox" id="Shield9" name="shieldQ" onchange="validateStaleQueue(this.id)"/></td>
-                    </tr>
-                </table>
+            <table class="outline">
+                <tr>
+                    <td></td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td><span>Staleness Queue:</span></td>
+                    <td><input type="checkbox" id="Stale1" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale2" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale3" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale4" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale5" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale6" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale7" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale8" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Stale9" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                </tr>
+                <tr>
+                    <td><span>Hit Shield?</span></td>
+                    <td><input type="checkbox" id="Shield1" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield2" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield3" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield4" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield5" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield6" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield7" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield8" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="Shield9" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                </tr>
+            </table>
         </div>
         <br />
         <div id="math" class="calculate">

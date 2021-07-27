@@ -9,7 +9,11 @@
         "always": "AERIALS",
         "conditional": "SPECIAL_MOVES",
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Air Defense \u2191",
@@ -18,7 +22,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.00",
-        "defense_multi": "1.30"
+        "defense_multi": "1.30",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "1.38",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "1.46"
       },
       {
         "name": "Armor Knight",
@@ -27,7 +35,11 @@
         "always": "ALL",
         "conditional": null,
         "attack_multi": "1.15",
-        "defense_multi": "1.80"
+        "defense_multi": "1.80",
+        "attack_multi_2": "1.25",
+        "defense_multi_2": "2.60",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Assist Killer",
@@ -36,7 +48,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.30",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.40",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.50",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Aura Attack \u2191",
@@ -45,7 +61,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Aura Resist \u2191",
@@ -54,7 +74,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Critical Hit \u2191",
@@ -63,7 +87,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.20",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.20",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Critical Hit \u2191 \u2191",
@@ -72,7 +100,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.30",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.30",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Critical Super Giant",
@@ -81,7 +113,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.84",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.84",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Critical-Health Attack \u2191",
@@ -90,7 +126,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Critical-Health Defense \u2191",
@@ -99,7 +139,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.00",
-        "defense_multi": "1.30"
+        "defense_multi": "1.30",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "1.38",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "1.46"
       },
       {
         "name": "Critical-Health Stats \u2191",
@@ -108,7 +152,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.30"
+        "defense_multi": "1.30",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.38",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.46"
       },
       {
         "name": "Critical-Health Stats \u2191 \u2191",
@@ -117,7 +165,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.18",
-        "defense_multi": "1.38"
+        "defense_multi": "1.38",
+        "attack_multi_2": "1.26",
+        "defense_multi_2": "1.46",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Dash Attack \u2191",
@@ -126,7 +178,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Down Special \u2191",
@@ -135,7 +191,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Electric Attack \u2191",
@@ -144,7 +204,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Electric Resist \u2191",
@@ -153,7 +217,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Energy Shot Attack/Resistance \u2191",
@@ -162,7 +230,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Energy-Shot Attack \u2191",
@@ -171,7 +243,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Energy-Shot Resist \u2191",
@@ -180,7 +256,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Final Smash \u2191",
@@ -189,7 +269,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.50",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.50",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Fire & Explosion Attack \u2191",
@@ -198,7 +282,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Fire/Explosion Resist \u2191",
@@ -207,7 +295,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Fist Attack \u2191",
@@ -216,7 +308,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Foot Attack \u2191",
@@ -225,7 +321,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Giant",
@@ -234,7 +334,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.56",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.56",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Giant Killer",
@@ -243,7 +347,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.40",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.45",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.50",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Hyper Smash Attacks",
@@ -252,7 +360,11 @@
         "always": "SMASH_ATTACKS",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Magic Attack \u2191",
@@ -261,7 +373,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Magic Resist \u2191",
@@ -270,7 +386,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Metal And Giant",
@@ -279,7 +399,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.56",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.56",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Metal Killer",
@@ -288,7 +412,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.40",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.45",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.50",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Neutral Special \u2191",
@@ -297,7 +425,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Physical Attack \u2191",
@@ -306,7 +438,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "PSI Attack \u2191",
@@ -315,7 +451,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "PSI Resist \u2191",
@@ -324,7 +464,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Running Start",
@@ -333,7 +477,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.30"
+        "defense_multi": "1.30",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.38",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Shield Damage \u2191",
@@ -342,7 +490,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.30",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.45",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.55",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Shooting Attack \u2191",
@@ -351,7 +503,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Side Special \u2191",
@@ -360,7 +516,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Special-Move Power \u2191",
@@ -369,7 +529,11 @@
         "always": "SPECIAL_MOVES",
         "conditional": null,
         "attack_multi": "1.05",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.13",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.17",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Stats \u2191 After Eating",
@@ -378,7 +542,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.30"
+        "defense_multi": "1.30",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.38",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.46"
       },
       {
         "name": "Stats \u2191 \u2191 After Eating",
@@ -387,7 +555,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.18",
-        "defense_multi": "1.38"
+        "defense_multi": "1.38",
+        "attack_multi_2": "1.26",
+        "defense_multi_2": "1.46",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Strong Throw",
@@ -396,7 +568,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Team Power Up",
@@ -405,7 +581,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.26",
-        "defense_multi": "1.38"
+        "defense_multi": "1.38",
+        "attack_multi_2": "1.30",
+        "defense_multi_2": "1.46",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Toss & Meteor",
@@ -414,7 +594,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Trade-Off Ability \u2191",
@@ -423,7 +607,11 @@
         "always": "ALL",
         "conditional": null,
         "attack_multi": "1.18",
-        "defense_multi": "1.20"
+        "defense_multi": "1.20",
+        "attack_multi_2": "1.29",
+        "defense_multi_2": "1.40",
+        "attack_multi_3": "1.36",
+        "defense_multi_3": "1.60"
       },
       {
         "name": "Trade-Off Attacks \u2191",
@@ -432,7 +620,11 @@
         "always": "ALL",
         "conditional": null,
         "attack_multi": "1.23",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.34",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.41",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Trade-Off Defense \u2191",
@@ -441,7 +633,11 @@
         "always": "ALL",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "1.40"
+        "defense_multi": "1.40",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "1.70",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "2.00"
       },
       {
         "name": "Undamaged Attack & Speed \u2191",
@@ -450,7 +646,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Undamaged Attack \u2191",
@@ -459,7 +659,11 @@
         "always": null,
         "conditional": "ALL",
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Up Special \u2191",
@@ -468,7 +672,11 @@
         "always": "ONE",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Water & Ice Attack \u2191",
@@ -477,7 +685,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Water/Freezing Resist \u2191",
@@ -486,7 +698,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": "1.00",
+        "defense_multi_3": "0.50"
       },
       {
         "name": "Weapon Attack & Move Speed \u2191",
@@ -495,7 +711,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       },
       {
         "name": "Weapon Attack \u2191",
@@ -504,7 +724,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.10",
-        "defense_multi": "1.00"
+        "defense_multi": "1.00",
+        "attack_multi_2": "1.18",
+        "defense_multi_2": "1.00",
+        "attack_multi_3": "1.26",
+        "defense_multi_3": "1.00"
       },
       {
         "name": "Weapon Resist \u2191",
@@ -513,7 +737,11 @@
         "always": "SEARCH",
         "conditional": null,
         "attack_multi": "1.00",
-        "defense_multi": "0.60"
+        "defense_multi": "0.60",
+        "attack_multi_2": "1.00",
+        "defense_multi_2": "0.55",
+        "attack_multi_3": null,
+        "defense_multi_3": null
       }
     ]
   },
