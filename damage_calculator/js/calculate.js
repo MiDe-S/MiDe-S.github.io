@@ -262,7 +262,8 @@ function calculateStaleQueue() {
  */
 function calculate() {
     // @todo: 12.0.0 disclaimer
-    // @todo: fix air attack conditional
+    // @todo: ~0.1% error disclaimer
+
 
     // clears summary table for new info
     var table_id = "summary_table";
@@ -538,6 +539,9 @@ function calculate() {
     // smash attack charging
     if (move.name.slice(-5) == "smash" && move.name != "Final Smash") {
         document.getElementById("charge").style.display = "block";
+    }
+    else {
+        document.getElementById("charge").style.display = "none";
     }
 
     let conditional_div = document.getElementById("conditionals");
