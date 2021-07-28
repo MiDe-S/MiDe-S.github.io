@@ -245,9 +245,9 @@ function calculate() {
     // @todo: 12.0.0 disclaimer
     // @todo: fix air attack conditional
     // @todo: checkbox for conditionals
+
     // @todo: smash attack charge
 
-    // @todo: account for >1.3x diminish on trade-off + armorknight / trade-off + trade-off + trade-off
 
     var table_id = "summary_table";
     clearTable(table_id);
@@ -268,7 +268,7 @@ function calculate() {
     var atk = document.getElementById("p1_attack").value;
     var def = document.getElementById("p2_defense").value;
 
-    var base_dmg = parseFloat(char_info[document.getElementById("chars").value].moves[document.getElementById("moves").value].hitboxes[document.getElementById("hitboxes").value].damage)
+    var base_dmg = parseFloat(char_info[document.getElementById("chars").value].moves[document.getElementById("moves").value].hitboxes[document.getElementById("hitboxes").value].damage);
     addRow(["Base Damage", base_dmg + '%'], table_id, false);
 
     // 1v1 boost
@@ -440,6 +440,7 @@ function calculate() {
         }
     }
 
+    // If effects that buff 'all' moves result in >1.3x or >1.5x the attack is diminished
     if (global_eff_atk_boost > 1.3) {
         if (global_eff_atk_boost > 1.5) {
             var actual = global_eff_atk_boost * 0.2 + 1.2
@@ -517,5 +518,30 @@ function calculate() {
     // damage stat boost
     damage = base_dmg * multiplier;
 
-    document.getElementById("output").innerHTML = "In these conditions " + move.name + " does " + Math.floor(damage * 10) / 10 + "%.";
+    var charge_damage = damage;
+
+    // smash attack charging
+    if (move.name.slice(-5) == "smash" && move.name != "Final Smash") {
+        let charge_multi = 1.4;
+        // for some reason these characters + attacks do 1.2x at full charge rather than 1.4x. IDK WHY
+        // for oli and bayo it is all smashes
+        if (char_id == 68 || char_id == 44) {
+            charge_multi = 1.2;
+        }
+        // for mega, ness, villy, it is fsmash, up + down smash, and fsmash respectively
+        else if ((char_id == 50 && move.id == 5) || (char_id == 10 && (move.id == 8 || move.id == 9)) || (char_id == 49 && move.id == 7)) {
+            charge_multi = 1.2;
+        }
+        charge_damage *= charge_multi;
+
+        addRow(["Max Charge", charge_multi], table_id, false);
+    }
+
+    // different display whether it is smash attack or not
+    if (charge_damage != damage) {
+        document.getElementById("output").innerHTML = "In these conditions, an uncharged " + move.name + " does " + Math.floor(damage * 10) / 10 + "%, and a max charged " + move.name + " does " + Math.floor(charge_damage * 10) / 10 + "%.";
+    }
+    else {
+        document.getElementById("output").innerHTML = "In these conditions " + move.name + " does " + Math.floor(damage * 10) / 10 + "%.";
+    }
 }
