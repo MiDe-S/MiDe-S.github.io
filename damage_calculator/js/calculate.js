@@ -246,8 +246,6 @@ function calculate() {
     // @todo: fix air attack conditional
     // @todo: checkbox for conditionals
 
-    // @todo: smash attack charge
-
 
     var table_id = "summary_table";
     clearTable(table_id);
