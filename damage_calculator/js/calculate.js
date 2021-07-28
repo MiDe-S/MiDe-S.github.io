@@ -57,24 +57,39 @@ function addRow(row_data, table_id, header) {
 }
 
 /**
- * Calculates the multiplier from the given move and given effect
- * 
+ * Gets the name of an effect
+ * @param {any} effect_id id of effect
+ * @param {any} eff_info eff_info from session storage
+ * @returns {string} name of effect
+ */
+function getEffectName(effect_id, eff_info) {
+    if (effect_id == -1) {
+        return None;
+    }
+    // Need to do this to get proper effect because of group label
+    else if (effect_id < eff_info[0].effects.length) {
+        return eff_info[0].effects[effect_id]["name"];
+    }
+    else {
+        return eff_info[1].effects[effect_id - eff_info[0].effects.length]["name"];
+    }
+}
+
+/**
+ * Calculates the diminishing returns of an effect
+ *
  * @param {string} effect_id id of effect to check
- * @param {Object} move move object from moves.json
- * @param {string} hitbox_id id of hitbox to check
  * @param {string} atk_or_def HAS TO BE attack_multi OR defense_multi
+ * @param {number} repeats the number of times the effect has appeared (inclusive)
+ * @param {Object} eff_info from session storage
  * @returns {number} multiplier of effect buff/debuff
  */
-function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
-    var connection_info = JSON.parse(sessionStorage.getItem('connection_info'));
-    var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
-    var effect;
+function getDiminshedEffect(effect_id, atk_or_def, repeats, eff_info) {
     var multiplier = 1;
-    var conditional = false;
 
     // -1 value indicates None
     if (effect_id == -1) {
-        return { "multiplier": multiplier, "conditional": "always" }
+        return multiplier;
     }
     // Need to do this to get proper effect because of group label
     else if (effect_id < eff_info[0].effects.length) {
@@ -84,30 +99,87 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
         effect = eff_info[1].effects[effect_id - eff_info[0].effects.length];
     }
 
-    debugger;
+    if (repeats == 2) {
+        multiplier = effect[atk_or_def + '_2'] / effect[atk_or_def];
+    }
+    else if (repeats == 3) {
+        multiplier = effect[atk_or_def + '_3'] / effect[atk_or_def + '_2'];
+    }
+
+    if (atk_or_def == "defense_multi" && multiplier > 1) {
+        multiplier = 1 / multiplier;
+    }
+
+    return multiplier;
+}
+
+/**
+ * Calculates the multiplier from the given move and given effect
+ * 
+ * @param {string} effect_id id of effect to check
+ * @param {Object} move move object from moves.json
+ * @param {string} hitbox_id id of hitbox to check
+ * @param {string} atk_or_def HAS TO BE attack_multi OR defense_multi
+ * @param {Object} eff_info from session storage
+ * @returns {number} multiplier of effect buff/debuff
+ */
+function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
+    var connection_info = JSON.parse(sessionStorage.getItem('connection_info'));
+    var effect;
+    var multiplier = 1;
+    var conditional = false;
+    var global = false;
+
+    // -1 value indicates None
+    if (effect_id == -1) {
+        return { "multiplier": multiplier, "conditional": "always", "global": global }
+    }
+    // Need to do this to get proper effect because of group label
+    else if (effect_id < eff_info[0].effects.length) {
+        effect = eff_info[0].effects[effect_id];
+    }
+    else {
+        effect = eff_info[1].effects[effect_id - eff_info[0].effects.length];
+    }
 
     condition = ["always", "conditional"];
     for (var j = 0; j < condition.length; j++) {
+        // one with both always and condition is air attack, so all other become correct
         if (effect[condition[j]] != null) {
+            // should reset for correct status unless this is air attack, cause air attack is always true for global
+            if (effect_id != 0) {
+                global = false;
+            }
+            // if this loop is running then it means this is a conditional
             if (j == 1) {
                 conditional = true;
             }
             if (effect[condition[j]] == "ALL") {
                 multiplier = multiplier * parseFloat(effect[atk_or_def]);
+                global = true;
             }
             else if (effect[condition[j]] == "AERIALS" && move.name.slice(-6) == "aerial") {
                 multiplier = multiplier * parseFloat(effect[atk_or_def]);
+                global = true;
             }
             else if (effect[condition[j]] == "SMASH_ATTACKS" && move.name.slice(-5) == "smash" && move.name != "Final Smash") {
                 multiplier = multiplier * parseFloat(effect[atk_or_def]);
+                global = true;
             }
             else if (effect[condition[j]] == "SPECIAL_MOVES" && move.name.slice(-7) == "special") {
                 multiplier = multiplier * parseFloat(effect[atk_or_def]);
+                global = true;
             }
             else if (effect[condition[j]] == "ONE" && connection_info["ONE"][effect.name] == move.name) {
                 multiplier = multiplier * parseFloat(effect[atk_or_def]);
+                global = true;
             }
             else if (effect[condition[j]] == "SEARCH") {
+                // checks for weapon type because for some reason it is considered global according to ssbwiki
+                if (effect_id == 55 || effect_id == 54) {
+                    global = true;
+                }
+
                 if (connection_info["SEARCH"][effect_id].type == "type") {
                     for (let i = 0; i < connection_info["SEARCH"][effect_id].indicators.length; i++) {
                         if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i]) {
@@ -134,7 +206,7 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def) {
     if (atk_or_def == "defense_multi" && multiplier > 1) {
         multiplier = 1/multiplier;
     }
-    return { "multiplier": multiplier, "conditional": conditional };
+    return { "multiplier": multiplier, "conditional": conditional, "global": global };
 }
 
 /**
@@ -171,16 +243,17 @@ function calculateStaleQueue() {
  */
 function calculate() {
     // @todo: 12.0.0 disclaimer
-    // @todo: smash attack charge
+    // @todo: fix air attack conditional
     // @todo: checkbox for conditionals
+    // @todo: smash attack charge
 
-    // @todo: diminishing returns
     // @todo: account for >1.3x diminish on trade-off + armorknight / trade-off + trade-off + trade-off
 
     var table_id = "summary_table";
     clearTable(table_id);
 
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
+    var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
 
     var damage = 0;
     var multiplier = 1;
@@ -322,19 +395,29 @@ function calculate() {
 
 
     var p1_slot_ids = ["p1_slots1", "p1_slots2", "p1_slots3"];
+    // if this is >1.3x, it needs to be diminished
+    var global_eff_atk_boost = 1;
 
     for (let i = 0; i < p1_slot_ids.length; i++) {
-        let eff_properties = getEffectMultiplier(document.getElementById(p1_slot_ids[i]).value, move, document.getElementById("hitboxes").value, "attack_multi");
+        let curr_id = document.getElementById(p1_slot_ids[i]).value;
+
+        let eff_properties = getEffectMultiplier(curr_id, move, document.getElementById("hitboxes").value, "attack_multi", eff_info);
 
         // calculate diminishing returns
-        if (i == 1) {
+        if (i == 1 && eff_properties.multiplier != 1) {
             if (document.getElementById(p1_slot_ids[1]).value == document.getElementById(p1_slot_ids[0]).value) {
-                continue;
+                eff_properties.multiplier = getDiminshedEffect(curr_id, "attack_multi", 2, eff_info);
             }
         }
-        if (i == 2) {
+        if (i == 2 && eff_properties.multiplier != 1) {
             if (document.getElementById(p1_slot_ids[2]).value == document.getElementById(p1_slot_ids[0]).value || document.getElementById(p1_slot_ids[2]).value == document.getElementById(p1_slot_ids[1]).value) {
-                continue;
+                // triple diminish
+                if (document.getElementById(p1_slot_ids[1]).value == document.getElementById(p1_slot_ids[0]).value) {
+                    eff_properties.multiplier = getDiminshedEffect(curr_id, "attack_multi", 3, eff_info);
+                }
+                else {
+                    eff_properties.multiplier = getDiminshedEffect(curr_id, "attack_multi", 2, eff_info);
+                }
             }
         }
 
@@ -348,9 +431,28 @@ function calculate() {
             multiplier = multiplier * eff_properties.multiplier;
         }
 
-        if (eff_properties.multiplier != 1) {
-            addRow([p1_slot_ids[i], eff_properties.multiplier], table_id, false);
+        if (eff_properties.global == true) {
+            global_eff_atk_boost *= eff_properties.multiplier;
         }
+
+        if (eff_properties.multiplier != 1) {
+            addRow([getEffectName(curr_id, eff_info), eff_properties.multiplier], table_id, false);
+        }
+    }
+
+    if (global_eff_atk_boost > 1.3) {
+        if (global_eff_atk_boost > 1.5) {
+            var actual = global_eff_atk_boost * 0.2 + 1.2
+        }
+        else {
+            var actual = global_eff_atk_boost * 0.5 + 0.65
+        }
+
+        let diminish_multi = actual / global_eff_atk_boost;
+
+        multiplier = multiplier * diminish_multi;
+
+        addRow([">1.3x Eff Atk Penalty", diminish_multi], table_id, false);
     }
 
     // amiibo defense multiplier
@@ -377,7 +479,26 @@ function calculate() {
     var p2_slot_ids = ["p2_slots1", "p2_slots2", "p2_slots3"];
 
     for (let i = 0; i < p2_slot_ids.length; i++) {
-        let eff_properties = getEffectMultiplier(document.getElementById(p2_slot_ids[i]).value, move, document.getElementById("hitboxes").value, "defense_multi");
+        let curr_id = document.getElementById(p2_slot_ids[i]).value;
+        let eff_properties = getEffectMultiplier(curr_id, move, document.getElementById("hitboxes").value, "defense_multi", eff_info);
+
+        // calculate diminishing returns
+        if (i == 1) {
+            if (document.getElementById(p2_slot_ids[1]).value == document.getElementById(p2_slot_ids[0]).value) {
+                eff_properties.multiplier = getDiminshedEffect(curr_id, "defense_multi", 2, eff_info);
+            }
+        }
+        if (i == 2) {
+            if (document.getElementById(p2_slot_ids[2]).value == document.getElementById(p2_slot_ids[0]).value || document.getElementById(p2_slot_ids[2]).value == document.getElementById(p2_slot_ids[1]).value) {
+                // triple diminish
+                if (document.getElementById(p2_slot_ids[1]).value == document.getElementById(p2_slot_ids[0]).value) {
+                    eff_properties.multiplier = getDiminshedEffect(curr_id, "defense_multi", 3, eff_info);
+                }
+                else {
+                    eff_properties.multiplier = getDiminshedEffect(curr_id, "defense_multi", 2, eff_info);
+                }
+            }
+        }
 
         if (eff_properties.conditional == true && eff_properties.multiplier != 1) {
             conditions.push({
@@ -389,7 +510,7 @@ function calculate() {
             multiplier = multiplier * eff_properties.multiplier;
         }
         if (eff_properties.multiplier != 1) {
-            addRow([p2_slot_ids[i], eff_properties.multiplier], table_id, false);
+            addRow([getEffectName(curr_id, eff_info), eff_properties.multiplier], table_id, false);
         }
     }
 
