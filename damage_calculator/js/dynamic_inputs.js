@@ -56,7 +56,7 @@ function getSelectSlotCost(select_id) {
  */
 function spiritManager(called_by_id) {
     var p1 = {
-        player_type: "p1_type",
+        player_type: "p1_HorA",
         attack: "p1_attack",
         defense: "p1_defense",
         slot1: "p1_slots1",
@@ -67,7 +67,7 @@ function spiritManager(called_by_id) {
         slot3_div: "p1_third_slot"
     };
     var p2 = {
-        player_type: "p2_type",
+        player_type: "p2_HorA",
         attack: "p2_attack",
         defense: "p2_defense",
         slot1: "p2_slots1",
@@ -91,6 +91,8 @@ function spiritManager(called_by_id) {
     }
 
     var player_type = getPlayerClassification(player.player_type);
+
+    console.log(player_type);
 
     var slots_used = slotsManager(player);
 
@@ -320,4 +322,68 @@ function balanceAtkDef(priority_stat, atk, def, slots_used) {
         "atk": atk,
         "def": def
     };
+}
+
+function adjustChargePercent(frames_charged) {
+    let percent = frames_charged / 60 * 100;
+
+    percent = Math.round(percent * 100) / 100;
+
+    // displayed percent
+    document.getElementById("charge_percent").innerHTML = percent + '%';
+
+    // actual damage calculations
+    var prev_damage = parseFloat(document.getElementById("output").innerHTML.slice(0, -1));
+    var prev_frames = parseFloat(document.getElementById("prev_charge").innerHTML);
+    document.getElementById("prev_charge").innerHTML = frames_charged;
+
+
+    // for some reason these characters + attacks do 1.2x at full charge rather than 1.4x. IDK WHY
+
+    var char_id = document.getElementById("chars").value;
+    var move_id = document.getElementById("moves").value;
+    var halved = false;
+
+    // for oli and bayo it is all smashes
+    if (char_id == 68 || char_id == 44) {
+        halved = true;
+    }
+    // for mega, ness, villy, it is fsmash, up + down smash, and fsmash respectively
+    else if ((char_id == 50 && move_id == 5) || (char_id == 10 && (move_id == 8 || move_id == 9)) || (char_id == 49 && move_id == 7)) {
+        halved = true;
+    }
+
+    if (halved) {
+        // new multiplier
+        var multiplier = 1 + (0.006667 * frames_charged / 2);
+
+        // gets uncharged damage
+        prev_damage *= 1 / (1 + (0.006667 * prev_frames / 2));
+    }
+    else {
+        // new multiplier
+        var multiplier = 1 + 0.006667 * frames_charged;
+
+        // gets uncharged damage
+        prev_damage *= 1 / (1 + 0.006667 * prev_frames);
+    }
+
+    document.getElementById("output").innerHTML = Math.round(prev_damage * multiplier * 100) / 100 + '%';
+
+}
+
+/**
+ * Updates the damage based on checkbox ID using multiplier
+ * 
+ * @param {number} multiplier The amount to mulitply the damage by
+ * @param {string} id id of checkbox to adjust based on
+ */
+function updateDamage(multiplier, id) {
+    var prev_damage = parseFloat(document.getElementById("output").innerHTML.slice(0, -1));
+    if (document.getElementById(id).checked) {
+        document.getElementById("output").innerHTML = Math.round(prev_damage * multiplier * 100) / 100 + '%';
+    }
+    else {
+        document.getElementById("output").innerHTML = Math.round(prev_damage / multiplier * 100) / 100 + '%';
+    }
 }

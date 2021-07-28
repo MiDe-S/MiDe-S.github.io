@@ -1,4 +1,19 @@
 /**
+ * Round every value in the second column to 4 decimal places + adds multiplication symbol at end
+ * @param {string} table_id id of table to do operation on
+ */
+function cleanSummaryTable(table_id) {
+    table = document.getElementById(table_id);
+    var len = table.rows.length;
+    for (let i = 2; i < len; ++i) {
+        let cell = table.rows[i].children[1];
+        let num = parseFloat(cell.innerHTML);
+        num = Math.round(num * 10000) / 10000;
+        cell.innerHTML = num + '\u00D7';
+    }
+}
+
+/**
  * Clears a given table of all rows
  * 
  * @param {any} table_id id of table to clear
@@ -206,6 +221,10 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
     if (atk_or_def == "defense_multi" && multiplier > 1) {
         multiplier = 1/multiplier;
     }
+    // shield damage up and 'killers' are not considered global
+    if (effect_id == 37 || effect_id == 3 || effect_id == 26 || effect_id == 31) {
+        global = false;
+    }
     return { "multiplier": multiplier, "conditional": conditional, "global": global };
 }
 
@@ -244,11 +263,15 @@ function calculateStaleQueue() {
 function calculate() {
     // @todo: 12.0.0 disclaimer
     // @todo: fix air attack conditional
-    // @todo: checkbox for conditionals
 
-
+    // clears summary table for new info
     var table_id = "summary_table";
     clearTable(table_id);
+
+    // reset smash attack charge, needed to avoid unintended behavior
+    document.getElementById("prev_charge").innerHTML = 0;
+    document.getElementById("charge_range").value = 0;
+    document.getElementById("charge_percent").innerHTML = '0%';
 
     var char_info = JSON.parse(sessionStorage.getItem('char_info'));
     var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
@@ -422,24 +445,21 @@ function calculate() {
         if (eff_properties.conditional == true && eff_properties.multiplier != 1) {
             conditions.push({
                 "multiplier": eff_properties.multiplier,
-                "slot": p1_slot_ids[i]
+                "name": getEffectName(curr_id, eff_info)
             });
         }
-        else {
+        else if (eff_properties.multiplier != 1) {
             multiplier = multiplier * eff_properties.multiplier;
+            addRow([getEffectName(curr_id, eff_info), eff_properties.multiplier], table_id, false);
         }
 
         if (eff_properties.global == true) {
             global_eff_atk_boost *= eff_properties.multiplier;
         }
-
-        if (eff_properties.multiplier != 1) {
-            addRow([getEffectName(curr_id, eff_info), eff_properties.multiplier], table_id, false);
-        }
     }
 
     // If effects that buff 'all' moves result in >1.3x or >1.5x the attack is diminished
-    if (global_eff_atk_boost > 1.3) {
+    if (global_eff_atk_boost > 1.3 && conditions.length < 2) {
         if (global_eff_atk_boost > 1.5) {
             var actual = global_eff_atk_boost * 0.2 + 1.2
         }
@@ -502,44 +522,54 @@ function calculate() {
         if (eff_properties.conditional == true && eff_properties.multiplier != 1) {
             conditions.push({
                 "multiplier": eff_properties.multiplier,
-                "slot": p2_slot_ids[i]
+                "name": getEffectName(curr_id, eff_info)
             });
         }
-        else {
+        else if (eff_properties.multiplier != 1) {
             multiplier = multiplier * eff_properties.multiplier;
-        }
-        if (eff_properties.multiplier != 1) {
             addRow([getEffectName(curr_id, eff_info), eff_properties.multiplier], table_id, false);
         }
     }
 
+
     // damage stat boost
     damage = base_dmg * multiplier;
 
-    var charge_damage = damage;
-
     // smash attack charging
     if (move.name.slice(-5) == "smash" && move.name != "Final Smash") {
-        let charge_multi = 1.4;
-        // for some reason these characters + attacks do 1.2x at full charge rather than 1.4x. IDK WHY
-        // for oli and bayo it is all smashes
-        if (char_id == 68 || char_id == 44) {
-            charge_multi = 1.2;
-        }
-        // for mega, ness, villy, it is fsmash, up + down smash, and fsmash respectively
-        else if ((char_id == 50 && move.id == 5) || (char_id == 10 && (move.id == 8 || move.id == 9)) || (char_id == 49 && move.id == 7)) {
-            charge_multi = 1.2;
-        }
-        charge_damage *= charge_multi;
-
-        addRow(["Max Charge", charge_multi], table_id, false);
+        document.getElementById("charge").style.display = "block";
     }
 
-    // different display whether it is smash attack or not
-    if (charge_damage != damage) {
-        document.getElementById("output").innerHTML = "In these conditions, an uncharged " + move.name + " does " + Math.floor(damage * 10) / 10 + "%, and a max charged " + move.name + " does " + Math.floor(charge_damage * 10) / 10 + "%.";
+    let conditional_div = document.getElementById("conditionals");
+    while (conditional_div.firstChild) {
+        conditional_div.removeChild(conditional_div.firstChild);
     }
-    else {
-        document.getElementById("output").innerHTML = "In these conditions " + move.name + " does " + Math.floor(damage * 10) / 10 + "%.";
+
+    for (let i = 0; i < conditions.length; i++) {
+        // avoids weird double critical hit
+        if (conditions[i].multiplier != 0 && conditions[i].multiplier != 1) {
+
+            let label = document.createElement("label");
+            label.for = 'c' + i;
+
+            // any higher precision is not needed
+            conditions[i].multiplier = Math.round(conditions[i].multiplier * 100) / 100;
+
+            label.appendChild(document.createTextNode(conditions[i].name + ' (' + conditions[i].multiplier + '\u00D7)'));
+
+            let check_box = document.createElement("input");
+            check_box.type = "checkbox";
+            check_box.id = 'c' + i;
+            check_box.value = conditions[i].multiplier;
+            check_box.onchange = function () { updateDamage(this.value, this.id) };
+
+            conditional_div.appendChild(label);
+            conditional_div.appendChild(check_box);
+        }
     }
+
+    document.getElementById("output").innerHTML = Math.floor(damage * 10) / 10 + '%';
+
+    // adjust summary table so numbers are rounded + multiplication symbol
+    cleanSummaryTable(table_id);
 }

@@ -7,7 +7,7 @@
         "cost": "1",
         "id": 0,
         "always": "AERIALS",
-        "conditional": "SPECIAL_MOVES",
+        "conditional": null,
         "attack_multi": "1.10",
         "defense_multi": "1.00",
         "attack_multi_2": "1.18",
