@@ -263,6 +263,7 @@ function calculateStaleQueue() {
 function calculate() {
     // @todo: 12.0.0 disclaimer
     // @todo: ~0.1% error disclaimer
+    // @todo: staleness checkbox
 
 
     // clears summary table for new info

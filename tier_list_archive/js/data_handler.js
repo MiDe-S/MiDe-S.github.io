@@ -73,9 +73,11 @@ function changeTierList(filepath, prefix) {
     if (url.search == "") {
         url.searchParams.append('list', filepath);
         window.history.replaceState(filepath, 'Tier List', url);
+        document.querySelector('meta[name="image"]').setAttribute("content", prefix + filepath);
     }
     else if (url.searchParams.get('list') != filepath) {
         url.searchParams.set('list', filepath);
         window.history.replaceState(filepath, 'Tier List', url);
+        document.querySelector('meta[name="image"]').setAttribute("content", prefix + filepath);
     }
 }
