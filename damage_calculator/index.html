@@ -97,7 +97,7 @@
                     <label for="short_hop">Short Hop:</label>
                     <input type="checkbox" id="short_hop" />
                 </div>
-                <div id="lucario_only" style="display:block">
+                <div id="lucario_only" style="display:none">
                     <label for="luc_percent">Percent: </label>
                     <input type="number" id="luc_percent" value="0" step="0.1" min="0" />
                     <br />
@@ -157,8 +157,8 @@
                 </div>
             </div>
         </div>
-        <hr class="space_above"/>
-        <div class="center space_above">
+        <hr class="space_above" />
+        <div class="center space_above" style="overflow: auto;">
             <table class="center outline">
                 <tr>
                     <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">Stale Enabled: <input type="checkbox" id="staleEnable" checked="checked" onchange="validateStaleQueue(this.id)" /></td>
@@ -197,6 +197,8 @@
                     <td><input type="checkbox" id="shield9" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
                 </tr>
             </table>
+        </div>
+        <div class="center">
             <label for="match_type">1v1 and Items are off:</label><input class="space_above" type="checkbox" checked="checked" id="match_type" />
         </div>
         <div id="math" class="calculate center">
