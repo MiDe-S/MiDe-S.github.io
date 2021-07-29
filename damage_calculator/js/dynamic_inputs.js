@@ -4,14 +4,36 @@
  * @param {any} stale_id id of most recent update
  */
 function validateStaleQueue(stale_id) {
-    if (stale_id.slice(0, -1) == "Shield") {
+    var base_stale_id = "stale";
+    var base_shield_id = "shield";
+
+    if (stale_id == "staleEnable") {
+        for (let i = 1; i < 10; i++) {
+            let shield = document.getElementById(base_shield_id + i);
+            let stale = document.getElementById(base_stale_id + i)
+
+            if (document.getElementById("staleEnable").checked) {
+                shield.disabled = false;
+                stale.disabled = false;
+            }
+            else {
+                stale.checked = false;
+                stale.disabled = true;
+                shield.checked = false;
+                shield.disabled = true;
+            }
+
+        }
+
+    }
+    else if (stale_id.slice(0, -1) == base_shield_id) {
         if (document.getElementById(stale_id).checked) {
-            document.getElementById("Stale" + stale_id.slice(-1)).checked = true;
+            document.getElementById(base_stale_id  + stale_id.slice(-1)).checked = true;
         }
     }
     else {
         if (!document.getElementById(stale_id).checked) {
-            document.getElementById("Shield" + stale_id.slice(-1)).checked = false;
+            document.getElementById(base_shield_id + stale_id.slice(-1)).checked = false;
         }
     }
 }

@@ -236,8 +236,8 @@ function calculateStaleQueue() {
     // stale debuffs for each level of move
     const debuffs = [0.09,	0.08545, 0.07635, 0.0679, 0.05945, 0.05035, 0.04255, 0.03345, 0.025]
 
-    var base_stale_id = "Stale";
-    var base_shield_id = "Shield";
+    var base_stale_id = "stale";
+    var base_shield_id = "shield";
 
     var multiplier = 0;
 
@@ -263,8 +263,9 @@ function calculateStaleQueue() {
 function calculate() {
     // @todo: 12.0.0 disclaimer
     // @todo: ~0.1% error disclaimer
-    // @todo: staleness checkbox
 
+    // enables summary table div
+    document.getElementById("summary_div").style.display = 'block';
 
     // clears summary table for new info
     var table_id = "summary_table";
@@ -300,16 +301,20 @@ function calculate() {
         addRow(["1v1 Buff", 1.2], table_id, false);
     }
 
-    let staleness_debuff = calculateStaleQueue();
-    // For freshness bonus / stake queue
-    if (staleness_debuff == 0) {
-        multiplier = multiplier * 1.05;
-        addRow(["Freshness Bonus", 1.05], table_id, false);
-    }
-    else {
-        staleness_debuff = 1 - staleness_debuff;
-        multiplier = multiplier * staleness_debuff;
-        addRow(["Move Staling", staleness_debuff], table_id, false);
+    // For freshness bonus / stale queue
+    // only calculate staling if enabled
+    if (document.getElementById("staleEnable").checked) {
+        let staleness_debuff = calculateStaleQueue();
+        // move gets damage buff if it has 0 stale
+        if (staleness_debuff == 0) {
+            multiplier = multiplier * 1.05;
+            addRow(["Freshness Bonus", 1.05], table_id, false);
+        }
+        else {
+            staleness_debuff = 1 - staleness_debuff;
+            multiplier = multiplier * staleness_debuff;
+            addRow(["Move Staling", staleness_debuff], table_id, false);
+        }
     }
 
     // short hop damage reduction
@@ -574,6 +579,7 @@ function calculate() {
     }
 
     document.getElementById("output").innerHTML = Math.floor(damage * 10) / 10 + '%';
+    document.getElementById("output").style.visibility = "visible";
 
     // adjust summary table so numbers are rounded + multiplication symbol
     cleanSummaryTable(table_id);
