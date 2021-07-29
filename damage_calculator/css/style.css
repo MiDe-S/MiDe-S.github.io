@@ -81,7 +81,8 @@ input.conditionals {
     margin-top: 15px;
 }
 
-div.disclaimer {
+
+.disclaimer {
     background-color: #FDE8E8;
     width: 90%;
     border: 3px solid red;
@@ -89,7 +90,10 @@ div.disclaimer {
     margin-left: auto;
     margin-right: auto;
 }
-
+    .disclaimer p {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 .disclaimer_close {
     position: absolute;
     padding: 10px 10px;

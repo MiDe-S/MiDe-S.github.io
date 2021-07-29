@@ -16849,7 +16849,7 @@
         "id": 3,
         "hitboxes": [
           {
-            "name": "Early Hit (Early)",
+            "name": "Early Hit",
             "damage": "7.6",
             "angle": "100",
             "type": "Sword",
@@ -16858,21 +16858,12 @@
             "direct": "True"
           },
           {
-            "name": "Early Hit (Late)",
-            "damage": "7.6",
-            "angle": "100",
-            "type": "Sword",
-            "effect": "Slash",
-            "id": 1,
-            "direct": "True"
-          },
-          {
             "name": "Late Hit",
             "damage": "8.075",
             "angle": "85",
             "type": "Sword",
             "effect": "Slash",
-            "id": 2,
+            "id": 1,
             "direct": "True"
           }
         ]
@@ -16903,15 +16894,6 @@
             "type": "Sword",
             "effect": "Slash",
             "id": 0,
-            "direct": "True"
-          },
-          {
-            "name": "Late Hit",
-            "damage": "10.925",
-            "angle": "45",
-            "type": "Sword",
-            "effect": "Slash",
-            "id": 1,
             "direct": "True"
           }
         ]
@@ -17071,21 +17053,12 @@
             "direct": "True"
           },
           {
-            "name": "Clean Hit Weak Hit",
-            "damage": "12.35",
-            "angle": "BOTH",
-            "type": "Sword",
-            "effect": "Slash",
-            "id": 1,
-            "direct": "True"
-          },
-          {
-            "name": "Clean Hit Strong Hit",
+            "name": "Clean Hit",
             "damage": "14.25",
             "angle": "270",
             "type": "Sword",
             "effect": "Slash",
-            "id": 2,
+            "id": 1,
             "direct": "True"
           },
           {
@@ -17094,7 +17067,7 @@
             "angle": "BOTH",
             "type": "Sword",
             "effect": "Slash",
-            "id": 3,
+            "id": 2,
             "direct": "True"
           }
         ]
