@@ -7,11 +7,22 @@ select option:disabled {
     font-weight: lighter;
 }
 
+/* For mobile: */
 .column {
     float: left;
-    width: 35%;
     padding-left: 10.5%;
 }
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .column {
+        float: left;
+        width: 35%;
+        padding-left: 10.5%;
+    }
+}
+
+
 
 /* Clear floats after the columns */
 .row:after {
@@ -34,4 +45,17 @@ div.backdrop {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+input[type='radio'], input[type='checkbox'], button.enlarge {
+    transform: scale(1.5);
+}
+
+.fit_to_div {
+    width: 70%;
+}
+
+input, select {
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
