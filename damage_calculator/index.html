@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en-us">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Calculate move damage of spirited amiibo.">
@@ -14,6 +14,7 @@
     <script src="../global_js/side_bar.js"></script>
     <link href="../global_css/basics.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <title>Spirits Damage Calculator</title>
 </head>
 <body onload="loadDoc()">
     <div id="mySidebar" class="sidebar">
@@ -54,7 +55,7 @@
                 <label for="p1_attack">Attack: </label>
                 <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
                 <br />
-                <label for="p1_attack">Defense: </label>
+                <label for="p1_defense">Defense: </label>
                 <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
 
                 <div id="p1_spirit_slots">
@@ -130,7 +131,7 @@
                 <label for="p2_attack">Attack: </label>
                 <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
                 <br />
-                <label for="p2_attack">Defense: </label>
+                <label for="p2_defense">Defense: </label>
                 <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
 
                 <div id="p2_spirit_slots">
@@ -161,7 +162,7 @@
         <div class="center space_above" style="overflow: auto;">
             <table class="center outline">
                 <tr>
-                    <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">Stale Enabled: <input type="checkbox" id="staleEnable" checked="checked" onchange="validateStaleQueue(this.id)" /></td>
+                    <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;"><label for="staleEnable">Stale Enabled: </label><input type="checkbox" id="staleEnable" checked="checked" onchange="validateStaleQueue(this.id)" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -174,27 +175,27 @@
                 </tr>
                 <tr>
                     <td><span>Staleness Queue:</span></td>
-                    <td><input type="checkbox" id="stale1" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale2" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale3" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale4" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale5" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale6" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale7" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale8" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="stale9" name="staleQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="stale1" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="1st Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale2" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="2nd Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale3" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="3rd Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale4" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="4th Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale5" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="5th Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale6" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="6th Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale7" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="7th Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale8" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="8th Stale Queue Position"/></td>
+                    <td><input type="checkbox" id="stale9" name="staleQ" onchange="validateStaleQueue(this.id)" aria-label="9th Stale Queue Position"/></td>
                 </tr>
                 <tr>
                     <td><span>Hit Shield?</span></td>
-                    <td><input type="checkbox" id="shield1" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield2" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield3" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield4" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield5" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield6" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield7" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield8" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
-                    <td><input type="checkbox" id="shield9" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
+                    <td><input type="checkbox" id="shield1" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="1st Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield2" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="2nd Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield3" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="3rd Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield4" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="4th Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield5" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="5th Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield6" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="6th Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield7" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="7th Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield8" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="8th Stale Queue Position Shielded"/></td>
+                    <td><input type="checkbox" id="shield9" name="shieldQ" onchange="validateStaleQueue(this.id)" aria-label="9th Stale Queue Position Shielded"/></td>
                 </tr>
             </table>
         </div>

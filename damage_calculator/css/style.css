@@ -82,10 +82,10 @@ input.conditionals {
 }
 
 div.disclaimer {
-    background-color: #fad4d4;
+    background-color: #FDE8E8;
     width: 90%;
     border: 3px solid red;
-    color: red;
+    color: #C70000;
     margin-left: auto;
     margin-right: auto;
 }
