@@ -73,11 +73,11 @@ function changeTierList(filepath, prefix) {
     if (url.search == "") {
         url.searchParams.append('list', filepath);
         window.history.replaceState(filepath, 'Tier List', url);
-        document.querySelector('meta[name="image"]').setAttribute("content", prefix + filepath);
+        document.querySelector('meta[name="image"]').setAttribute("content", 'https://mide-s.github.io/tier_list_archive/' + prefix + filepath);
     }
     else if (url.searchParams.get('list') != filepath) {
         url.searchParams.set('list', filepath);
         window.history.replaceState(filepath, 'Tier List', url);
-        document.querySelector('meta[name="image"]').setAttribute("content", prefix + filepath);
+        document.querySelector('meta[name="image"]').setAttribute("content", 'https://mide-s.github.io/tier_list_archive/' + prefix + filepath);
     }
 }
