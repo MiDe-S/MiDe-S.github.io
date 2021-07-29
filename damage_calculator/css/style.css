@@ -2,6 +2,11 @@ h1 {
     color: #ff0000;
 }
 
+h2 {
+    margin-left: 33%;
+    margin-right: auto;
+}
+
 select option:disabled {
     color: #ff006e;
     font-weight: lighter;
@@ -39,16 +44,9 @@ select option:disabled {
 
 div.backdrop {
     background-color: #8b8f86;
-}
-
-.center {
-    text-align: center;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
-}
-
-input[type='radio'], input[type='checkbox'], button.enlarge {
-    transform: scale(1.5);
 }
 
 .fit_to_div {
@@ -58,4 +56,39 @@ input[type='radio'], input[type='checkbox'], button.enlarge {
 input, select {
     margin-bottom: 5px;
     margin-top: 5px;
+}
+
+input.conditionals {
+    margin-left: 8px;
+    margin-right: 16px;
+}
+
+.border_bottom {
+    border-bottom: 1px solid #000;
+}
+
+.space_above {
+    margin-top: 15px;
+}
+
+div.disclaimer {
+    background-color: #fad4d4;
+    width: 90%;
+    border: 3px solid red;
+    color: red;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.disclaimer_close {
+    position: absolute;
+    padding: 10px 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    right: 6%;
+}
+
+.disclaimer_close:hover {
+    color:lightgray;
 }

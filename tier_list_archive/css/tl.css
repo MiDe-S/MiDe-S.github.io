@@ -23,13 +23,7 @@ div.parent {
 
 select {
     display: block;
-    margin: 0 auto;
-}
-
-div.title {
-    margin: auto;
-    padding-bottom: 8px;
-    min-width: 150px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 768px) {

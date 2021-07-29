@@ -568,6 +568,7 @@ function calculate() {
             label.appendChild(document.createTextNode(conditions[i].name + ' (' + conditions[i].multiplier + '\u00D7)'));
 
             let check_box = document.createElement("input");
+            check_box.classList.add("conditionals");
             check_box.type = "checkbox";
             check_box.id = 'c' + i;
             check_box.value = conditions[i].multiplier;

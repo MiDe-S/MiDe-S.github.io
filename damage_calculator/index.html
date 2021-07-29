@@ -25,14 +25,22 @@
     <div id="demo">
         <h1 class="white_text_black_outline">Spirits Damage Calculator (Beta)</h1>
     </div>
-    <div class="backdrop">
+    <div id="disclaimer" class="disclaimer">
+        <button class="disclaimer_close" onclick="closeDisclaimer()">&#10006</button>
+        <h4 class="center" style="margin-bottom:5px">DISCLAIMER:</h4>
+        <p class="center">
+            This is in beta. Some things like buff stacking, what moves shooting attack up effects, and conditional buffs may not be accurate. If the numbers shown here does not match the numbers shown in game, make sure all information has been inputted correctly. If the issue still persists, it is most likely an error with the calculator. <br /> Please note that values may be ±0.1 off from actual values.
+        </p>
+    </div>
+
+    <div class="backdrop space_above">
         <div class="row">
             <div class="column">
                 <h2>Attacker:</h2>
-                <label for="p1_r1">Human:</label>
-                <input type="radio" id="p1_r1" name="p1_HorA" checked="checked" value="human" onchange="spiritManager(this.name)" />
-                <label for="p1_r2">or Level 50 Amiibo:</label>
-                <input type="radio" id="p1_r2" name="p1_HorA" value="amiibo" onchange="spiritManager(this.name)" />
+                <label for="p1_r2">Level 50 Amiibo:</label>
+                <input type="radio" id="p1_r2" name="p1_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
+                <label for="p1_r1">or Human:</label>
+                <input type="radio" id="p1_r1" name="p1_HorA" value="human" onchange="spiritManager(this.name)" />
                 <br />
 
                 <label for="p1_type">Type: </label>
@@ -70,7 +78,6 @@
                     </div>
 
                 </div>
-                <br />
                 <div id="characters">
                     <label for="chars">Character:</label>
                     <select id="chars" onchange="generateMoves(this.value)">
@@ -107,10 +114,10 @@
 
             <div class="column">
                 <h2>Defender:</h2>
-                <label for="p2_r1">Human:</label>
-                <input type="radio" id="p2_r1" name="p2_HorA" checked="checked" value="human" onchange="spiritManager(this.name)" />
-                <label for="p2_r2"> or Level 50 Amiibo:</label>
-                <input type="radio" id="p2_r2" name="p2_HorA" value="amiibo" onchange="spiritManager(this.name)" />
+                <label for="p2_r2">Level 50 Amiibo:</label>
+                <input type="radio" id="p2_r2" name="p2_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
+                <label for="p2_r1">or Human:</label>
+                <input type="radio" id="p2_r1" name="p2_HorA" value="human" onchange="spiritManager(this.name)" />
                 <br />
                 <label for="p2_type">Type: </label>
                 <select id="p2_type">
@@ -150,13 +157,11 @@
                 </div>
             </div>
         </div>
-        <br />
-        <hr />
-        <br />
-        <div class="center">
-            <table class="outline center">
+        <hr class="space_above"/>
+        <div class="center space_above">
+            <table class="center outline">
                 <tr>
-                    <td class="outline">Stale Enabled: <input type="checkbox" id="staleEnable" checked="checked" onchange="validateStaleQueue(this.id)" /></td>
+                    <td style="border-right: 1px solid #000; border-bottom: 1px solid #000;">Stale Enabled: <input type="checkbox" id="staleEnable" checked="checked" onchange="validateStaleQueue(this.id)" /></td>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -192,33 +197,29 @@
                     <td><input type="checkbox" id="shield9" name="shieldQ" onchange="validateStaleQueue(this.id)" /></td>
                 </tr>
             </table>
-            <br />
-            <label for="match_type">1v1 and Items are off:</label><input type="checkbox" checked="checked" id="match_type" />
+            <label for="match_type">1v1 and Items are off:</label><input class="space_above" type="checkbox" checked="checked" id="match_type" />
         </div>
-        <br />
         <div id="math" class="calculate center">
-            <button type="button" onclick="calculate()" class="enlarge">Calculate Damage</button>
+            <button type="button" onclick="calculate()" class="enlarge space_above">Calculate Damage</button>
         </div>
-        <div class="center">
-            <h2 id="output" style="visibility: hidden; padding-bottom: 10px;">0</h2>
-        </div>
+        <div id="conditionals" class="center space_above">
 
-    </div>
-    <br />
-    <div id="summary_div" style="display:none" class="backdrop center">
-        <div id="charge" style="display:none">
+        </div>
+        <div id="charge" style="display:none" class="center">
             <label for="charge_range">Smash Attack Charge:</label>
-            <input type="range" id="charge_range" min="0" max="60" step="1" value="0" onchange="adjustChargePercent(this.value)"/>
+            <input type="range" id="charge_range" min="0" max="60" step="1" value="0" onchange="adjustChargePercent(this.value)" />
             <span id="charge_percent">0%</span>
             <span id="prev_charge" style="display:none">0</span>
         </div>
-        <div id="conditionals">
-
+        <div>
+            <h2 id="output" class="center" style="visibility: hidden; padding-bottom: 10px;">0</h2>
         </div>
 
+    </div>
+    <div id="summary_div" style="display:none;" class="backdrop center">
         <table id="summary_table" class="center">
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="border_bottom">
                     Summary:
                 </td>
             </tr>

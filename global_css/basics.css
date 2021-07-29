@@ -16,24 +16,18 @@ td, th {
     border: 1px solid black;
 }
 
-label, tr {
-    font-size: large;
-}
-
-select {
-    font-size: large;
-}
-
-input {
-    font-size: large;
-}
-
-span {
+label, tr, select, input, span, p {
     font-size: large;
 }
 
 .center {
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type='radio'], input[type='checkbox'], button.enlarge {
+    transform: scale(1.5);
 }
 
 .white_text_black_outline {

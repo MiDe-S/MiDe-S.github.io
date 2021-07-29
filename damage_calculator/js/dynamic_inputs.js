@@ -1,3 +1,9 @@
+/**
+ * Closes the disclaimer box
+ */
+function closeDisclaimer() {
+    document.getElementById("disclaimer").style.display = "none";
+}
 
 /**
  * Validates the stalequeue inputs
