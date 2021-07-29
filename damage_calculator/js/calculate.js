@@ -261,9 +261,6 @@ function calculateStaleQueue() {
  *
  */
 function calculate() {
-    // @todo: 12.0.0 disclaimer
-    // @todo: ~0.1% error disclaimer
-
     // enables summary table div
     document.getElementById("summary_div").style.display = 'block';
 
