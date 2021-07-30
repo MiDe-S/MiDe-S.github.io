@@ -2123,12 +2123,30 @@
             "direct": "False"
           },
           {
+            "name": "Clean Hit (Smash Throw)",
+            "damage": "9.6",
+            "angle": "70",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 1,
+            "direct": "False"
+          },
+          {
             "name": "Late Hit",
             "damage": "6.0",
             "angle": "65",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 1,
+            "id": 2,
+            "direct": "False"
+          },
+          {
+            "name": "Late Hit (Smash Throw)",
+            "damage": "7.2",
+            "angle": "65",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 3,
             "direct": "False"
           },
           {
@@ -2137,7 +2155,7 @@
             "angle": "70",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 2,
+            "id": 4,
             "direct": "False"
           }
         ]
@@ -18024,12 +18042,30 @@
             "direct": "False"
           },
           {
+            "name": "Clean Hit (Smash Throw)",
+            "damage": "13.2",
+            "angle": "70",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 1,
+            "direct": "False"
+          },
+          {
             "name": "Late Hit",
             "damage": "7.0",
             "angle": "75",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 1,
+            "id": 2,
+            "direct": "False"
+          },
+          {
+            "name": "Late Hit (Smash Throw)",
+            "damage": "8.4",
+            "angle": "75",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 3,
             "direct": "False"
           },
           {
@@ -18038,7 +18074,7 @@
             "angle": "90",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 2,
+            "id": 4,
             "direct": "False"
           }
         ]
@@ -34621,12 +34657,30 @@
             "direct": "False"
           },
           {
+            "name": "Clean Hit (Smash Throw)",
+            "damage": "9.6",
+            "angle": "70",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 1,
+            "direct": "False"
+          },
+          {
             "name": "Late Hit",
             "damage": "5.0",
             "angle": "65",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 1,
+            "id": 2,
+            "direct": "False"
+          },
+          {
+            "name": "Late Hit (Smash Throw)",
+            "damage": "6.0",
+            "angle": "65",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 3,
             "direct": "False"
           },
           {
@@ -34635,7 +34689,7 @@
             "angle": "60",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 2,
+            "id": 4,
             "direct": "False"
           }
         ]
@@ -52138,12 +52192,21 @@
             "direct": "False"
           },
           {
+            "name": "Clean (Smash Throw)",
+            "damage": "8.0",
+            "angle": "65",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 1,
+            "direct": "False"
+          },
+          {
             "name": "Returning",
             "damage": "5.0",
             "angle": "75",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 1,
+            "id": 2,
             "direct": "False"
           }
         ]
@@ -53030,12 +53093,21 @@
             "direct": "False"
           },
           {
+            "name": "Clean (Smash Throw)",
+            "damage": "8.0",
+            "angle": "65",
+            "type": "Weapon",
+            "effect": "Normal",
+            "id": 1,
+            "direct": "False"
+          },
+          {
             "name": "Returning",
             "damage": "5.0",
             "angle": "75",
             "type": "Weapon",
             "effect": "Normal",
-            "id": 1,
+            "id": 2,
             "direct": "False"
           }
         ]
