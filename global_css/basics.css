@@ -136,6 +136,10 @@ body {
         margin-left: 50px;
     }
 
+    .sidebar img {
+        vertical-align: middle; /*Shout out to https://stackoverflow.com/questions/489340/vertically-align-text-next-to-an-image*/
+    }
+
 .openbtn {
     font-size: 20px;
     cursor: pointer;

@@ -74,6 +74,34 @@ function loadSideBar() {
         }
     }
 
+    var social_links = [
+        {
+            "name": "YouTube",
+            "href": "https://www.youtube.com/channel/UCIs24FJ7UlsG2V4o_sL0SAg",
+            "icon": "https://www.youtube.com/s/desktop/0c58a82c/img/favicon_32x32.png"
+        },
+        {
+            "name": "Twitter",
+            "href": "https://twitter.com/mide_shadowrift",
+            "icon": "https://abs.twimg.com/favicons/twitter.ico"
+        }
+    ]
+    var space_from_bottom = 20;
+    for (let i = 0; i < social_links.length; i++) {
+        let link = document.createElement("a");
+        let img = document.createElement("img");
+
+        img.src = social_links[i].icon;
+
+        link.appendChild(img);
+        link.href = social_links[i].href;
+
+        link.appendChild(document.createTextNode(social_links[i].name));
+        link.style.position = 'absolute';
+        link.style.bottom = space_from_bottom + (40 * i) + 'px';
+
+        side_bar.appendChild(link);
+    }
 }
 
 function openNav() {
