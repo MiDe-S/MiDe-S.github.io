@@ -32,14 +32,16 @@
                 <option value="true">Coverage</option>
             </select>
         </div>
-        <table id="table_compatibility" class="outline">
-            <tr class="alternating_colors_header">
-                <th class="outline">
-                    <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
-                    </select>
-                </th>
-            </tr>
-        </table>
+        <div style="overflow:auto;">
+            <table id="table_compatibility" class="outline">
+                <tr class="alternating_colors_header">
+                    <th class="outline">
+                        <select name="chars" id="chars" onchange="generateChart(this.value, document.getElementById('sorting').value)">
+                        </select>
+                    </th>
+                </tr>
+            </table>
+        </div>
     </div>
     <div style="margin:10px auto 10px auto">
         <table class="lg_background">
