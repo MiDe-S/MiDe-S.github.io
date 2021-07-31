@@ -209,7 +209,7 @@ function slotsManager(player) {
 
                         sessionStorage.setItem(player.slot2, slot2_cost);
                     }
-                    return 1 + getSelectSlotCost(player.slot3);
+                    return 2 + getSelectSlotCost(player.slot3);
                 }
             }
             break;
@@ -274,19 +274,19 @@ function balanceAtkDef(priority_stat, atk, def, slots_used) {
         case 0:
             cap = 5000;
             max = 5000;
-            min = 0;
+            min = -400;
             break;
 
         case 1:
             cap = 4700;
-            max = 4950;
-            min = -150;
+            max = 4850;
+            min = -400;
             break;
 
         case 2:
             cap = 4500;
             max = 4750;
-            min = -250;
+            min = -400;
             break;
 
         case 3:

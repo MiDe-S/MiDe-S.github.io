@@ -1,5 +1,5 @@
 /* for mobile */
-img {
+.tier-list img {
     max-width: 100%;
     height: auto;
     width: auto;
@@ -28,7 +28,7 @@ select {
 
 @media only screen and (min-width: 768px) {
     /* For desktop: */
-    img {
+    .tier-list img {
         height: 90vh;
         width: auto;
         min-height: 423px;

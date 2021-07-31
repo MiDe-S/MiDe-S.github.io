@@ -3,8 +3,13 @@ function loadSideBar() {
     var links = [
         {
             "type": "link",
-            "href": "../spirit_compatibility_chart/index.html",
+            "href": "../spirit_compatibility_chart/",
             "name": "Spirit Compatibility Chart"
+        },
+        {
+            "type": "link",
+            "href": "../damage_calculator/",
+            "name": "Damage Calculator"
         },
         {
             "type": "menu",

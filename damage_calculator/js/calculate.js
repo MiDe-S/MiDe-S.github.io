@@ -286,8 +286,16 @@ function calculate() {
 
     var attacker = getPlayerClassification("p1_HorA");
     var defender = getPlayerClassification("p2_HorA");
+
     var atk = document.getElementById("p1_attack").value;
     var def = document.getElementById("p2_defense").value;
+    // formulas breaks if negatives are used, negative stats give negliglble difference, @ -32k/-32k ganon side B is only reduced by -.2%
+    if (atk < 0) {
+        atk = 0;
+    }
+    if (def < 0) {
+        def = 0;
+    }
 
     var base_dmg = parseFloat(char_info[document.getElementById("chars").value].moves[document.getElementById("moves").value].hitboxes[document.getElementById("hitboxes").value].damage);
     addRow(["Base Damage", base_dmg + '%'], table_id, false);
