@@ -32,10 +32,16 @@ function loadSideBar() {
     var side_bar = document.getElementById("mySidebar");
 
     // adds header to nav
+    var main_link = document.createElement("a");
+    main_link.href = "../amiibo/";
+
     var title = document.createElement("h1");
     title.appendChild(document.createTextNode("Amiichives"));
     title.classList.add("white_text_black_outline");
-    side_bar.appendChild(title);
+
+
+    main_link.appendChild(title);
+    side_bar.appendChild(main_link);
 
     // adds divider
     side_bar.appendChild(document.createElement("hr"));

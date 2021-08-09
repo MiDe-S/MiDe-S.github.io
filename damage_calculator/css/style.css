@@ -1,10 +1,14 @@
+.m_center {
+    width: 80%;
+    margin: auto;
+}
+
 h1 {
     color: #ff0000;
 }
 
 h2 {
-    margin-left: 25%;
-    margin-right: auto;
+    text-align: center;
 }
 
 input[type='checkbox'] {

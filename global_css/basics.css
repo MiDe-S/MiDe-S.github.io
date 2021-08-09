@@ -133,6 +133,10 @@ body {
         min-width: 250px; /* Makes content static during transition */
     }
 
+        .sidebar h1:hover {
+            color: #c1c1c1;
+        }
+
     .sidebar a.current_page {
         color: #818181;
     }
@@ -183,15 +187,14 @@ body {
 /* For mobile: */
 .column {
     float: left;
-    padding-left: 10.5%;
 }
 
 @media only screen and (min-width: 768px) {
     /* For desktop: */
     .column {
         float: left;
-        width: 35%;
-        padding-left: 10.5%;
+        width: 39.5%;
+        padding-left: 7%;
     }
 
     input[type='checkbox'] {

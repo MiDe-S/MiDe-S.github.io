@@ -38,123 +38,127 @@
         <div class="row">
             <div class="column">
                 <h2>Attacker:</h2>
-                <label for="p1_r2">Level 50 Amiibo:</label>
-                <input type="radio" id="p1_r2" name="p1_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
-                <label for="p1_r1">or Human:</label>
-                <input type="radio" id="p1_r1" name="p1_HorA" value="human" onchange="spiritManager(this.name)" />
-                <br />
-
-                <label for="p1_type">Type: </label>
-                <select id="p1_type">
-                    <option value="Neutral" selected>Neutral</option>
-                    <option value="Attack">Attack</option>
-                    <option value="Shield">Shield</option>
-                    <option value="Grab">Grab</option>
-                </select>
-                <br />
-                <label for="p1_attack">Attack: </label>
-                <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
-                <br />
-                <label for="p1_defense">Defense: </label>
-                <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
-
-                <div id="p1_spirit_slots">
-                    <div id="p1_first_slot">
-                        <label for="p1_slots1">Slot 1:</label>
-                        <select id="p1_slots1" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
-                    <div id="p1_second_slot" style="display:none">
-                        <label for="p1_slots2">Slot 2:</label>
-                        <select id="p1_slots2" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
-                    <div id="p1_third_slot" style="display:none">
-                        <label for="p1_slots3">Slot 3:</label>
-                        <select id="p1_slots3" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
-
-                </div>
-                <div id="characters">
-                    <label for="chars">Character:</label>
-                    <select id="chars" onchange="generateMoves(this.value)">
-                    </select>
-                </div>
-                <div>
-                    <label for="moves">Move:</label>
-                    <select id="moves" onchange="generateHitBoxes(document.getElementById('chars').value, this.value)">
-                    </select>
-                </div>
-                <div id="hitbox_div" style="display:none">
-                    <label for="hitboxes">Specify Hitbox:</label>
-                    <select id="hitboxes">
-                    </select>
-                </div>
-                <div id="short_hop_div" style="display:none">
-                    <label for="short_hop">Short Hop:</label>
-                    <input type="checkbox" id="short_hop" />
-                </div>
-                <div id="lucario_only" style="display:none">
-                    <label for="luc_percent">Percent: </label>
-                    <input type="number" id="luc_percent" value="0" step="0.1" min="0" />
+                <div class="m_center">
+                    <label for="p1_r2">Level 50 Amiibo:</label>
+                    <input type="radio" id="p1_r2" name="p1_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
+                    <label for="p1_r1">or Human:</label>
+                    <input type="radio" id="p1_r1" name="p1_HorA" value="human" onchange="spiritManager(this.name)" />
                     <br />
-                    <label for="luc_stock_diff">Stock Difference: </label>
-                    <select id="luc_stock_diff">
-                        <option value="2">+2</option>
-                        <option value="1">+1</option>
-                        <option value="0" selected>0</option>
-                        <option value="-1">-1</option>
-                        <option value="-2">-2</option>
+
+                    <label for="p1_type">Type: </label>
+                    <select id="p1_type">
+                        <option value="Neutral" selected>Neutral</option>
+                        <option value="Attack">Attack</option>
+                        <option value="Shield">Shield</option>
+                        <option value="Grab">Grab</option>
                     </select>
+                    <br />
+                    <label for="p1_attack">Attack: </label>
+                    <input type="number" id="p1_attack" value="0" onchange="spiritManager(this.id)" />
+                    <br />
+                    <label for="p1_defense">Defense: </label>
+                    <input type="number" id="p1_defense" value="0" onchange="spiritManager(this.id)" />
+
+                    <div id="p1_spirit_slots">
+                        <div id="p1_first_slot">
+                            <label for="p1_slots1">Slot 1:</label>
+                            <select id="p1_slots1" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
+                        <div id="p1_second_slot" style="display:none">
+                            <label for="p1_slots2">Slot 2:</label>
+                            <select id="p1_slots2" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
+                        <div id="p1_third_slot" style="display:none">
+                            <label for="p1_slots3">Slot 3:</label>
+                            <select id="p1_slots3" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div id="characters">
+                        <label for="chars">Character:</label>
+                        <select id="chars" onchange="generateMoves(this.value)">
+                        </select>
+                    </div>
+                    <div>
+                        <label for="moves">Move:</label>
+                        <select id="moves" onchange="generateHitBoxes(document.getElementById('chars').value, this.value)">
+                        </select>
+                    </div>
+                    <div id="hitbox_div" style="display:none">
+                        <label for="hitboxes">Specify Hitbox:</label>
+                        <select id="hitboxes">
+                        </select>
+                    </div>
+                    <div id="short_hop_div" style="display:none">
+                        <label for="short_hop">Short Hop:</label>
+                        <input type="checkbox" id="short_hop" />
+                    </div>
+                    <div id="lucario_only" style="display:none">
+                        <label for="luc_percent">Percent: </label>
+                        <input type="number" id="luc_percent" value="0" step="0.1" min="0" />
+                        <br />
+                        <label for="luc_stock_diff">Stock Difference: </label>
+                        <select id="luc_stock_diff">
+                            <option value="2">+2</option>
+                            <option value="1">+1</option>
+                            <option value="0" selected>0</option>
+                            <option value="-1">-1</option>
+                            <option value="-2">-2</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div class="column">
                 <h2>Defender:</h2>
-                <label for="p2_r2">Level 50 Amiibo:</label>
-                <input type="radio" id="p2_r2" name="p2_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
-                <label for="p2_r1">or Human:</label>
-                <input type="radio" id="p2_r1" name="p2_HorA" value="human" onchange="spiritManager(this.name)" />
-                <br />
-                <label for="p2_type">Type: </label>
-                <select id="p2_type">
-                    <option value="Neutral" selected>Neutral</option>
-                    <option value="Attack">Attack</option>
-                    <option value="Shield">Shield</option>
-                    <option value="Grab">Grab</option>
-                </select>
-                <br />
-                <label for="p2_attack">Attack: </label>
-                <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
-                <br />
-                <label for="p2_defense">Defense: </label>
-                <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
+                <div class="m_center">
+                    <label for="p2_r2">Level 50 Amiibo:</label>
+                    <input type="radio" id="p2_r2" name="p2_HorA" checked="checked" value="amiibo" onchange="spiritManager(this.name)" />
+                    <label for="p2_r1">or Human:</label>
+                    <input type="radio" id="p2_r1" name="p2_HorA" value="human" onchange="spiritManager(this.name)" />
+                    <br />
+                    <label for="p2_type">Type: </label>
+                    <select id="p2_type">
+                        <option value="Neutral" selected>Neutral</option>
+                        <option value="Attack">Attack</option>
+                        <option value="Shield">Shield</option>
+                        <option value="Grab">Grab</option>
+                    </select>
+                    <br />
+                    <label for="p2_attack">Attack: </label>
+                    <input type="number" id="p2_attack" value="0" onchange="spiritManager(this.id)" />
+                    <br />
+                    <label for="p2_defense">Defense: </label>
+                    <input type="number" id="p2_defense" value="0" onchange="spiritManager(this.id)" />
 
-                <div id="p2_spirit_slots">
+                    <div id="p2_spirit_slots">
 
-                    <div id="p2_first_slot">
-                        <label for="p2_slots1">Slot 1:</label>
-                        <select id="p2_slots1" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
-                    <div id="p2_second_slot" style="display:none">
-                        <label for="p2_slots2">Slot 2:</label>
-                        <select id="p2_slots2" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
-                    <div id="p2_third_slot" style="display:none">
-                        <label for="p2_slots3">Slot 3:</label>
-                        <select id="p2_slots3" onchange="spiritManager(this.id)" class="fit_to_div">
-                            <option value="-1">None</option>
-                        </select>
-                    </div>
+                        <div id="p2_first_slot">
+                            <label for="p2_slots1">Slot 1:</label>
+                            <select id="p2_slots1" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
+                        <div id="p2_second_slot" style="display:none">
+                            <label for="p2_slots2">Slot 2:</label>
+                            <select id="p2_slots2" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
+                        <div id="p2_third_slot" style="display:none">
+                            <label for="p2_slots3">Slot 3:</label>
+                            <select id="p2_slots3" onchange="spiritManager(this.id)" class="fit_to_div">
+                                <option value="-1">None</option>
+                            </select>
+                        </div>
 
+                    </div>
                 </div>
             </div>
         </div>
