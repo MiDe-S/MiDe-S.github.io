@@ -89,12 +89,14 @@ function loadSideBar() {
         {
             "name": "YouTube",
             "href": "https://www.youtube.com/channel/UCIs24FJ7UlsG2V4o_sL0SAg",
-            "icon": "https://www.youtube.com/s/desktop/0c58a82c/img/favicon_32x32.png"
+            "icon": "https://www.youtube.com/s/desktop/0c58a82c/img/favicon_32x32.png",
+            "alt": "YouTube Logo"
         },
         {
             "name": "Twitter",
             "href": "https://twitter.com/mide_shadowrift",
-            "icon": "https://abs.twimg.com/favicons/twitter.ico"
+            "icon": "https://abs.twimg.com/favicons/twitter.ico",
+            "alt": "Twitter Logo"
         }
     ]
     var space_from_bottom = 20;
@@ -103,6 +105,7 @@ function loadSideBar() {
         let img = document.createElement("img");
 
         img.src = social_links[i].icon;
+        img.alt = social_links[i].alt;
 
         link.appendChild(img);
         link.href = social_links[i].href;
