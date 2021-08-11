@@ -162,11 +162,11 @@ body {
     }
 
 .openbtn {
-    font-size: 20px;
+    font-size: 32px;
     cursor: pointer;
     background-color: white;
     color: #111;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border: none;
     border-style: solid;
     border-color: #111;

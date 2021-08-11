@@ -67,6 +67,9 @@ function loadDoc(metadata_file, prefix) {
 
 function changeTierList(filepath, prefix) {
     document.getElementById('tier_img').src = prefix + filepath;
+    document.getElementById('tier_link').href = prefix + filepath;
+    document.getElementById('tier_link').title = filepath;
+
 
     // Sets URL to selected tier list
     let url = new URL(window.location.href);

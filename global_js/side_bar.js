@@ -89,13 +89,13 @@ function loadSideBar() {
         {
             "name": "YouTube",
             "href": "https://www.youtube.com/channel/UCIs24FJ7UlsG2V4o_sL0SAg",
-            "icon": "https://www.youtube.com/s/desktop/0c58a82c/img/favicon_32x32.png",
+            "icon": "../yt_logo.png",
             "alt": "YouTube Logo"
         },
         {
             "name": "Twitter",
             "href": "https://twitter.com/mide_shadowrift",
-            "icon": "https://abs.twimg.com/favicons/twitter.ico",
+            "icon": "../twitter_logo.png",
             "alt": "Twitter Logo"
         }
     ]
@@ -106,6 +106,9 @@ function loadSideBar() {
 
         img.src = social_links[i].icon;
         img.alt = social_links[i].alt;
+
+        img.width = 32;
+        img.height = 32;
 
         link.appendChild(img);
         link.href = social_links[i].href;
