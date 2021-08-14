@@ -4,6 +4,16 @@
     "lists": []
   },
   {
+    "name": "Amiibots",
+    "lists": [
+      {
+        "filepath": "Amiibots/8-13-2021.png",
+        "meta": "Vanilla",
+        "date": "8-13-2021"
+      }
+    ]
+  },
+  {
     "name": "CTL",
     "lists": [
       {
