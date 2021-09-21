@@ -340,12 +340,39 @@ function calculate() {
         }
     }
     else {
+
+        let atk_point_multi = 4;
         // need to check if move is a final smash
-        let buff = (1 + (atk * 4 / 10000));
+        if (move.name == "Final Smash") {
+            atk_point_multi = 1;
+        }
+
+        let buff = (1 + (atk * atk_point_multi / 10000));
         multiplier = multiplier * buff;
         if (buff != 1) {
             addRow(["Human Attack Buff", buff], table_id, false);
         }
+
+        // for itemized summary of same series buff
+        if (document.getElementById("p1_same_series").checked) {
+            let buffed_atk = atk * 1.1;
+            if (buffed_atk > 10000) {
+                buffed_atk = 10000;
+            }
+
+            let same_series_buff = (1 + (buffed_atk * atk_point_multi / 10000));
+
+            // needed to find direct buff from increasing atk
+            let direct_buff = same_series_buff / buff;
+
+            multiplier = multiplier * direct_buff;
+
+            if (direct_buff != 1) {
+                addRow(["Same Series Attack Buff", direct_buff], table_id, false);
+            }
+
+        }
+
     }
 
     // Calculates lucario aura
@@ -504,6 +531,27 @@ function calculate() {
         if (buff != 1) {
             addRow(["Human Defense Debuff", buff], table_id, false);
         }
+
+        // for itemized summary of same series buff
+        if (document.getElementById("p2_same_series").checked) {
+            let buffed_def = def * 1.1;
+            if (buffed_def > 10000) {
+                buffed_def = 10000;
+            }
+
+            let same_series_buff = (1 / (1 + (buffed_def * 6 / 10000)));
+
+            // needed to find direct buff from increasing def
+            let direct_buff = same_series_buff / buff;
+
+            multiplier = multiplier * direct_buff;
+
+            if (direct_buff != 1) {
+                addRow(["Same Series Defense Buff", direct_buff], table_id, false);
+            }
+
+        }
+
     }
 
 

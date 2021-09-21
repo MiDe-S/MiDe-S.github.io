@@ -85,6 +85,7 @@ function getSelectSlotCost(select_id) {
 function spiritManager(called_by_id) {
     var p1 = {
         player_type: "p1_HorA",
+        primary: "p1_primary",
         attack: "p1_attack",
         defense: "p1_defense",
         slot1: "p1_slots1",
@@ -96,6 +97,7 @@ function spiritManager(called_by_id) {
     };
     var p2 = {
         player_type: "p2_HorA",
+        primary: "p2_primary",
         attack: "p2_attack",
         defense: "p2_defense",
         slot1: "p2_slots1",
@@ -112,19 +114,20 @@ function spiritManager(called_by_id) {
 
     // This could be cleaned up with classes but idk javascript well enough
     if (called_by_id.slice(0, 2) == 'p1') {
-        player = p1
+        player = p1;
     }
     else if (called_by_id.slice(0, 2) == 'p2') {
-        player = p2
+        player = p2;
     }
 
     var player_type = getPlayerClassification(player.player_type);
 
-    console.log(player_type);
-
     var slots_used = slotsManager(player);
 
+    // stat caps change dependent on if it is amiibo or human
     if (player_type == "amiibo") {
+
+        document.getElementById(player.primary).style.display = "none";
 
         if (called_by_id.slice(3) == "attack" || called_by_id.slice(3) == "defense") {
             balanced_stats = balanceAtkDef(called_by_id.slice(3), document.getElementById(player.attack).value, document.getElementById(player.defense).value, slots_used);
@@ -136,14 +139,18 @@ function spiritManager(called_by_id) {
         document.getElementById(player.defense).value = balanced_stats.def;
     }
     else {
+        document.getElementById(player.primary).style.display = "block";
+
         atk = document.getElementById(player.attack).value;
         def = document.getElementById(player.defense).value;
+        // max atk from akuma
         if (atk > 7941) {
             atk = 7941;
         }
         else if (atk < 0) {
             atk = 0;
         }
+        // max def from absolute defense capsule
         if (def > 10000) {
             def = 10000;
         }

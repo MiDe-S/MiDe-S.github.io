@@ -11,10 +11,6 @@ h2 {
     text-align: center;
 }
 
-input[type='checkbox'] {
-    transform: scale(1);
-}
-
 .calculate {
     margin: auto;
     width: 50%;

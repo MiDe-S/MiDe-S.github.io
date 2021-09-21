@@ -30,7 +30,7 @@
         <button class="disclaimer_close" onclick="closeDisclaimer()">&#10006</button>
         <h4 class="center" style="margin-bottom:5px">DISCLAIMER:</h4>
         <p class="center">
-            This is in beta. Some things like duplicate hitboxes, what moves shooting attack up effects, and random bugs may cause issues. <br /> If the numbers shown here do not match the numbers shown in game, make sure all information has been inputted correctly. If the issue still persists, it is most likely an error with the calculator. <br /> Please note that values may be ±0.1 off from actual values. <br /> Last Patch: 12.0.0
+            This is in beta. Some things like duplicate hitboxes, illegal sets, and random bugs may cause issues. <br /> If the numbers shown here do not match the numbers shown in game, make sure all information has been inputted correctly. If the issue still persists, it is most likely an error with the calculator. <br /> Please note that values may be ±0.1 off from actual values. <br /> Last Patch: 12.0.0
         </p>
     </div>
 
@@ -44,6 +44,16 @@
                     <label for="p1_r1">or Human:</label>
                     <input type="radio" id="p1_r1" name="p1_HorA" value="human" onchange="spiritManager(this.name)" />
                     <br />
+
+                    <div id="p1_primary" style="display:none">
+                        <label for="p1_same_series">Same Series: </label>
+                        <input type="checkbox" id="p1_same_series">
+                        <br />
+                        <label for="p1_primary_slot">Primary Slot:</label>
+                        <select id="p1_primary_slot">
+
+                        </select>
+                    </div>
 
                     <label for="p1_type">Type: </label>
                     <select id="p1_type">
@@ -123,6 +133,16 @@
                     <label for="p2_r1">or Human:</label>
                     <input type="radio" id="p2_r1" name="p2_HorA" value="human" onchange="spiritManager(this.name)" />
                     <br />
+
+                    <div id="p2_primary" style="display:none">
+                        <label for="p2_same_series">Same Series: </label>
+                        <input type="checkbox" id="p2_same_series">
+                        <br />
+                        <label for="p2_primary_slot">Primary Slot:</label>
+                        <select id="p2_primary_slot">
+                        </select>
+                    </div>
+
                     <label for="p2_type">Type: </label>
                     <select id="p2_type">
                         <option value="Neutral" selected>Neutral</option>
