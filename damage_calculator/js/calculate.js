@@ -153,8 +153,11 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
     else if (effect_id < eff_info[0].effects.length) {
         effect = eff_info[0].effects[effect_id];
     }
-    else {
+    else if (effect_id < eff_info[1].effects.length) {
         effect = eff_info[1].effects[effect_id - eff_info[0].effects.length];
+    }
+    else {
+        effect = eff_info[2].effects[effect_id - eff_info[1].effects.length - eff_info[0].effects.length];
     }
 
     condition = ["always", "conditional"];
@@ -204,7 +207,7 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
                 }
                 else if (connection_info["SEARCH"][effect_id].type == "effect") {
                     for (let i = 0; i < connection_info["SEARCH"][effect_id].indicators.length; i++)
-                        if (move.hitboxes[hitbox_id].type == connection_info["SEARCH"][effect_id].indicators[i]) {
+                        if (move.hitboxes[hitbox_id].effect == connection_info["SEARCH"][effect_id].indicators[i]) {
                             multiplier = multiplier * parseFloat(effect[atk_or_def]);
                         }
                 }
@@ -218,7 +221,9 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
             }
         }
     }
-    if (atk_or_def == "defense_multi" && multiplier > 1) {
+    // defense buffs should reduce damage, unless it is one of 3 weaknesses
+    if (atk_or_def == "defense_multi" && multiplier > 1 && effect_id != 156 && effect_id != 157 && effect_id != 159) {
+        console.log("why")
         multiplier = 1/multiplier;
     }
     // shield damage up and 'killers' are not considered global
@@ -283,6 +288,8 @@ function calculate() {
     var char_id = document.getElementById("chars").value;
     var move = char_info[char_id].moves[document.getElementById("moves").value];
 
+    // if this is >1.3x, it needs to be diminished
+    var global_eff_atk_boost = 1;
 
     var attacker = getPlayerClassification("p1_HorA");
     var defender = getPlayerClassification("p2_HorA");
@@ -373,6 +380,19 @@ function calculate() {
 
         }
 
+        let eff_properties = getEffectMultiplier(document.getElementById("p1_primary_slot").value, move, document.getElementById("hitboxes").value, "attack_multi", eff_info);
+        multiplier = multiplier * eff_properties.multiplier;
+
+        console.log(eff_properties);
+
+        if (eff_properties.global == true) {
+            global_eff_atk_boost *= eff_properties.multiplier;
+        }
+
+        if (eff_properties.multiplier != 1) {
+            addRow(["Primary Slot Attack Buff", eff_properties.multiplier], table_id, false);
+        }
+
     }
 
     // Calculates lucario aura
@@ -453,10 +473,7 @@ function calculate() {
         addRow(["Type Advantage", advantage_multi], table_id, false);
     }
 
-
     var p1_slot_ids = ["p1_slots1", "p1_slots2", "p1_slots3"];
-    // if this is >1.3x, it needs to be diminished
-    var global_eff_atk_boost = 1;
 
     for (let i = 0; i < p1_slot_ids.length; i++) {
         let curr_id = document.getElementById(p1_slot_ids[i]).value;
@@ -547,9 +564,17 @@ function calculate() {
             multiplier = multiplier * direct_buff;
 
             if (direct_buff != 1) {
-                addRow(["Same Series Defense Buff", direct_buff], table_id, false);
+                addRow(["Same Series Defense Debuff", direct_buff], table_id, false);
             }
 
+        }
+
+        // for primary slot
+        let eff_properties = getEffectMultiplier(document.getElementById("p2_primary_slot").value, move, document.getElementById("hitboxes").value, "defense_multi", eff_info);
+        multiplier = multiplier * eff_properties.multiplier;
+
+        if (eff_properties.multiplier != 1) {
+            addRow(["Primary Slot Defense Debuff", eff_properties.multiplier], table_id, false);
         }
 
     }

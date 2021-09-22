@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "name": "Changes Atk/Def",
     "effects": [
@@ -1636,6 +1636,120 @@
         "attack_multi": "1.00",
         "defense_multi": "1.00",
         "id": 155,
+        "always": null,
+        "conditional": null
+      }
+    ]
+  },
+  {
+    "name": "Primary Other",
+    "effects": [
+      {
+        "name": "Electric Weakness",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.20",
+        "id": 156,
+        "always": "SEARCH",
+        "conditional": null
+      },
+      {
+        "name": "Fire Weakness",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.20",
+        "id": 157,
+        "always": "SEARCH",
+        "conditional": null
+      },
+      {
+        "name": "Fist & Foot Attack ↑",
+        "cost": null,
+        "attack_multi": "1.20",
+        "defense_multi": "1.00",
+        "id": 158,
+        "always": "SEARCH",
+        "conditional": null
+      },
+
+      {
+        "name": "Water Weakness",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.20",
+        "id": 159,
+        "always": "SEARCH",
+        "conditional": null
+      },
+      {
+        "name": "Bane of Darkness",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 160,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Bane of Light",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 161,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Initial Damage 30%",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 162,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Jump ↓",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 163,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Speed ↓",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 164,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Weight ↑",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 165,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Weight ↑ ↑",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 166,
+        "always": null,
+        "conditional": null
+      },
+      {
+        "name": "Weight ↓",
+        "cost": null,
+        "attack_multi": "1.00",
+        "defense_multi": "1.00",
+        "id": 167,
         "always": null,
         "conditional": null
       }

@@ -1,4 +1,4 @@
-{
+﻿{
   "SEARCH": {
     "4": {
       "name": "Aura Attack \u2191",
@@ -119,6 +119,26 @@
       "name": "Weapon Resist \u2191",
       "type": "type",
       "indicators": [ "Weapon", "Sword", "Hammer", "Sacred", "Bat", "Umbrella", "Whip", "Pikmin" ]
+    },
+    "156": {
+      "name": "Electric Weakness",
+      "type": "effect",
+      "indicators": [ "Electric" ]
+    },
+    "157": {
+      "name": "Fire Weakness",
+      "type": "effect",
+      "indicators": [ "Flame", "Darkness" ]
+    },
+    "158": {
+      "name": "Fist & Foot Attack ↑",
+      "type": "type",
+      "indicators": [ "Hand", "Elbow", "Foot", "Knee" ]
+    },
+    "159": {
+      "name": "Water Weakness",
+      "type": "effect",
+      "indicators": [ "Water", "Freezing" ]
     }
   },
   "ONE": {

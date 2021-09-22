@@ -53,6 +53,33 @@ function loadDoc() {
             generateEffects(eff1_select_id, 0);
             generateEffects(eff2_select_id, 0);
 
+
+            let effect_names = ["None", [{ name: "None", cost: "0", value: "-1" }]];
+
+            // Primary Effect Generation
+            for (var i = 0; i < eff_info.length; i++) {
+                effect_names.push(eff_info[i].name);
+
+                actual_effects = [];
+                for (var j = 0; j < eff_info[i].effects.length; ++j) {
+                    // this pushes primary effects that change atk/def to correct category
+                    if (i == 2 && (eff_info[i].effects[j].attack_multi != "1.00" || eff_info[i].effects[j].defense_multi != "1.00")) {
+                        effect_names[3].push({
+                            "name": eff_info[i].effects[j].name,
+                            "value": eff_info[i].effects[j].id
+                        });
+                    }
+                    else {
+                        actual_effects.push({
+                            "name": eff_info[i].effects[j].name,
+                            "value": eff_info[i].effects[j].id
+                        });
+                    }
+                }
+                effect_names.push(actual_effects);
+            }
+            replaceSelectWithArray(effect_names, "p1_primary_slot", true);
+            replaceSelectWithArray(effect_names, "p2_primary_slot", true);
         }
     };
     xhttp_2.open("GET", "../data/effects.json", true);
@@ -125,8 +152,9 @@ function generateMoves(char_id) {
  */
 function generateEffects(select_id, slots_used) {
     var eff_info = JSON.parse(sessionStorage.getItem('eff_info'));
-    effect_names = ["None", [{name: "None", cost: "0", value: "-1"}]];
-    for (var i = 0; i < eff_info.length; i++) {
+    var effect_names = ["None", [{ name: "None", cost: "0", value: "-1" }]];
+    // -1 to remove Primary effects
+    for (var i = 0; i < eff_info.length - 1; i++) {
         effect_names.push(eff_info[i].name);
 
         actual_effects = [];
