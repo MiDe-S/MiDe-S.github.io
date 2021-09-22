@@ -223,7 +223,6 @@ function getEffectMultiplier(effect_id, move, hitbox_id, atk_or_def, eff_info) {
     }
     // defense buffs should reduce damage, unless it is one of 3 weaknesses
     if (atk_or_def == "defense_multi" && multiplier > 1 && effect_id != 156 && effect_id != 157 && effect_id != 159) {
-        console.log("why")
         multiplier = 1/multiplier;
     }
     // shield damage up and 'killers' are not considered global
@@ -382,8 +381,6 @@ function calculate() {
 
         let eff_properties = getEffectMultiplier(document.getElementById("p1_primary_slot").value, move, document.getElementById("hitboxes").value, "attack_multi", eff_info);
         multiplier = multiplier * eff_properties.multiplier;
-
-        console.log(eff_properties);
 
         if (eff_properties.global == true) {
             global_eff_atk_boost *= eff_properties.multiplier;
