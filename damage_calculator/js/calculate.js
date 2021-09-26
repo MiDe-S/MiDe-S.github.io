@@ -436,6 +436,33 @@ function calculate() {
         addRow(["Aura", aura_multi], table_id, false);
     }
 
+    // Calculates Monado arts
+    // stats from https://www.ssbwiki.com/Monado_Arts
+    if (char_id == 6 || char_id == 61) {
+        // hardcoded monado buffs
+        let monado_arts_atk = {
+            "-1": 1,
+            "0": 1,
+            "1": .7,
+            "2": .5,
+            "3": 1.4,
+            "4": .3
+        };
+
+        let art_multi = monado_arts_atk[document.getElementById("p1_monado_art").value];
+
+        // kirby gets less buff when using buster art
+        if (char_id == 6 && art_multi == 1.4) {
+            art_multi = 1.3;
+        }
+
+        multiplier = multiplier * art_multi;
+
+        if (art_multi != 1) {
+            addRow(["Attacker Monado Art", art_multi], table_id, false);
+        }
+    }
+
     // Calculates type advantage
     var attacker_type = document.getElementById("p1_type").value;
     var defender_type = document.getElementById("p2_type").value;
@@ -574,6 +601,32 @@ function calculate() {
             addRow(["Primary Slot Defense Debuff", eff_properties.multiplier], table_id, false);
         }
 
+    }
+
+    // Calculates Monado arts
+    // stats from https://www.ssbwiki.com/Monado_Arts
+    if (document.getElementById("p2_monado_art").value != -1) {
+        // hardcoded monado buffs
+        let monado_arts_def = {
+            "0": 1.3,
+            "1": 1,
+            "2": .5,
+            "3": 1.3,
+            "4": 1
+        };
+
+        let art_multi = monado_arts_def[document.getElementById("p2_monado_art").value];
+
+        // kirby gets less buff when using buster art
+        if (char_id == 6 && art_multi == 1.4) {
+
+        }
+
+        multiplier = multiplier * art_multi;
+
+        if (art_multi != 1) {
+            addRow(["Defender Monado Art", art_multi], table_id, false);
+        }
     }
 
 

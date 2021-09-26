@@ -142,6 +142,23 @@ function generateMoves(char_id) {
     else {
         document.getElementById("lucario_only").style.display = "none";
     }
+
+    // For shulk/kirby monado arts
+    if (char_id == 6 || char_id == 61) {
+        document.getElementById("shulk_kirby_only").style.display = "block";
+    }
+    else {
+        document.getElementById("shulk_kirby_only").style.display = "none";
+    }
+
+    // For wii fit/kirby deep breathing
+    if (char_id == 6 || char_id == 61) {
+        document.getElementById("wft_kirby_only").style.display = "block";
+    }
+    else {
+        document.getElementById("wft_kirby_only").style.display = "none";
+    }
+
 }
 
 /**
