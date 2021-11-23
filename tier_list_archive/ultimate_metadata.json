@@ -70,6 +70,11 @@
         "filepath": "CTL/6-6-2021.png",
         "meta": "Vanilla",
         "date": "6-6-2021"
+      },
+      {
+        "filepath": "CTL/10-21-2021.png",
+        "meta": "Vanilla",
+        "date": "10-21-2021"
       }
     ]
   },
@@ -145,6 +150,11 @@
         "filepath": "Exion/8-28-2021.png",
         "meta": "Vanilla",
         "date": "8-28-2021"
+      },
+      {
+        "filepath": "Exion/10-21-2021.png",
+        "meta": "Vanilla",
+        "date": "10-21-2021"
       }
     ]
   },
@@ -170,7 +180,43 @@
   },
   {
     "name": "SAM",
-    "lists": []
+    "lists": [
+      {
+        "filepath": "SAM/1-25-2021.png",
+        "meta": "Spirits",
+        "date": "1-25-2021"
+      },
+      {
+        "filepath": "SAM/3-7-2021.png",
+        "meta": "Spirits",
+        "date": "3-7-2021"
+      },
+      {
+        "filepath": "SAM/7-23-2021.png",
+        "meta": "Spirits",
+        "date": "7-23-2021"
+      },
+      {
+        "filepath": "SAM/8-8-2021.png",
+        "meta": "Spirits",
+        "date": "8-8-2021"
+      },
+      {
+        "filepath": "SAM/8-30-2021.png",
+        "meta": "Spirits",
+        "date": "8-30-2021"
+      },
+      {
+        "filepath": "SAM/9-24-2021.png",
+        "meta": "Spirits",
+        "date": "9-24-2021"
+      },
+      {
+        "filepath": "SAM/10-21-2021.png",
+        "meta": "Spirits",
+        "date": "10-21-2021"
+      }
+    ]
   },
   {
     "name": "SUAL",
