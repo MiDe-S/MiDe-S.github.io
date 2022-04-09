@@ -75,6 +75,16 @@
         "filepath": "CTL/10-21-2021.png",
         "meta": "Vanilla",
         "date": "10-21-2021"
+      },
+      {
+        "filepath": "CTL/2-8-2022 (Vanilla).png",
+        "meta": "Vanilla",
+        "date": "2-8-2022"
+      },
+      {
+        "filepath": "CTL/2-8-2022 (Spirits).png",
+        "meta": "Spirits",
+        "date": "2-8-2022"
       }
     ]
   },
@@ -155,6 +165,21 @@
         "filepath": "Exion/10-21-2021.png",
         "meta": "Vanilla",
         "date": "10-21-2021"
+      },
+      {
+        "filepath": "Exion/12-10-2021.webp",
+        "meta": "Vanilla",
+        "date": "10-21-2021"
+      },
+      {
+        "filepath": "Exion/3-1-2021-vanilla.png",
+        "meta": "Vanilla",
+        "date": "3-1-2021"
+      },
+      {
+        "filepath": "Exion/3-5-2021-spirits.webp",
+        "meta": "Spirits",
+        "date": "3-5-2021"
       }
     ]
   },
@@ -175,6 +200,11 @@
         "filepath": "Japan/6-Unknown-2021.jpg",
         "meta": "Vanilla",
         "date": "6-??-2021"
+      },
+      {
+        "filepath": "Japan/12-29-2021.jpg",
+        "meta": "Unknown",
+        "date": "12-29-2021"
       }
     ]
   },
@@ -215,6 +245,21 @@
         "filepath": "SAM/10-21-2021.png",
         "meta": "Spirits",
         "date": "10-21-2021"
+      },
+      {
+        "filepath": "SAM/1-11-2022.png",
+        "meta": "Spirits",
+        "date": "1-11-2022"
+      },
+      {
+        "filepath": "SAM/3-3-2022.png",
+        "meta": "Spirits",
+        "date": "3-3-2022"
+      },
+      {
+        "filepath": "SAM/4-2-2022.png",
+        "meta": "Spirits",
+        "date": "4-2-2022"
       }
     ]
   },
@@ -235,6 +280,11 @@
         "filepath": "SUAL/5-15-2021.png",
         "meta": "Vanilla",
         "date": "5-15-2021"
+      },
+      {
+        "filepath": "SUAL/1-19-2022.png",
+        "meta": "Vanilla",
+        "date": "1-19-2022"
       }
     ]
   }
