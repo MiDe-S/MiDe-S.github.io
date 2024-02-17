@@ -12,6 +12,10 @@ def main():
         move_counter = 3
         total = ["Total"]
 
+        # sora has many multihits
+        if combat_info[char_id]["name"] == "Sora":
+            move_counter -= 6
+
         ## Iterates Column by Column
         # shift by 1 to ignore move name
         for j in range(1, len(combat_info[char_id]["compatibility_matrix"][0]) + 1):
