@@ -1,0 +1,152 @@
+﻿{
+  "SEARCH": {
+    "4": {
+      "name": "Aura Attack \u2191",
+      "type": "effect",
+      "indicators": [ "Aura" ]
+    },
+    "5": {
+      "name": "Aura Resist \u2191",
+      "type": "effect",
+      "indicators": [ "Aura" ]
+    },
+    "15": {
+      "name": "Electric Attack \u2191",
+      "type": "effect",
+      "indicators": [ "Electric" ]
+    },
+    "16": {
+      "name": "Electric Resist \u2191",
+      "type": "effect",
+      "indicators": [ "Electric" ]
+    },
+    "17": {
+      "name": "Energy Shot Attack/Resistance \u2191",
+      "type": "type",
+      "indicators": [ "Energy" ]
+    },
+    "18": {
+      "name": "Energy-Shot Attack \u2191",
+      "type": "type",
+      "indicators": [ "Energy" ]
+    },
+    "19": {
+      "name": "Energy-Shot Resist \u2191",
+      "type": "type",
+      "indicators": [ "Energy" ]
+    },
+    "21": {
+      "name": "Fire & Explosion Attack \u2191",
+      "type": "effect",
+      "indicators": [ "Flame", "Darkness" ]
+    },
+    "22": {
+      "name": "Fire/Explosion Resist \u2191",
+      "type": "effect",
+      "indicators": [ "Flame", "Darkness" ]
+    },
+    "23": {
+      "name": "Fist Attack \u2191",
+      "type": "type",
+      "indicators": [ "Hand", "Elbow" ]
+    },
+    "24": {
+      "name": "Foot Attack \u2191",
+      "type": "type",
+      "indicators": [ "Foot", "Knee" ]
+    },
+    "28": {
+      "name": "Magic Attack \u2191",
+      "type": "type",
+      "indicators": [ "Magic" ]
+    },
+    "29": {
+      "name": "Magic Resist \u2191",
+      "type": "type",
+      "indicators": [ "Magic" ]
+    },
+    "33": {
+      "name": "Physical Attack \u2191",
+      "type": "type",
+      "indicators": [ "Hand", "Elbow", "Foot", "Knee", "Head", "Butt", "Body", "Spin", "Bite", "Tail" ]
+    },
+    "34": {
+      "name": "PSI Attack \u2191",
+      "type": "type",
+      "indicators": [ "PK" ]
+    },
+    "35": {
+      "name": "PSI Resist \u2191",
+      "type": "type",
+      "indicators": [ "PK" ]
+    },
+    "38": {
+      "name": "Shooting Attack \u2191",
+      "type": "direct",
+      "indicators": [ null ]
+    },
+    "43": {
+      "name": "Strong Throw",
+      "type": "type",
+      "indicators": [ "Throwing" ]
+    },
+    "45": {
+      "name": "Toss & Meteor",
+      "type": "angle",
+      "indicators": [ null ]
+    },
+    "52": {
+      "name": "Water & Ice Attack \u2191",
+      "type": "effect",
+      "indicators": [ "Water", "Freezing" ]
+    },
+    "53": {
+      "name": "Water/Freezing Resist \u2191",
+      "type": "effect",
+      "indicators": [ "Water", "Freezing" ]
+    },
+    "54": {
+      "name": "Weapon Attack & Move Speed \u2191",
+      "type": "type",
+      "indicators": [ "Weapon", "Sword", "Hammer", "Sacred", "Bat", "Umbrella", "Whip", "Pikmin" ]
+    },
+    "55": {
+      "name": "Weapon Attack \u2191",
+      "type": "type",
+      "indicators": [ "Weapon", "Sword", "Hammer", "Sacred", "Bat", "Umbrella", "Whip", "Pikmin" ]
+    },
+    "56": {
+      "name": "Weapon Resist \u2191",
+      "type": "type",
+      "indicators": [ "Weapon", "Sword", "Hammer", "Sacred", "Bat", "Umbrella", "Whip", "Pikmin" ]
+    },
+    "156": {
+      "name": "Electric Weakness",
+      "type": "effect",
+      "indicators": [ "Electric" ]
+    },
+    "157": {
+      "name": "Fire Weakness",
+      "type": "effect",
+      "indicators": [ "Flame", "Darkness" ]
+    },
+    "158": {
+      "name": "Fist & Foot Attack ↑",
+      "type": "type",
+      "indicators": [ "Hand", "Elbow", "Foot", "Knee" ]
+    },
+    "159": {
+      "name": "Water Weakness",
+      "type": "effect",
+      "indicators": [ "Water", "Freezing" ]
+    }
+  },
+  "ONE": {
+    "Dash Attack \u2191": "Dash attack",
+    "Down Special \u2191": "Down special",
+    "Neutral Special \u2191": "Neutral special",
+    "Side Special \u2191": "Side special",
+    "Up Special \u2191": "Up special",
+    "Final Smash \u2191": "Final Smash"
+  }
+}

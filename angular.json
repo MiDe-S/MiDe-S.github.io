@@ -28,8 +28,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/legacy-pages/",
-              { "glob": "**/*", "input": "./", "output": "/legacy-pages/" }
+              {
+                "glob": "**/*",
+                "input": "src/legacy-pages",
+                "output": ""
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -90,8 +93,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/legacy-pages",
-              { "glob": "**/*", "input": "./", "output": "/legacy-pages/" }
+              {
+                "glob": "**/*",
+                "input": "src/legacy-pages",
+                "output": ""
+              }
             ],
             "styles": [
               "src/styles.scss"

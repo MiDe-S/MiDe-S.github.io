@@ -1,0 +1,31 @@
+tr.alternating_colors_header {
+    background: #96c993;
+}
+
+tr.even_alternating_colors {
+    background: #d7f5d5;
+}
+
+tr.odd_alternating_colors {
+    background: #FFF;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+}
+
+.middle_right {
+    position: absolute;
+    top: -30px;
+    right: 10%;
+}
+
+select {
+    border: 3px solid #198013;
+    font-size: medium;
+}
+
+.lg_background {
+    background: #d7f5d5;
+}

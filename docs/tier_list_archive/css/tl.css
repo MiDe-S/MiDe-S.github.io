@@ -1,0 +1,37 @@
+/* for mobile */
+.tier-list img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    outline: 3px solid black;
+    outline-offset: -3px;
+    min-width: 150px;
+}
+
+div.main {
+    background-color: #B4B6AF;
+    display: inline-block;
+    padding: 10px;
+}
+
+div.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 473px;
+}
+
+select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .tier-list img {
+        height: 90vh;
+        width: auto;
+        min-height: 423px;
+        min-width: 136px;
+    }
+}
