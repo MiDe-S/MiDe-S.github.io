@@ -1,0 +1,28 @@
+<mat-card color="accent">
+    @if (hidden || count > 0) {
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>{{item.name}}</mat-card-title>
+            <mat-card-subtitle>Cost: {{item.cost.toLocaleString()}} WPS:
+                {{item.mult.toLocaleString()}}</mat-card-subtitle>
+            <button mat-raised-button color="accent" (click)="buy()"
+                [matTooltip]="item.description">{{item.button_name}}</button>
+        </mat-card-title-group>
+
+    </mat-card-header>
+    <mat-card-content>
+        <div class="hoz-scroll">
+            @for (index of counter(count); track index) {
+            <img [src]="item.image" />
+            }
+        </div>
+    </mat-card-content>
+
+    }
+    @else {
+    <mat-card-content>
+        <mat-icon> locked </mat-icon>
+        {{item.cost.toLocaleString()}}
+    </mat-card-content>
+    }
+</mat-card>

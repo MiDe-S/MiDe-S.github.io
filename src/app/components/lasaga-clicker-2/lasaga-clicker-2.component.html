@@ -1,0 +1,22 @@
+<div class="parent">
+    <div class="left-container">
+        <mat-card>
+            <mat-card-title>Wins</mat-card-title>
+            <mat-card-content>
+                <h3>{{service.wins() | number: '1.3-3'}}</h3>
+                <h3>{{service.wps()  | number: '1.1-1'}} wps</h3>
+            </mat-card-content>
+        </mat-card>
+        <img src="assets/winButton.png" (click)="buttonClicked()">
+        <mat-card>
+            <mat-card-title>Total Wins</mat-card-title>
+            <mat-card-content><h3>{{service.total_wins() | number: '1.0-0'}}</h3></mat-card-content>
+        </mat-card>
+
+    </div>
+    <div class="right-container">
+        @for (item of shopItems; track item.name; let i = $index) {
+        <app-lasaga-buy [item]="item" (bought)="handleBuy($event)" [count]="service.itemDict[item.name]" [hidden]="service.wins() >= item.cost || i === 0"></app-lasaga-buy>
+        }
+    </div>
+</div>
