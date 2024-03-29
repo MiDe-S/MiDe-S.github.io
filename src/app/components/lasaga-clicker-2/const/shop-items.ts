@@ -12,7 +12,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Enthusiastic amiibo",
         "button_name": "What is a personality?",
-        "image": "assets/personality.jpg",
+        "image": "/assets/personality.jpg",
         "cost": 100,
         "mult": 2,
         "description": "Ask leaf"
@@ -20,7 +20,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Channels you can see in USAC",
         "button_name": "Join an amiibo server",
-        "image": "assets/usac.png",
+        "image": "/assets/usac.png",
         "cost": 1100,
         "mult": 26,
         "description": "Sage you need to stop"
@@ -28,7 +28,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Matches lost to Incineroar",
         "button_name": "Join amiibots",
-        "image": "assets/loss.png",
+        "image": "/assets/loss.png",
         "cost": 5500,
         "mult": 140,
         "description": "Sub to amiibots #plug"
@@ -36,7 +36,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Pwogs given",
         "button_name": "It's too late to stop",
-        "image": "assets/pwog.png",
+        "image": "/assets/pwog.png",
         "cost": 12000,
         "mult": 300,
         "description": "balls12"
@@ -44,7 +44,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "God Gamers trained",
         "button_name": "Participate in degen hours",
-        "image": "assets/3am.jpg",
+        "image": "/assets/3am.jpg",
         "cost": 100000,
         "mult": 2700,
         "description": "I am already out of memes"
@@ -52,7 +52,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Time spent investigating feint master",
         "button_name": "Download SAE",
-        "image": "assets/SAE.ico",
+        "image": "/assets/SAE.ico",
         "cost": 1000000,
         "mult": 30000,
         "description": "What does anticipation even do"
@@ -60,7 +60,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Items you understand on the amiibo iceberg",
         "button_name": "Become cult member",
-        "image": "assets/iceberg.png",
+        "image": "/assets/iceberg.png",
         "cost": 10000000,
         "mult": 450000,
         "description": "This is the end of the game, you win I guess?"
