@@ -4,7 +4,7 @@ export const ShopItems: ShopItem[] = [
     {
         "name": "Lasaga",
         "button_name": "Train your first amiibo",
-        "image": "assets/kk_slider.png",
+        "image": "/assets/kk_slider.png",
         "cost": 15,
         "mult": .1,
         "description": "lasaga wins amiibo"
