@@ -63,6 +63,14 @@ export const ShopItems: ShopItem[] = [
         "image": "/assets/iceberg.png",
         "cost": 10000000,
         "mult": 450000,
-        "description": "This is the end of the game, you win I guess?"
+        "description": "No questions allowed."
+    },
+    {
+        "name": "0x1A0 & 0x1A1",
+        "button_name": "Learn the matchup",
+        "image": "/assets/amiibox.png",
+        "cost": 50000000,
+        "mult": 2500000,
+        "description": "What were we thinking"
     },
 ]
