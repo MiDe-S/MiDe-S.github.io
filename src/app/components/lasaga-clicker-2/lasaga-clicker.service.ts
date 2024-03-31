@@ -78,4 +78,13 @@ export class LasagaClickerService {
       this.itemDict = saveData.itemDict;
     }
   }
+
+  clearGame(): void {
+    localStorage.removeItem("LASAGACLICKER");
+    this.wins.set(0);
+    this.total_wins.set(0);
+    this.wps.set(0);
+    this.itemDict = {};
+    this.init();
+  }
 }
