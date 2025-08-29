@@ -1,0 +1,34 @@
+<div class="container" #container>
+  @for (icon of currentPageIcons; track icon.id) {
+  <div
+    class="icon"
+    cdkDrag
+    [cdkDragFreeDragPosition]="{ x: icon.x, y: icon.y }"
+    (cdkDragEnded)="onDragEnd($event, icon)"
+    [cdkDragBoundary]="'.container'"
+  >
+    <i [class]="icon.class" [matTooltip]="icon.name"></i>
+  </div>
+  }
+</div>
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Name</mat-label>
+  <input matInput type="text" [formControl]="nameControl" />
+</mat-form-field>
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Icon</mat-label>
+  <mat-select [formControl]="iconControl">
+    @for (icon of images; track icon) {
+    <mat-option [value]="icon">
+      <i [class]="'ra ra-' + icon"></i>
+      {{ icon }}
+    </mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+<button (click)="savePositions()">Save</button>
+<button (click)="addIconToPage()">Add Icon</button>
+<button (click)="insertPage()">Insert Page</button>
+<button (click)="left()" [disabled]="page <= 0">Left</button>
+<span>{{ page + 1 }}</span>
+<button (click)="right()" [disabled]="page >= pages.length - 1">Right</button>
