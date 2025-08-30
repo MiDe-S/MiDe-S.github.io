@@ -1,81 +1,108 @@
 import { CdkDragEnd, DragDropModule } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, Inject, OnInit, inject } from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { Icon, Page } from './icon';
+import { IconService } from './icon.service';
+import { Character, Icon, ListValue } from './models';
+import { StoryMakerService } from './story-maker.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-story-maker',
   templateUrl: './story-maker.component.html',
   styleUrls: ['./story-maker.component.scss'],
   imports: [
+    CommonModule,
     DragDropModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
     MatTooltipModule,
+    FormsModule,
     ReactiveFormsModule,
   ],
   standalone: true,
 })
 export class StoryMakerComponent implements OnInit {
-  pages: Page[] = [[]];
-  images: string[] = [];
+  protected readonly storyMakerService: StoryMakerService =
+    inject(StoryMakerService);
+  private readonly iconService: IconService = inject(IconService);
+  images: ListValue[];
   iconControl: FormControl<string | null> = new FormControl(null);
   nameControl: FormControl<string | null> = new FormControl(null);
-  page: number = 0;
+  pageNameControl: FormControl<string | null> = new FormControl(null);
 
-  get currentPageIcons(): Icon[] {
-    return this.pages[this.page];
+  set currentPageName(input: string) {
+    this.storyMakerService.currentPage.timestamp = input;
+  }
+
+  get currentPageName(): string {
+    return this.storyMakerService.currentPage.timestamp;
+  }
+
+  get keys(): string[] {
+    const a = Object.keys(this.storyMakerService.currentPage.characters);
+    console.log(a);
+    return a;
+  }
+
+  get mapFile(): string {
+    return `url('${this.storyMakerService.mapFile}')`;
+  }
+
+  get pageCharacters(): {
+    [key: string]: Icon;
+  } {
+    return this.storyMakerService.currentPage.characters;
+  }
+
+  get remainingCharacters(): Character[] {
+    return this.storyMakerService.characters.filter(
+      (char) => !this.storyMakerService.currentPage.characters[char.name]
+    );
+  }
+
+  get height(): string {
+    return this.storyMakerService.height;
+  }
+
+  get width(): string {
+    return this.storyMakerService.width;
+  }
+
+  onIconRightClick(event: MouseEvent, name: string): void {
+    event.preventDefault(); // prevent the default context menu
+    this.storyMakerService.removeCharacterFromPage(name); // call your delete method
+  }
+
+  onIconLeftClick(name: string): void {
+    this.storyMakerService.addCharacterToPage(name);
+  }
+
+  getCharacter(name: string): Character {
+    return this.storyMakerService.findCharacterByName(name);
   }
 
   ngOnInit() {
-    const saved = localStorage.getItem('iconPositions');
-    if (saved) {
-      this.pages = JSON.parse(saved);
-    }
-    this.gatherIcons();
+    this.images = this.iconService.gatherIcons();
+    this.storyMakerService.load();
   }
 
   insertPage() {
-    this.pages.splice(this.page + 1, 0, []);
+    this.storyMakerService.insertPage();
   }
 
   addIconToPage() {
     if (this.iconControl.value && this.nameControl.value) {
-      this.currentPageIcons.push({
-        class: 'ra ra-' + this.iconControl.value,
+      const character: Character = {
+        iconClass: this.iconControl.value,
         name: this.nameControl.value,
-        id: this.pages.length + 1,
-        x: 100,
-        y: 100,
-      });
-    }
-  }
-
-  gatherIcons() {
-    for (const sheet of Array.from(document.styleSheets)) {
-      if (!sheet.href) {
-        try {
-          const rules = sheet.cssRules || sheet.rules; // .rules is for IE
-          for (const rule of Array.from(rules)) {
-            if (rule instanceof CSSStyleRule) {
-              if (rule.style.length === 1 && rule.style[0] === 'content') {
-                const name = this.parseClassNameFromRegex(rule.selectorText);
-                if (name != '') {
-                  this.images.push(name);
-                }
-              }
-            }
-          }
-        } catch (e) {
-          // This can happen if the stylesheet is from a different origin (CORS issue)
-          console.warn('Cannot access stylesheet:', sheet.href);
-        }
-      }
+      };
+      this.storyMakerService.createCharacter(character);
+      this.storyMakerService.addCharacterToPage(character.name);
     }
   }
 
@@ -83,33 +110,41 @@ export class StoryMakerComponent implements OnInit {
     const pos = event.source.getFreeDragPosition();
     icon.x = pos.x;
     icon.y = pos.y;
-    console.log(`Icon ${icon.id} dropped at:`, pos);
   }
 
   savePositions() {
-    localStorage.setItem('iconPositions', JSON.stringify(this.pages));
+    this.storyMakerService.save();
     alert('Saved!');
   }
 
-  parseClassNameFromRegex(input: string): string {
-    const prefix = '.ra-';
-    const start = input.indexOf(prefix);
-
-    if (start !== -1) {
-      const end = input.indexOf('[', start);
-      if (end !== -1) {
-        return input.slice(start + prefix.length, end);
-      }
-    }
-    console.warn('Could not parse', input);
-    return '';
-  }
-
   right(): void {
-    this.page++;
+    this.storyMakerService.currentPageIndex++;
   }
 
   left(): void {
-    this.page--;
+    this.storyMakerService.currentPageIndex--;
+  }
+
+  exportData(): void {
+    this.storyMakerService.exportData();
+  }
+
+  importData(event: Event): void {
+    this.storyMakerService.importData(event);
+  }
+
+  uploadImage(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) return;
+
+    const file = input.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      console.log(reader.result);
+      this.storyMakerService.mapFile = reader.result as string;
+    };
+
+    reader.readAsDataURL(file);
   }
 }
