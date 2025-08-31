@@ -1,0 +1,114 @@
+<div class="top">
+  <div class="left">
+    <button (click)="imageInput.click()">Upload Image</button>
+  </div>
+  <div class="mid">
+    <button (click)="insertPage()">Insert Page</button>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [(ngModel)]="currentPageName" />
+    </mat-form-field>
+
+    <button
+      (click)="left()"
+      [disabled]="storyMakerService.currentPageIndex <= 0"
+    >
+      Left
+    </button>
+    <span>{{ storyMakerService.currentPageIndex + 1 }}</span>
+    <button
+      (click)="right()"
+      [disabled]="
+        storyMakerService.currentPageIndex >= storyMakerService.pageCount - 1
+      "
+    >
+      Right
+    </button>
+  </div>
+  <div>
+    <button (click)="savePositions()">Save</button>
+
+    <button (click)="exportData()">Export JSON</button>
+
+    <input
+      type="file"
+      (change)="importData($event)"
+      accept=".json"
+      hidden
+      #fileInput
+    />
+    <button (click)="fileInput.click()">Import JSON</button>
+
+    <input type="file" (change)="uploadImage($event)" hidden #imageInput />
+  </div>
+</div>
+
+<div
+  class="container"
+  #container
+  [ngStyle]="{ width: width, height: height, 'background-image': mapFile }"
+>
+  @for (name of keys; track name) {
+  <div
+    class="icon"
+    cdkDrag
+    [cdkDragFreeDragPosition]="{
+      x: pageCharacters[name].x,
+      y: pageCharacters[name].y
+    }"
+    (cdkDragEnded)="onDragEnd($event, pageCharacters[name])"
+    [cdkDragBoundary]="'.container'"
+    (contextmenu)="onIconRightClick($event, name)"
+  >
+    <i [class]="getCharacter(name).iconClass" [matTooltip]="name"></i>
+  </div>
+  }
+</div>
+<div class="bottom">
+  <div>
+    @for(char of remainingCharacters; track char.name) {
+    <span (click)="onIconLeftClick(char.name)">
+      <span>{{ char.name }}</span>
+      <i [class]="char.iconClass" [matTooltip]="char.name"></i
+    ></span>
+    }
+  </div>
+  <div>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" [formControl]="nameControl" />
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Icon</mat-label>
+      <mat-select [formControl]="iconControl">
+        @for (icon of images; track icon) {
+        <mat-option [value]="icon.value">
+          <i [class]="icon.value"></i>
+          {{ icon.name }}
+        </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+    <button (click)="addIconToPage()">Add Icon</button>
+  </div>
+</div>
+<div class="bottom">
+  <h3>Pro tips</h3>
+  <p>Every name has to be unique (Can reuse pictures though).</p>
+  <p>
+    Right click to remove from map. Left click the remaining icons under map to
+    add back to map.
+  </p>
+  <p>
+    You should export json occasionally for backups since save is just local
+    storage.
+  </p>
+  <p>
+    Can change size of view by modifying height and width in the JSON (Do this
+    before adding icons, since icons are just placed at pixel coordinates).
+  </p>
+  <p>
+    If you need to start over google 'How to clear local storage [insert your
+    browser here]'.
+  </p>
+</div>
