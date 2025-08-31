@@ -1,6 +1,5 @@
 # Amiichives
 
-build command
-ng build --base-href --output-path docs
-
-move all files from docs/browser to docs/
+deploy command
+ng build --base-href="https://mide-s.github.io/MiDe-S.github.io/
+ng deploy
