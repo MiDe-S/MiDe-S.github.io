@@ -1,15 +1,21 @@
 <div class="top">
   <div class="left">
-    <button (click)="imageInput.click()">Upload Image</button>
+    <button mat-raised-button color="primary" (click)="imageInput.click()">
+      Upload Image
+    </button>
   </div>
   <div class="mid">
-    <button (click)="insertPage()">Insert Page</button>
+    <button mat-raised-button color="primary" (click)="insertPage()">
+      Insert Page
+    </button>
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Name</mat-label>
       <input matInput type="text" [(ngModel)]="currentPageName" />
     </mat-form-field>
 
     <button
+      mat-raised-button
+      color="primary"
       (click)="left()"
       [disabled]="storyMakerService.currentPageIndex <= 0"
     >
@@ -17,6 +23,8 @@
     </button>
     <span>{{ storyMakerService.currentPageIndex + 1 }}</span>
     <button
+      mat-raised-button
+      color="primary"
       (click)="right()"
       [disabled]="
         storyMakerService.currentPageIndex >= storyMakerService.pageCount - 1
@@ -26,9 +34,13 @@
     </button>
   </div>
   <div>
-    <button (click)="savePositions()">Save</button>
+    <button mat-raised-button color="primary" (click)="savePositions()">
+      Save
+    </button>
 
-    <button (click)="exportData()">Export JSON</button>
+    <button mat-raised-button color="primary" (click)="exportData()">
+      Export JSON
+    </button>
 
     <input
       type="file"
@@ -37,7 +49,9 @@
       hidden
       #fileInput
     />
-    <button (click)="fileInput.click()">Import JSON</button>
+    <button mat-raised-button color="primary" (click)="fileInput.click()">
+      Import JSON
+    </button>
 
     <input type="file" (change)="uploadImage($event)" hidden #imageInput />
   </div>
@@ -89,7 +103,9 @@
         }
       </mat-select>
     </mat-form-field>
-    <button (click)="addIconToPage()">Add Icon</button>
+    <button mat-raised-button color="primary" (click)="addIconToPage()">
+      Add Icon
+    </button>
   </div>
 </div>
 <div class="bottom">

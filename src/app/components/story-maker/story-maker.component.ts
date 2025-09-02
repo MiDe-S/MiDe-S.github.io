@@ -9,6 +9,7 @@ import { IconService } from './icon.service';
 import { Character, Icon, ListValue } from './models';
 import { StoryMakerService } from './story-maker.service';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-story-maker',
@@ -17,6 +18,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     DragDropModule,
+    MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
