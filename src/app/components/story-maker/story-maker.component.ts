@@ -97,12 +97,18 @@ export class StoryMakerComponent implements OnInit {
 
   addIconToPage() {
     if (this.iconControl.value && this.nameControl.value) {
+      if (this.storyMakerService.findCharacterByName(this.nameControl.value)) {
+        alert('Name already used');
+        return;
+      }
       const character: Character = {
         iconClass: this.iconControl.value,
         name: this.nameControl.value,
       };
       this.storyMakerService.createCharacter(character);
       this.storyMakerService.addCharacterToPage(character.name);
+      this.iconControl.setValue(null);
+      this.nameControl.setValue(null);
     }
   }
 
