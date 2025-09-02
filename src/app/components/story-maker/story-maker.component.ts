@@ -36,6 +36,7 @@ export class StoryMakerComponent implements OnInit {
   iconControl: FormControl<string | null> = new FormControl(null);
   nameControl: FormControl<string | null> = new FormControl(null);
   pageNameControl: FormControl<string | null> = new FormControl(null);
+  zoom: number = 1;
 
   set currentPageName(input: string) {
     this.storyMakerService.currentPage.timestamp = input;

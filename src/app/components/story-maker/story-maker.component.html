@@ -3,6 +3,10 @@
     <button mat-raised-button color="primary" (click)="imageInput.click()">
       Upload Image
     </button>
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Zoom</mat-label>
+      <input matInput type="text" [(ngModel)]="zoom" />
+    </mat-form-field>
   </div>
   <div class="mid">
     <button mat-raised-button color="primary" (click)="insertPage()">
@@ -56,27 +60,34 @@
     <input type="file" (change)="uploadImage($event)" hidden #imageInput />
   </div>
 </div>
-
-<div
-  class="container"
-  #container
-  [ngStyle]="{ width: width, height: height, 'background-image': mapFile }"
->
-  @for (name of keys; track name) {
+<div class="container-container">
   <div
-    class="icon"
-    cdkDrag
-    [cdkDragFreeDragPosition]="{
-      x: pageCharacters[name].x,
-      y: pageCharacters[name].y
+    class="container"
+    #container
+    [ngStyle]="{
+      width: width,
+      height: height,
+      'background-image': mapFile,
+      zoom: zoom
     }"
-    (cdkDragEnded)="onDragEnd($event, pageCharacters[name])"
-    [cdkDragBoundary]="'.container'"
-    (contextmenu)="onIconRightClick($event, name)"
   >
-    <i [class]="getCharacter(name).iconClass" [matTooltip]="name"></i>
+    @for (name of keys; track name) {
+    <div
+      class="icon"
+      cdkDrag
+      [cdkDragFreeDragPosition]="{
+        x: pageCharacters[name].x,
+        y: pageCharacters[name].y
+      }"
+      (cdkDragEnded)="onDragEnd($event, pageCharacters[name])"
+      [cdkDragBoundary]="'.container'"
+      [cdkDragScale]="zoom"
+      (contextmenu)="onIconRightClick($event, name)"
+    >
+      <i [class]="getCharacter(name).iconClass" [matTooltip]="name"></i>
+    </div>
+    }
   </div>
-  }
 </div>
 <div class="bottom">
   <div>
