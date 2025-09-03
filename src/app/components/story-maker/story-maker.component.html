@@ -81,7 +81,6 @@
       }"
       (cdkDragEnded)="onDragEnd($event, pageCharacters[name])"
       [cdkDragBoundary]="'.container'"
-      [cdkDragScale]="zoom"
       (contextmenu)="onIconRightClick($event, name)"
     >
       <i [class]="getCharacter(name).iconClass" [matTooltip]="name"></i>
